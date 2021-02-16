@@ -5,26 +5,25 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 
-export class langHelper  {
+export class LanguageHelper  {
 
   //Get current language variable from Local Storage
-  currentLang=(/true/i).test(localStorage.getItem("lang"));
+  currentLanguage = localStorage.getItem("Language");
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     //Define default language variable
-    if (localStorage.getItem("lang") === null)
-      localStorage.setItem("lang", "en")
+    if (this.currentLanguage == null || this.currentLanguage != 'EN' && this.currentLanguage != 'AR')
+      localStorage.setItem("Language", "EN")
     else
-      //Set language
-      this.currentLang = (/true/i).test(localStorage.getItem("lang"))
+      //Fetch current language
+      this.currentLanguage = localStorage.getItem("Language")
   }
 
   //Initialize language variables
-  initializeMode() { 
-    if (this.currentLang) {
+  initializeMode() {
+    if (this.currentLanguage == 'EN') { //English Translations
       return {
         Login:{
           formHeader: 'Fill the form below to get started.',
@@ -49,9 +48,19 @@ export class langHelper  {
         pView : 'PViewEng',
 
 
+        Services: {
+          textAlign1: 'textAlignRight',
+          textAlign2: 'textAlignLeft',
+          header: 'Select The Service You Want From The Following List:',
+          multipleChoicesButton: 'Multiple Choices',
+          cancelButton: 'Cancel',
+          select: 'Select',
+          selectAll: 'Select All',
+          viewLocation: 'View Location(s)'
+        },
       }
     }
-    else if (!this.currentLang) {
+    else if (this.currentLanguage == 'AR') { //Arabic Translations
       return {
         Login: {
           formHeader: 'Fill the form below to get started.',
@@ -75,6 +84,16 @@ export class langHelper  {
         loginErrorText : 'فشل تسجيل الدخول ، يرجى التحقق من بريدك الإلكتروني وكلمة المرور !',
         pView : 'PViewAr',
     
+        Services: {
+          textAlign1: 'textAlignLeft',
+          textAlign2: 'textAlignRight',
+          header: 'حدد الخدمة التي تريدها من القائمة التالية:',
+          multipleChoicesButton: 'خيارات متعددة',
+          cancelButton: 'إلغاء',
+          select: 'اختر',
+          selectAll: 'اختر الكل',
+          viewLocation: 'عرض الموقع '
+        },
       }
     }
   }
