@@ -8,18 +8,12 @@ import { LayoutComponent } from './layout/layout.component';
 
 
 const routes: Routes = [
-  {
-    //Empty path will be automatically redirected to from app-routing module.
-    //Children modules/components are declared here.
-    path: '', component: LayoutComponent, children: [
 
-      { path: 'home', component: HomeComponent },
-      { path: 'about-us', component: AboutUsComponent },
-      { path: 'services', component: ServicesComponent },
-      { path: 'service-locations', component: ServiceLocationsComponent },
-      { path: '', redirectTo: 'services', pathMatch: 'full' }
-    ],
-  }
+  { path: 'home', component: HomeComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'service-locations', component: ServiceLocationsComponent },
+
 ];
 
 @NgModule({
