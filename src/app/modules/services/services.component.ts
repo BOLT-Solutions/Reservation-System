@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanguageHelper } from '../../services/utilities/langHelper';
+import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 class services {
   id: number;
   name: string;
