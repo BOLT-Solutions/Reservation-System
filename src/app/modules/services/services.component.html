@@ -20,7 +20,7 @@
   <div class="serviceMainContainer">
     <div class="row">
       <div class="col-lg-4 col-12 serviceColumn" dir="ltr" *ngFor="let service of servicesList; let i = index">
-        <div class="serviceCard">
+        <div class="serviceCard" (click)="SelectService(service)">
           <h1>{{service.name}}</h1>
         </div>
         <label class="checkboxContainer mt-lg-3" *ngIf="isSelecting">
@@ -35,7 +35,7 @@
   <!--Settings Section-->
   <div class="row serviceSettingsBar pt-lg-5">
     <div class="col-12 {{langVar.textAlign1}}">
-      <button type="button" class="btn btn-lg multipleChoicesButton" routerLink="/service-locations">{{langVar.viewLocation}}</button>
+      <button type="button" class="btn btn-lg multipleChoicesButton" (click)="ViewLocation()">{{langVar.viewLocation}}</button>
     </div>
   </div>
 </div>

@@ -9,8 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout/layout.component';
-
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,14 @@ import { LayoutComponent } from './layout/layout.component';
     FormsModule,
     ReactiveFormsModule,
     LayoutRoutingModule,
-    SharedModule
+    SharedModule,
+    AgmCoreModule.forRoot({
+
+      apiKey: 'AIzaSyDoAhMm8NbDXeVFeY_4OsvbDL3tuApVeVA',
+
+      libraries: ['places']
+
+    })
   ]
 })
 export class LayoutModule { }
