@@ -25,6 +25,7 @@ export class LanguageHelper  {
   initializeMode() {
     if (this.currentLanguage == 'EN') { //English Translations
       return {
+        dir: 'ltr',
         Login:{
           formHeader: 'Fill the form below to get started.',
           formLoginHeader: 'Login below to get started.',
@@ -35,19 +36,6 @@ export class LanguageHelper  {
           signUp:'Sign Up',
           login:'Login',
         },
-        image: 'Image',
-        dir : 'ltr',
-        LoginLabel : 'Login',
-        textAfterLoginLabel : 'Sign in to your account',
-        emailLabel : 'Email',
-        passwordLabel : 'Password',
-        loginButtonLabel : 'Login',
-        loginErrorText : 'Login failed, Please check your email and password !',
-        emailWarningLabel : 'Please enter a valid email address !',
-        passwordWarningLabel : 'Please enter your password !',
-        pView : 'PViewEng',
-
-
         Services: {
           textAlign1: 'textAlignRight',
           textAlign2: 'textAlignLeft',
@@ -56,12 +44,15 @@ export class LanguageHelper  {
           cancelButton: 'Cancel',
           select: 'Select',
           selectAll: 'Select All',
-          viewLocation: 'View Location(s)'
+          viewLocation: 'View Location(s)',
+          searchTitle: 'Search by Address, Province or City',
+          searchBarTitle: 'Location or Address',
         },
       }
     }
     else if (this.currentLanguage == 'AR') { //Arabic Translations
       return {
+        dir: 'rtl',
         Login: {
           formHeader: 'Fill the form below to get started.',
           formLoginHeader: 'Login below to get started.',
@@ -72,18 +63,6 @@ export class LanguageHelper  {
           signUp: 'Sign Up',
           login: 'Login',
         },
-        image: 'صورة',
-        dir : 'rtl',
-        LoginLabel : 'تسجيل الدخول',
-        textAfterLoginLabel : 'تسجيل الدخول إلى حسابك',
-        emailLabel : 'البريد الإلكتروني',
-        passwordLabel : 'كلمه السر',
-        loginButtonLabel : 'تسجيل الدخول',
-        emailWarningLabel : 'من فضلك أدخل بريد أليكترونى صحيح !',
-        passwordWarningLabel : 'من فضلك أدخل رقمك السري !',
-        loginErrorText : 'فشل تسجيل الدخول ، يرجى التحقق من بريدك الإلكتروني وكلمة المرور !',
-        pView : 'PViewAr',
-    
         Services: {
           textAlign1: 'textAlignLeft',
           textAlign2: 'textAlignRight',
@@ -92,7 +71,9 @@ export class LanguageHelper  {
           cancelButton: 'إلغاء',
           select: 'اختر',
           selectAll: 'اختر الكل',
-          viewLocation: 'عرض الموقع '
+          viewLocation: 'عرض الموقع ',
+          searchTitle: 'البحث عن طريق العنوان أو المقاطعة أو المدينة',
+          searchBarTitle: 'الموقع أو العنوان',
         },
       }
     }
