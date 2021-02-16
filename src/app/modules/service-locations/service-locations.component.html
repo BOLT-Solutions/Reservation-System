@@ -1,1 +1,52 @@
-<p>service-locations works!</p>
+<div class="row servicesLocation">
+  <div class="col-lg-6 detailsSectionPC"> <!--Details List (PC)-->
+    <div class="container-fluid">
+      <h1>BOLT SALON Locations</h1>
+      <div class="searchContainer">
+        <p>{{langVar.searchTitle}}</p>
+        <div class="form-group">
+          <input type="text" class="form-control" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <div class="resultsSection"> <!--Results Section-->
+          <div class="itemContainer mt-lg-4" *ngFor="let service of servicesList; let i = index" (click)="ViewStoreMap(service)">
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <!--Store Details-->
+                  <h1>{{i+1}}- {{service.name}}</h1>
+                </div>
+                <div class="col-6">
+                  <!--Calculated Distance-->
+                  <h1 class="distance">{{service.distance}} KM</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="storeAvailabilityInfo">Opens {{service.availability}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="storeAddressInfo">{{service.address}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 mapsSectionPC">
+    <div #map class="googleMapsStyle"></div>
+    <!--<agm-map [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [zoom]="zoom">
+      <agm-marker [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [markerDraggable]="true"></agm-marker>
+    </agm-map>-->
+    <!--<agm-map [latitude]="currentLatitude" [longitude]="currentLongitude" [zoom]="zoom">
+
+    <agm-marker [latitude]="currentLatitude" [longitude]="currentLongitude" [markerDraggable]="true"></agm-marker>
+
+  </agm-map>-->
+  </div>
+</div>

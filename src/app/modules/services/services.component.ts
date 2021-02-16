@@ -5,6 +5,10 @@ class services {
   id: number;
   name: string;
   redirectionLink: string;
+  availability: string;
+  address: string;
+  longitude: number;
+  latitude: number;
   isChecked: boolean;
 }
 @Component({
@@ -32,14 +36,15 @@ export class ServicesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.choiceButton = this.langVar.multipleChoicesButton;
+    this.choiceButton = this.langVar.multipleChoicesButton; // Set default button translation
+    //Push dummy data model
     this.servicesList.push(
-      { id: 0, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', isChecked: false },
-      { id: 1, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', isChecked: false },
-      { id: 2, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', isChecked: false },
-      { id: 3, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', isChecked: false },
-      { id: 4, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', isChecked: false },
-      { id: 5, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', isChecked: false },
+      { id: 0, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+      { id: 1, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.94301828449303, longitude: 30.877321716930787, isChecked: false },
+      { id: 2, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+      { id: 3, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+      { id: 4, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+      { id: 5, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
       )
   }
 
@@ -73,5 +78,14 @@ export class ServicesComponent implements OnInit {
   SetServiceCheckbox(event, service: services) {
     service.isChecked = event;
     this.selectedServices = this.servicesList.filter(s => s.isChecked == true); // Re-set selected services List
+  }
+
+  ViewLocation() {
+    if (this.selectedServices.length > 0) {
+      localStorage.setItem('selectedServices',JSON.stringify(this.selectedServices));
+      this.router.navigate(['/service-locations']);
+      console.log('routing to location page');
+    }
+
   }
 }

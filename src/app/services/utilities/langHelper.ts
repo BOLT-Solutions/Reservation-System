@@ -35,7 +35,9 @@ export class LanguageHelper  {
           cancelButton: 'Cancel',
           select: 'Select',
           selectAll: 'Select All',
-          viewLocation: 'View Location(s)'
+          viewLocation: 'View Location(s)',
+          searchTitle: 'Search by Address, Province or City',
+          searchBarTitle: 'Location or Address',
         },
       }
     }
@@ -51,7 +53,9 @@ export class LanguageHelper  {
           cancelButton: 'إلغاء',
           select: 'اختر',
           selectAll: 'اختر الكل',
-          viewLocation: 'عرض الموقع '
+          viewLocation: 'عرض الموقع',
+          searchTitle: 'البحث عن طريق العنوان أو المقاطعة أو المدينة',
+          searchBarTitle: 'الموقع أو العنوان',
         },
       }
     }
