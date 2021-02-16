@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "bolt-reservation"
+  "defaultProject": "bolt-reservation",
+  "cli": {
+    "analytics": "975d143a-c2f6-4fe8-ab05-620ba731734e"
+  }
 }
