@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageHelper } from '../../../services/utilities/langHelper';
+import { LanguageHelper } from '../../../services/utilities/LanguageHelper';
 
 @Component({
   selector: 'app-layout',
