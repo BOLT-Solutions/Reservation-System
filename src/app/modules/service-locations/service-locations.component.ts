@@ -1,6 +1,6 @@
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanguageHelper } from '../../services/utilities/langHelper';
+import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 
