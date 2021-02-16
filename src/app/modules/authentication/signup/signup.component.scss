@@ -1,0 +1,99 @@
+#bg {
+  img {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    object-position: right;
+  }
+}
+
+.component {
+  position: relative;
+}
+
+h2 {
+  width: 544px;
+  height: 44px;
+  font-family: Roboto;
+  font-size: 28px;
+  text-align: left;
+  color: #acaaaa;
+}
+
+.component:focus {
+  position: relative;
+}
+
+.form-control {
+  border: 2px solid #f7f7f7;
+  height: calc(1.5em + .9rem + 2px);
+  width: 270px;
+  background-color: #f7f7f7;
+  border-radius: 2.25rem;
+  padding-left: 45px;
+  box-shadow: 0 0 10px #acaaaa;
+  -moz-box-shadow: 0 0 10px #acaaaa;
+  -webkit-box-shadow: 0 0 10px #acaaaa;
+}
+
+.fa {
+  position: absolute;
+  color: #acaaaa;
+  top: 11px;
+  left: 18px;
+  font-size: 20px;
+}
+
+.fa-mobile {
+  font-size: 24px;
+}
+
+input::-webkit-input-placeholder {
+  color: #acaaaa;
+  font-size: 13px !important;
+}
+
+input::-webkit-input-placeholder {
+  color: #acaaaa;
+  font-size: 13px !important;
+}
+
+
+.fa-eye-slash, .fa-eye {
+  top: 11px;
+  left: auto;
+  right: 10px;
+  cursor: pointer;
+}
+
+.Inputbutton {
+
+
+    border: solid 4px #ffffff;
+    border-radius: 32px;
+  input {
+    color: #fff;
+    border: none;
+    padding-bottom: 10px;
+    padding-left: 0 !important;
+    height: calc(1.5em + .4rem + 2px);
+    background-image: linear-gradient(to right, #1346c6 3%, #0394f0);
+  }
+
+  input:hover {
+    background-image: linear-gradient(to right, #1346c6cf 3%, #0394ffcc);
+  }
+
+  input:focus {
+    background-image: linear-gradient(to right, #1346c6cc 3%, #0394ffcc);
+  }
+}
+.socialIcons {
+  text-align: center;
+
+  img {
+    width: 45px;
+    margin: 5px;
+    cursor: pointer;
+  }
+}
