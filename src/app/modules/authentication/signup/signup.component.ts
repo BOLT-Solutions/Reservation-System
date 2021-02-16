@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/shared-services/authentication.service';
 import { SharedService } from '../../../services/shared-services/shared.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
-import { LanguageHelper } from '../../../services/utilities/langHelper';
+import { LanguageHelper } from '../../../services/utilities/LanguageHelper';
+
 
 @Component({
   selector: 'app-signup',
@@ -37,6 +38,7 @@ export class SignupComponent implements OnInit {
   }
 
   Register() {
+    this.router.navigateByUrl('services');
 
   }
 

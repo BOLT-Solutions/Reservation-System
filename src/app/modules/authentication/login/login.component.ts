@@ -7,7 +7,7 @@ import { ModalComponent } from '../../shared/modal/modal.component';
 import { SharedService } from '../../../services/shared-services/shared.service';
 import { AuthenticationService } from '../../../services/shared-services/authentication.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
-import { LanguageHelper } from '../../../services/utilities/langHelper';
+import { LanguageHelper } from '../../../services/utilities/LanguageHelper';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,7 +34,7 @@ export class LoginComponent
 
   constructor(private router: Router, private sharedService: SharedService, private AuthService: AuthenticationService
     , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper) { }
-
+  
 
   ngOnInit(): void {
     this.langvar = this.langHelper.initializeMode();
@@ -42,7 +42,7 @@ export class LoginComponent
  
   Login()
   {
-    
+    this.router.navigateByUrl('services');
   }
 
   SwitchLanguage(){
