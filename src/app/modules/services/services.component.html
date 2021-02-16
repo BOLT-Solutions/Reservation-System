@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <header>
+    Select The Service You Want From The Following List:
+  </header>
+  <hr class="headerLine" />
+  <!--Settings Section-->
+  <div class="row serviceSettingsBar">
+    <div class="col-6">
+      <label class="checkboxContainer" (click)="SelectAll()">
+        Select All
+        <input type="checkbox"> <!--checked="checked"-->
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="col-6 textAlignRight">
+      <button type="button" class="btn btn-lg multipleChoicesButton" (click)="ToggleSelection()">Multiple Choices</button>
+    </div>
+  </div>
+  <!--Services List Section-->
+  <div class="serviceMainContainer">
+    <div class="row">
+      <div class="col-lg-4 col-12 serviceColumn" *ngFor="let service of servicesList; let i = index">
+        <div class="serviceCard">
+          <h1>{{service.name}}</h1>
+        </div>
+        <label class="checkboxContainer mt-lg-3" *ngIf="isSelecting">
+          Select
+          <input type="checkbox" id="{{service.id}}">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+

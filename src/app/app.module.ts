@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // FormGroup and Validation module import
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AppRoutingModule, routes } from './app-routing.module'; // Default Angular Routing module
 import { AppComponent } from './app.component';
 import { LayoutModule } from './modules/layout/layout.module';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     FormsModule,
