@@ -4,6 +4,7 @@
 }
 .nav-item{
     color:#fff;
+    cursor:pointer;
 }
 form {
   position: relative;
@@ -23,4 +24,17 @@ form {
     position:absolute;
   color:#fff;
   left:10px;
+}
+.initials {
+  background-color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+
+  .nav-link {
+    color: #0b71de !important;
+    font-size: 12px;
+    font-weight:500;
+  }
 }

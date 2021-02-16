@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.langvar = this.langHelper.initializeMode();
-
+  
   }
 
   Register() {
