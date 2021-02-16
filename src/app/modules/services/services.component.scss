@@ -107,6 +107,11 @@ header {
   box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.22);
   background-color: #fcfcfc;
   padding-top: 60px;
+  cursor: pointer;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
 
   h1 {
     font-family: Lato;
@@ -117,6 +122,13 @@ header {
     color: #4590f3;
     text-align: center;
   }
+}
+.serviceCard:hover, .serviceCard:active{
+    transform: scale(1.1);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
 }
 //Dynamic Alignment (ltr/rtl)
 .textAlignRight {
