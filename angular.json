@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sample-structure": {
+    "bolt-reservation": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sample-structure",
+            "outputPath": "dist/bolt-reservation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -77,18 +77,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sample-structure:build"
+            "browserTarget": "bolt-reservation:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sample-structure:build:production"
+              "browserTarget": "bolt-reservation:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sample-structure:build"
+            "browserTarget": "bolt-reservation:build"
           }
         },
         "test": {
@@ -125,16 +125,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sample-structure:serve"
+            "devServerTarget": "bolt-reservation:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sample-structure:serve:production"
+              "devServerTarget": "bolt-reservation:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "sample-structure"
+  "defaultProject": "bolt-reservation"
 }
