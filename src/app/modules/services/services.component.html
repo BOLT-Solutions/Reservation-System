@@ -20,7 +20,7 @@
   <div class="serviceMainContainer">
     <div class="row">
       <div class="col-lg-4 col-12 serviceColumn" dir="ltr" *ngFor="let service of servicesList; let i = index">
-        <div class="serviceCard">
+        <div class="serviceCard" (click)="SelectService(service)">
           <h1>{{service.name}}</h1>
         </div>
         <label class="checkboxContainer mt-lg-3" *ngIf="isSelecting">

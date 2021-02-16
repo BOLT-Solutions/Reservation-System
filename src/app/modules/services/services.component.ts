@@ -58,6 +58,16 @@ export class ServicesComponent implements OnInit {
       this.choiceButton = this.langVar.multipleChoicesButton
     }
   }
+  SelectService(service: services) {
+    if (!this.isSelecting) {
+      this.selectedServices.push(service);
+      localStorage.setItem('selectedServices', JSON.stringify(this.selectedServices));
+      this.router.navigate(['/service-locations']);
+    }
+    else {
+      service.isChecked = !service.isChecked;
+    }
+  }
   //Mark all services as checked / Unmark all services
   SelectAll(event) {
     if (this.isSelecting) { // multiple selection toggled
@@ -84,7 +94,6 @@ export class ServicesComponent implements OnInit {
     if (this.selectedServices.length > 0) {
       localStorage.setItem('selectedServices',JSON.stringify(this.selectedServices));
       this.router.navigate(['/service-locations']);
-      console.log('routing to location page');
     }
 
   }
