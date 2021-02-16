@@ -1,0 +1,42 @@
+<div class="container-fluid" dir="{{direction}}">
+  <header class="{{langVar.textAlign2}}">
+    {{langVar.header}}
+  </header>
+  <hr class="headerLine" />
+  <!--Settings Section-->
+  <div class="row serviceSettingsBar">
+    <div class="col-6 {{langVar.textAlign2}}">
+      <label class="checkboxContainer">
+        {{langVar.selectAll}}
+        <input type="checkbox" [ngModel]="selectAllStatus" (ngModelChange)="SelectAll($event)"> <!--checked="checked"-->
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="col-6 {{langVar.textAlign1}}">
+      <button type="button" class="btn btn-lg multipleChoicesButton" (click)="ToggleSelection()">{{choiceButton}}</button>
+    </div>
+  </div>
+  <!--Services List Section-->
+  <div class="serviceMainContainer">
+    <div class="row">
+      <div class="col-lg-4 col-12 serviceColumn" dir="ltr" *ngFor="let service of servicesList; let i = index">
+        <div class="serviceCard">
+          <h1>{{service.name}}</h1>
+        </div>
+        <label class="checkboxContainer mt-lg-3" *ngIf="isSelecting">
+          {{langVar.select}}
+          <input type="checkbox" id="checkbox{{service.id}}" [ngModel]="service.isChecked" (ngModelChange)="SetServiceCheckbox($event, service)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <!--End of Services List-->
+  <!--Settings Section-->
+  <div class="row serviceSettingsBar pt-lg-5">
+    <div class="col-12 {{langVar.textAlign1}}">
+      <button type="button" class="btn btn-lg multipleChoicesButton" routerLink="/service-locations">{{langVar.viewLocation}}</button>
+    </div>
+  </div>
+</div>
+

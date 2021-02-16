@@ -21,16 +21,6 @@ export class HomeComponent implements OnInit {
   @ViewChild(ModalComponent) modal: ModalComponent;
   ngOnInit(): void {
 
-    //Fetch Home Page Contents Via Observable (Http-request)
-    //this.HomeService.GetHomePageContents().subscribe(res => {
-    //  if (res.succeeded) { // API method sucessful
-    //    this.content = res.data;
-    //  }
-    //}, error => {
-    //  const errors: string[] = error.error.errors;
-    //    this.modal.showFailModal(errors[0]); // Display Error PopUp
-    //});
-
     //Dummy Content Filled for static purposes
     this.content = {
       id: 0,
