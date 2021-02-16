@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/shared-services/authentication.service';
 import { SharedService } from '../../../services/shared-services/shared.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
-import { langHelper } from '../../../services/utilities/langHelper';
+import { LanguageHelper } from '../../../services/utilities/langHelper';
 
 @Component({
   selector: 'app-signup',
@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   });
 
   constructor(private router: Router, private sharedService: SharedService, private AuthService: AuthenticationService
-    , private langHelper: langHelper, private formBuilderHelper: formBuilderHelper) { }
+    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper) { }
 
 
   ngOnInit(): void {
