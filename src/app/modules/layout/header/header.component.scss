@@ -5,3 +5,22 @@
 .nav-item{
     color:#fff;
 }
+form {
+  position: relative;
+
+  input {
+    padding-left: 34px;
+    color:#fff;
+  }
+}
+.form-control {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  height: calc(1.5em + .45rem + 2px);
+}
+.fa-search{
+    position:absolute;
+  color:#fff;
+  left:10px;
+}
