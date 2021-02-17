@@ -24,8 +24,7 @@ import { SignupComponent } from './signup/signup.component';
         AuthenticationRoutingModule,
         InputTextModule,
         InputTextareaModule,
-        ButtonModule,
-      
+        ButtonModule,   
         SharedModule,
         DialogModule
     ]
