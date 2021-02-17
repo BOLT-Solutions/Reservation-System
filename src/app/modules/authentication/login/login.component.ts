@@ -1,13 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import { ErrorType } from '../../../../app/enums/error-type';
-import { ModalComponent } from '../../shared/modal/modal.component';
-import { SharedService } from '../../../services/shared-services/shared.service';
 import { AuthenticationService } from '../../../services/shared-services/authentication.service';
+import { SharedService } from '../../../services/shared-services/shared.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
 import { LanguageHelper } from '../../../services/utilities/LanguageHelper';
+import { ModalComponent } from '../../shared/modal/modal.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -37,6 +36,7 @@ export class LoginComponent
   
 
   ngOnInit(): void {
+    this.langHelper.ngOnInit();
     this.langvar = this.langHelper.initializeMode();
   } 
  
