@@ -92,8 +92,8 @@
                 <p class="viewButton" *ngIf="selectedserviceMap != service.id" style="color: #4590f3;" (click)="ViewStoreMapResponsive(service)">View In Map <i class="fas fa-arrow-alt-circle-down"></i></p>
                 <p class="viewButton" *ngIf="selectedserviceMap == service.id" style="color: #4590f3;" (click)="ViewLess(service.id)">View Less<i class="fas fa-arrow-alt-circle-up"></i></p>
                 <div class="mapView" id="map{{service.id}}" *ngIf="selectedserviceMap == service.id">
-                  <agm-map [latitude]="service.latitude" [longitude]="service.longitude" [zoom]="10"  class="googleMapsStyle">
-                    <agm-marker [latitude]="service.latitude" [longitude]="service.longitude" [markerDraggable]="true"></agm-marker>
+                  <agm-map [latitude]="service.latitude" [longitude]="service.longitude" [zoom]="15"  class="googleMapsStyle">
+                    <agm-marker [latitude]="service.latitude" [longitude]="service.longitude"></agm-marker>
                   </agm-map>
                 </div>
               </div>
