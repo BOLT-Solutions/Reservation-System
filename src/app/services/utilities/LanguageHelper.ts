@@ -16,7 +16,9 @@ export class LanguageHelper  {
     //Define default language variable
     if (this.currentLanguage == null || this.currentLanguage != 'EN' && this.currentLanguage != 'AR') {
       localStorage.setItem("Language", "EN")
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     }
     else
       //Fetch current language
