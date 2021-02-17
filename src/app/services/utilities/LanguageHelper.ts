@@ -14,8 +14,12 @@ export class LanguageHelper  {
 
   ngOnInit() {
     //Define default language variable
-    if (this.currentLanguage == null || this.currentLanguage != 'EN' && this.currentLanguage != 'AR')
+    if (this.currentLanguage == null || this.currentLanguage != 'EN' && this.currentLanguage != 'AR') {
       localStorage.setItem("Language", "EN")
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
     else
       //Fetch current language
       this.currentLanguage = localStorage.getItem("Language")
