@@ -42,7 +42,7 @@ export class LoginComponent
  
   Login()
   {
-    this.router.navigateByUrl('services');
+    this.router.navigateByUrl('/reservation');
   }
 
   SwitchLanguage(){

@@ -62,7 +62,7 @@ export class ServicesComponent implements OnInit {
     if (!this.isSelecting) {
       this.selectedServices.push(service);
       localStorage.setItem('selectedServices', JSON.stringify(this.selectedServices));
-      this.router.navigate(['/service-locations']);
+      this.router.navigate(['/reservation/service-locations']);
     }
     else {
       service.isChecked = !service.isChecked;
@@ -93,7 +93,7 @@ export class ServicesComponent implements OnInit {
   ViewLocation() {
     if (this.selectedServices.length > 0) {
       localStorage.setItem('selectedServices',JSON.stringify(this.selectedServices));
-      this.router.navigate(['/service-locations']);
+      this.router.navigate(['/reservation/service-locations']);
     }
 
   }

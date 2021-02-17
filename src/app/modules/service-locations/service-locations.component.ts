@@ -47,7 +47,7 @@ export class ServiceLocationsComponent implements OnInit {
     this.servicesList = JSON.parse(localStorage.getItem('selectedServices'));
     console.log(this.servicesList)
     if (this.servicesList == null || this.servicesList == undefined) {
-      this.router.navigate(['/services']);
+      this.router.navigate(['/reservation/services']);
     }
     else {
       this.selectedService = this.servicesList[0];
@@ -95,7 +95,7 @@ export class ServiceLocationsComponent implements OnInit {
           window.alert('No results found');
         }
       } else {
-        window.alert('Geocoder failed due to: ' + status);
+        window.alert('Geocoding Service: You must enable Billing on the Google Cloud Project at https://console.cloud.google.com/project/_/billing/enable Learn more at https://developers.google.com/maps/gmp-get-started');
       }
     });
   }
