@@ -111,3 +111,114 @@
     top: 0;
   }
 }
+/*
+
+*/
+
+//General Responsive Design
+@media only screen and (max-device-width: 500px) {
+  .servicesLocation {
+    height: 94vh;
+    overflow: hidden;
+    width: auto;
+
+    h1 {
+      font-size: 19px;
+      color: #4590f3;
+      padding: 15px;
+    }
+
+    .searchContainer {
+      p {
+        padding: 15px;
+        color: #afadad /*#4590f3*/;
+      }
+      .form-group{
+          position: relative;
+      }
+      .form-control {
+        width: 90%;
+        color: #acaaaa;
+        border-radius: 8px;
+        box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);
+        background-color: #f7f7f7;
+        margin: 0 auto;
+      }
+
+      .fa-search {
+        position: absolute;
+        color: black;
+        right: 40px;
+        top: 14px;
+        z-index: 10;
+      }
+
+      .form-control::placeholder {
+        color: #acaaaa
+      }
+    }
+
+    .itemContainer {
+      border-radius: 9px;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #f7f7f7;
+      width: 334px;
+      height: auto;
+      margin-left: 18px;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -o-transition: all 0.5s;
+
+      .container {
+        .row:nth-child(1) {
+
+          h1 {
+            font-size: 16px;
+            width: 200px;
+          }
+
+          .distance {
+            text-align: right;
+            width: auto;
+          }
+        }
+
+        .row:nth-child(2) {
+          margin-top: -17px;
+        }
+
+        .row:nth-child(3) {
+          margin-top: -37px;
+        }
+
+        .row:nth-child(4) {
+          margin-top: -27px;
+        }
+      }
+
+      .storeAvailabilityInfo {
+        margin-left: 18px;
+        font-size: 14px;
+      }
+
+      .storeAddressInfo {
+        margin-left: 18px;
+        font-size: 14px;
+      }
+
+      .mapView {
+        width: 100%;
+        height: 280px;
+      }
+
+      .googleMapsStyle {
+        width: 100%;
+        height: 100%;
+      }
+
+      .viewButton {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ header {
   font-family: 'Roboto', sans-serif;
   color: #828282;
   font-size: 1.2rem;
-  margin: 30px;
+  padding: 30px;
 }
 
 .headerLine {
@@ -11,9 +11,12 @@ header {
 }
 
 .serviceSettingsBar {
-  margin: 15px;
+  padding: 15px;
 }
 
+.pcSelectButton {
+  display: block;
+}
 //Custom Input
 .checkboxContainer {
   display: block;
@@ -93,13 +96,15 @@ header {
   color: white;
 }
 //Services Section
-.serviceMainContainer{
-    margin-top: -60px;
-    margin-left: 80px;
+.serviceMainContainer {
+  margin-top: -60px;
+  margin-left: 80px;
 }
+
 .serviceColumn {
   margin-top: 80px;
 }
+
 .serviceCard { //Service Card
   width: 305px;
   height: 160px;
@@ -123,12 +128,13 @@ header {
     text-align: center;
   }
 }
-.serviceCard:hover, .serviceCard:active{
-    transform: scale(1.1);
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
+
+.serviceCard:hover, .serviceCard:active {
+  transform: scale(1.1);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }
 //Dynamic Alignment (ltr/rtl)
 .textAlignRight {
@@ -137,4 +143,28 @@ header {
 
 .textAlignLeft {
   text-align: left;
+}
+//General Responsive Design
+@media only screen and (max-device-width: 500px) {
+  header {
+    font-size: 1.1rem;
+    padding: 3px;
+  }
+
+  .pcSelectButton {
+    display: none;
+  }
+
+  .multipleChoicesButton {
+    font-size: 12px;
+  }
+
+  .serviceMainContainer {
+    margin-left: 45px;
+  }
+
+  .serviceCard {
+    width: 250px;
+    height: 155px;
+  }
 }

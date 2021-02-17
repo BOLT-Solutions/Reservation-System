@@ -34,9 +34,13 @@ export class ServiceLocationsComponent implements OnInit {
   currentLongitude: number;
   zoom: number;
   address: string;
+
+  selectedserviceMap: number = null;
   //Language Variables
   langVar;
   direction;
+  //mobile view variable
+  isMobile: boolean = false;
   constructor(private router: Router, public languageHelper: LanguageHelper, private mapsAPILoader: MapsAPILoader,
   private ngZone: NgZone) {
     this.langVar = this.languageHelper.initializeMode().Services;
@@ -44,6 +48,9 @@ export class ServiceLocationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (window.innerWidth < 991) {
+      this.isMobile = true;
+    }
     this.servicesList = JSON.parse(localStorage.getItem('selectedServices'));
     console.log(this.servicesList)
     if (this.servicesList == null || this.servicesList == undefined) {
@@ -55,25 +62,44 @@ export class ServiceLocationsComponent implements OnInit {
       this.selectedService.distance = 0.5;
     }
     setTimeout(() => {
-      this.SetMap(this.selectedService);
-      this.mapsAPILoader.load().then(() => {
-        this.setCurrentLocation();
-        this.geoCoder = new google.maps.Geocoder;
-      });
+      if (this.mapElement != undefined) {
+        this.SetMap(this.selectedService);
+        this.mapsAPILoader.load().then(() => {
+          this.setCurrentLocation();
+          this.geoCoder = new google.maps.Geocoder;
+        });
+      }
+      else {
+        this.mapsAPILoader.load().then(() => {
+          this.setCurrentLocation();
+          this.geoCoder = new google.maps.Geocoder;
+        });
+      }
     }, 2000);
+
   }
 
   ViewStoreMap(service: services) {
     this.SetMap(service);
   }
-
+  ViewStoreMapResponsive(service: services) {
+    this.selectedserviceMap = service.id;
+  }
+  ViewLess(serviceId: number) {
+    console.log(this.selectedserviceMap)
+    this.selectedserviceMap = null;
+    document.getElementById('map' + serviceId.toString()).style.display = 'none';
+  }
   SetMap(selectedService: services) {
-    const mapProperties = {
-      center: new google.maps.LatLng(selectedService.latitude, selectedService.longitude),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+    setTimeout(() => {
+      const mapProperties = {
+        center: new google.maps.LatLng(selectedService.latitude, selectedService.longitude),
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+    }, 500);
+
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
