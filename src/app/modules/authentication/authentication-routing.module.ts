@@ -8,10 +8,13 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 
 
 const routes: Routes = [
- 
+  {
+    path: '', component: AuthenticationComponent, children: [
       { path: 'login', component: LoginComponent },/*, canActivate: [AuthGuardService]*/
       { path: 'register', component: SignupComponent },/*, canActivate: [AuthGuardService]*/
       { path: '', redirectTo: 'login', pathMatch: 'full' }
+    ],
+  }
 ];
 
 
