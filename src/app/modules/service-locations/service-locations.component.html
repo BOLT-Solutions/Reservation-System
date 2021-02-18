@@ -1,20 +1,20 @@
 <div class="row servicesLocation" *ngIf="!isMobile">
-  <div class="col-lg-6 detailsSectionPC"> <!--Details List (PC)-->
+  <div class="col-lg-8 detailsSectionPC"> <!--Details List (PC)-->
     <div class="container-fluid">
       <h1>BOLT SALON Locations</h1>
       <div class="searchContainer">
         <p>{{langVar.searchTitle}}</p>
         <div class="form-group">
-          <input type="text" class="form-control" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
+          <input type="text" [(ngModel)]="searchWords" class="form-control" (input)="SearchService()" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
-        <div class="resultsSection"> <!--Results Section-->
-          <div class="itemContainer mt-lg-4" *ngFor="let service of servicesList; let i = index" (click)="ViewStoreMap(service)">
+        <div class="resultsSection" (searchcriteria)="MatchString($event)"> <!--Results Section-->
+          <div class="itemContainer mt-5" *ngFor="let service of servicesList; let i = index" (click)="ViewStoreMap(service)">
             <div class="container">
               <div class="row">
                 <div class="col-6">
                   <!--Store Details-->
-                  <h1>{{i+1}}- {{service.name}}</h1>
+                  <h1 class="serviceHeader">{{i+1}}-<span>{{service.name}}</span></h1>
                 </div>
                 <div class="col-6">
                   <!--Calculated Distance-->
@@ -38,7 +38,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 mapsSectionPC">
+  <div class="col-lg-4 mapsSectionPC">
     <div #map class="googleMapsStyle"></div>
     <!--<agm-map [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [zoom]="zoom">
       <agm-marker [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [markerDraggable]="true"></agm-marker>
@@ -54,16 +54,16 @@
 <!--Mobile View-->
 <div class="row servicesLocation" *ngIf="isMobile">
   <div class="container-fluid">
-    <h1 style="color: #828282;">BOLT SALON Locations</h1>
+    <h1 style="color: #828282; font-weight: normal;">{{servicesList[0].name}} Locations</h1>
     <hr />
     <div class="searchContainer">
-      <p style="color: #4590f3;">{{langVar.searchTitle}}</p>
+      <p style="color: #4590f3;" class="searchTitle">{{langVar.searchTitle}}</p>
       <div class="form-group">
-        <input type="text" class="form-control" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
+        <input [(ngModel)]="searchWords" type="text" class="form-control" (input)="SearchService()" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
         <i class="fa fa-search" aria-hidden="true"></i>
       </div>
 
-      <div class="resultsSection">
+      <div class="resultsSection" (searchcriteria)="MatchString($event)">
         <!--Results Section-->
         <div class="itemContainer" *ngFor="let service of servicesList; let i = index" (click)="ViewStoreMap(service)">
           <div class="container">
