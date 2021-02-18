@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 class services {
@@ -30,6 +30,7 @@ export class ServicesComponent implements OnInit {
   //Language Variables
   langVar;
   direction;
+
   constructor(private router: Router, public languageHelper: LanguageHelper) {
     this.langVar = this.languageHelper.initializeMode().Services;
     this.direction = this.languageHelper.initializeMode().dir;
@@ -59,13 +60,13 @@ export class ServicesComponent implements OnInit {
     }
   }
   SelectService(service: services) {
-    if (!this.isSelecting) {
+    if (this.isSelecting == false) {
       this.selectedServices.push(service);
       localStorage.setItem('selectedServices', JSON.stringify(this.selectedServices));
       this.router.navigate(['/reservation/service-locations']);
     }
     else {
-      service.isChecked = !service.isChecked;
+      this.SetServiceCheckbox(!service.isChecked, service);
     }
   }
   //Mark all services as checked / Unmark all services
@@ -97,4 +98,5 @@ export class ServicesComponent implements OnInit {
     }
 
   }
+
 }

@@ -1,8 +1,8 @@
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild, Output, EventEmitter  } from '@angular/core';
 import { Router } from '@angular/router';
+import { MapsAPILoader } from '@agm/core';
 import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
 
 class services {
   id: number;
@@ -24,6 +24,7 @@ export class ServiceLocationsComponent implements OnInit {
 
   //Models
   servicesList: Array<services> = new Array<services>(); // Dummy Model
+  servicesListSearchBackup: Array<services> = new Array<services>();
   selectedService: services;
   //Google Maps Variables
   @ViewChild('map') mapElement: any;
@@ -41,6 +42,10 @@ export class ServiceLocationsComponent implements OnInit {
   direction;
   //mobile view variable
   isMobile: boolean = false;
+  searchWords;
+
+  @Output() searchcriteria = new EventEmitter<String>();
+
   constructor(private router: Router, public languageHelper: LanguageHelper, private mapsAPILoader: MapsAPILoader,
   private ngZone: NgZone) {
     this.langVar = this.languageHelper.initializeMode().Services;
@@ -57,6 +62,7 @@ export class ServiceLocationsComponent implements OnInit {
       this.router.navigate(['/reservation/services']);
     }
     else {
+      this.servicesListSearchBackup = JSON.parse(localStorage.getItem('selectedServices'));
       this.selectedService = this.servicesList[0];
       //for testing purposes
       this.selectedService.distance = 0.5;
@@ -79,6 +85,21 @@ export class ServiceLocationsComponent implements OnInit {
 
   }
 
+  SearchService() {
+    //this.searchcriteria.emit(this.searchWords); // emit input
+    this.MatchString(this.searchWords);
+  }
+  //Search services list from keyboard input
+  MatchString(input) {
+    
+    if (input) {
+      //Match name with input
+      this.servicesList = this.servicesList.filter(s => s.name.toLowerCase().includes(input.toLowerCase()) || s.address.toLowerCase().includes(input.toString().toLowerCase()));
+    }
+    else {
+      this.servicesList = this.servicesListSearchBackup;
+    }
+  }
   ViewStoreMap(service: services) {
     this.SetMap(service);
   }
@@ -121,7 +142,7 @@ export class ServiceLocationsComponent implements OnInit {
           window.alert('No results found');
         }
       } else {
-        window.alert('Geocoding Service: You must enable Billing on the Google Cloud Project at https://console.cloud.google.com/project/_/billing/enable Learn more at https://developers.google.com/maps/gmp-get-started');
+        //window.alert('Geocoding Service: You must enable Billing on the Google Cloud Project at https://console.cloud.google.com/project/_/billing/enable Learn more at https://developers.google.com/maps/gmp-get-started');
       }
     });
   }
