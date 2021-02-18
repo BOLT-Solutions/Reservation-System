@@ -36,7 +36,7 @@
       }
 
       .form-control {
-        width: 78%;
+        width: 94%;
         color: #acaaaa;
         border-radius: 8px;
         box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);
@@ -68,7 +68,7 @@
       .itemContainer {
         border-radius: 8px;
         border: solid 2px #f7f7f7;
-        width: 80%;
+        width: 96%;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -o-transition: all 0.5s;
@@ -78,7 +78,7 @@
         }
 
         .serviceHeader {
-          margin: 14px;
+          padding: 14px;
           font-weight: normal;
           font-size: 28px;
           width: 400px;
@@ -94,7 +94,10 @@
         }
 
         .distance {
-          margin-left: 150px;
+          margin-left: 100px;
+          font-size: 23px;
+          font-weight: normal;
+          margin-top: 20px;
         }
 
         .storeAvailabilityInfo {
@@ -106,9 +109,9 @@
 
         .storeAddressInfo {
           font-size: 18px;
-          margin-left: 63px;
+          margin-left: 69px;
           color: rgba(235, 235, 235, 0.92);
-          margin-top: -20px;
+          margin-top: -3px;
         }
       }
 
