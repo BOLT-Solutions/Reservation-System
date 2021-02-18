@@ -215,7 +215,7 @@ input::-webkit-input-placeholder {
   }
 
   .user_card {
-    top: 30vh;
+    top: 25vh;
     position: absolute;
     height: 50vh;
     width: 85vw;
@@ -261,10 +261,9 @@ input::-webkit-input-placeholder {
 
   h3 {
     font-family: 'Questrial', sans-serif;
-    color:#fff;
-    font-size:8vw;
-    margin-top:2vh;
-
+    color: #fff;
+    font-size: 8vw;
+    margin-top: .5vh;
   }
   p {
     font-family: 'Questrial', sans-serif;
@@ -272,7 +271,7 @@ input::-webkit-input-placeholder {
     font-size: 5vw;
   }
   .socialIcons {
-    bottom: 3vh;
+    bottom: 1vh;
     position: absolute;
     text-align: center;
     left: 10vw;
