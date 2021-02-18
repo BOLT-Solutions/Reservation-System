@@ -1,6 +1,8 @@
 .bg-dark {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.35);
   background-image: linear-gradient(to left, #0491ed, #0e64d8);
+  z-index: 99999999;
+  height: 10vh;
 }
 .nav-item{
     color:#fff;
