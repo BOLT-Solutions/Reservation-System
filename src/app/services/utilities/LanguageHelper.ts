@@ -38,7 +38,13 @@ export class LanguageHelper  {
           Password:'Your Password',
           ConfirmPassword: 'Confirm Password',
           signUp:'Sign Up',
-          login:'Login',
+          login: 'Login',
+          welcome: 'Welcome!',
+          register: 'Register',
+          here: 'here.',
+          notUser: 'Not User?',
+          keepMe: ' Keep me logged in',
+          textAlign:'text-left'
         },
         Services: {
           textAlign1: 'textAlignRight',
@@ -66,6 +72,12 @@ export class LanguageHelper  {
           ConfirmPassword: 'Confirm Password',
           signUp: 'Sign Up',
           login: 'Login',
+          welcome: 'Welcome!',
+          register: 'Register',
+          here: 'here.',
+          notUser: 'Not User?',
+          keepMe: ' Keep me logged in',
+          textAlign: 'text-right'
         },
         Services: {
           textAlign1: 'textAlignLeft',
