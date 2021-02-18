@@ -39,6 +39,7 @@ h2 {
   background-color: #f7f7f7;
   border-radius: 2.25rem;
   padding-left: 45px;
+  padding-right: 30px;
   box-shadow: 0 0 10px #acaaaa;
   -moz-box-shadow: 0 0 10px #acaaaa;
   -webkit-box-shadow: 0 0 10px #acaaaa;
@@ -310,15 +311,24 @@ input::-webkit-input-placeholder {
     height: 10px;
 
   }
-  h2 {
+  .active{
     position: absolute;
     top: 26px;
     left: 20px;
     width:auto;
-  }
-  h2:hover {
     color: #526cff;
     border-bottom: 4px solid #526cff;
+  }
+  h2 {
+    position: absolute;
+    top: 26px;
+    left: 103px;
+    width: auto;
+  }
+  .fa-eye, .fa-eye-slash {
+    top: 14px ;
+    left: auto;
+    right: -15px;
   }
   }
 
