@@ -1,5 +1,5 @@
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end pcView">
   <div class="d-flex justify-content-center flex-column align-items-end">
 
     <h2 class="text-right">
@@ -13,11 +13,11 @@
           <input class="form-control" type="text" required placeholder=" {{langvar.Login.userName}}">
           <i class="fa fa-user icon"></i>
           <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
-        <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
-        <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
-        <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
-        <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
-      </div>-->
+            <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
+            <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
+            <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
+            <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
+          </div>-->
 
         </div>
       </div>
@@ -67,4 +67,80 @@
     <img src="./assets/Background/Group1.png" alt="bolt" />
   </div>
 
+</div>
+
+
+<!--mobile view-->
+<div class="mobileView">
+  <div id="mobileBackground">
+    <img src="./assets/logo1.png" />
+    <h3 class="ml-3 ">{{langvar.Login.welcome}}</h3>
+
+    <p class="ml-3">{{langvar.Login.formLoginHeader}}</p>
+  </div>
+
+  <div class="d-flex justify-content-center h-100">
+    <div class="user_card">
+      <h2 routerLink="/auth/login">{{langvar.Login.login}}</h2>
+      <h2 class="active" >{{langvar.Login.signUp}}</h2>
+      <form [formGroup]="signupForm" class="mt-2 mr-4">
+
+        <div class="form-group  mt-5 ">
+          <div class="component">
+
+            <input class="form-control" type="text" required placeholder=" {{langvar.Login.userName}}">
+            <i class="fa fa-user icon"></i>
+            <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
+        <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
+        <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
+        <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
+        <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
+      </div>-->
+
+          </div>
+        </div>
+
+        <div class="form-group  my-4  py-2">
+          <div class="component">
+            <input class="form-control" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}">
+            <i class="fa fa-mobile icon" aria-hidden="true"></i>
+
+          </div>
+        </div>
+
+        <div class="form-group  my-4">
+          <div class="component">
+
+            <input class="form-control" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
+            <i class="fa fa-lock icon" aria-hidden="true"></i>
+            <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+
+          </div>
+        </div>
+
+        <div class="form-group  my-4">
+          <div class="component">
+
+            <input class="form-control" type="{{inputConfirmType}}" required placeholder=" {{langvar.Login.ConfirmPassword}}">
+            <i class="fa fa-lock icon" aria-hidden="true"></i>
+            <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
+
+          </div>
+        </div>
+
+
+      </form>
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container" (click)="Login()">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="socialIcons mt-4">
+    <img src="./assets/icons/google.png" />
+    <img src="./assets/icons/facebook.png" />
+    <img src="./assets/icons/twitter.png" />
+  </div>
 </div>
