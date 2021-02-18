@@ -5,7 +5,7 @@
       <div class="searchContainer">
         <p>{{langVar.searchTitle}}</p>
         <div class="form-group">
-          <input type="text" [(ngModel)]="searchWords" class="form-control" (input)="searchForService()" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
+          <input type="text" [(ngModel)]="searchWords" class="form-control" (input)="SearchService()" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
         <div class="resultsSection" (searchcriteria)="MatchString($event)"> <!--Results Section-->

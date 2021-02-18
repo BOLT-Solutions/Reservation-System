@@ -84,14 +84,12 @@ export class ServiceLocationsComponent implements OnInit {
     }, 2000);
 
   }
-
   SearchService() {
     //this.searchcriteria.emit(this.searchWords); // emit input
     this.MatchString(this.searchWords);
   }
   //Search services list from keyboard input
-  MatchString(input) {
-    
+  MatchString(input) { 
     if (input) {
       //Match name with input
       this.servicesList = this.servicesList.filter(s => s.name.toLowerCase().includes(input.toLowerCase()) || s.address.toLowerCase().includes(input.toString().toLowerCase()));
