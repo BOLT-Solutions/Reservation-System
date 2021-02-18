@@ -72,6 +72,7 @@
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -o-transition: all 0.5s;
+
         .container {
           padding: 5px;
         }
@@ -141,9 +142,10 @@
 //General Responsive Design
 @media only screen and (max-device-width: 500px) {
   .servicesLocation {
-    height: 94vh;
+    height: auto;
     overflow: hidden;
-    width: auto;
+    width: 100%;
+    background-color: #fbfbfb !important;
 
     h1 {
       font-size: 19px;
@@ -152,6 +154,10 @@
     }
 
     .searchContainer {
+      .searchTitle {
+          margin-bottom: -8px;
+      }
+
       p {
         padding: 15px;
         color: #afadad /*#4590f3*/;
@@ -183,13 +189,13 @@
       }
     }
 
-    .resultsSection{
-        max-height: 80vh;
-        width: 100%;
-        overflow-x: hidden;
-        overflow-y: scroll;
-
+    .resultsSection {
+      max-height: 80vh;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
+
     .itemContainer {
       border-radius: 9px;
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -201,7 +207,7 @@
       -moz-transition: all 0.5s;
       -o-transition: all 0.5s;
       margin-top: 30px;
-     
+
 
       .container {
         .row:nth-child(1) {
