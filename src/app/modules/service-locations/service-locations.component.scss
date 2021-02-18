@@ -14,7 +14,7 @@
   z-index: 9999;
 
   .container-fluid {
-    margin: 60px;
+    padding: 60px;
 
     h1 {
       color: white;
@@ -22,25 +22,35 @@
     }
 
     .searchContainer {
-      margin: 30px;
+      padding: 30px;
 
       p {
         color: white;
+        font-size: 21px;
+        font-weight: normal;
+      }
+
+      .form-group {
+        position: relative;
       }
 
       .form-control {
-        width: 80%;
+        width: 78%;
         color: #acaaaa;
         border-radius: 8px;
         box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);
         background-color: #f7f7f7;
+        height: 50px;
+        font-size: 21px;
       }
 
       .fa-search {
         position: absolute;
         color: black;
-        right: 144px;
-        top: 170px;
+        right: 210px;
+        top: 10px;
+        z-index: 10;
+        font-size: 28px;
         z-index: 10;
       }
 
@@ -57,13 +67,24 @@
       .itemContainer {
         border-radius: 8px;
         border: solid 2px #f7f7f7;
-        width: 515px;
+        width: 80%;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -o-transition: all 0.5s;
 
         .container {
-          margin: 5px;
+          padding: 5px;
+        }
+
+        .serviceHeader {
+          margin: 14px;
+          font-weight: normal;
+          font-size: 28px;
+
+          span {
+            margin-left: 30px;
+            font-size: 23px;
+          }
         }
 
         h1 {
@@ -75,16 +96,17 @@
         }
 
         .storeAvailabilityInfo {
-          font-size: 13px;
-          margin: 12px;
-          margin-left: 20px;
+          font-size: 18px;
+          padding: 12px;
+          margin-left: 57px;
           color: rgba(235, 235, 235, 0.92);
         }
 
         .storeAddressInfo {
-          font-size: 13px;
-          margin-left: 20px;
+          font-size: 18px;
+          margin-left: 63px;
           color: rgba(235, 235, 235, 0.92);
+          margin-top: -20px;
         }
       }
 
@@ -133,9 +155,11 @@
         padding: 15px;
         color: #afadad /*#4590f3*/;
       }
-      .form-group{
-          position: relative;
+
+      .form-group {
+        position: relative;
       }
+
       .form-control {
         width: 90%;
         color: #acaaaa;
