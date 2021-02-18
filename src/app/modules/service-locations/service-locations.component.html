@@ -1,4 +1,4 @@
-<div class="row servicesLocation">
+<div class="row servicesLocation" *ngIf="!isMobile">
   <div class="col-lg-6 detailsSectionPC"> <!--Details List (PC)-->
     <div class="container-fluid">
       <h1>BOLT SALON Locations</h1>
@@ -48,5 +48,60 @@
     <agm-marker [latitude]="currentLatitude" [longitude]="currentLongitude" [markerDraggable]="true"></agm-marker>
 
   </agm-map>-->
+  </div>
+</div>
+
+<!--Mobile View-->
+<div class="row servicesLocation" *ngIf="isMobile">
+  <div class="container-fluid">
+    <h1 style="color: #828282;">BOLT SALON Locations</h1>
+    <hr />
+    <div class="searchContainer">
+      <p style="color: #4590f3;">{{langVar.searchTitle}}</p>
+      <div class="form-group">
+        <input type="text" class="form-control" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+
+      <div class="resultsSection">
+        <!--Results Section-->
+        <div class="itemContainer" *ngFor="let service of servicesList; let i = index" (click)="ViewStoreMap(service)">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <!--Store Details-->
+                <h1 >{{i+1}}- {{service.name}}</h1>
+              </div>
+              <div class="col-6">
+                <!--Calculated Distance-->
+                <h1 class="distance">{{service.distance}} KM</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="storeAvailabilityInfo">Opens {{service.availability}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="storeAddressInfo">{{service.address}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <p class="viewButton" *ngIf="selectedserviceMap != service.id" style="color: #4590f3;" (click)="ViewStoreMapResponsive(service)">View In Map <i class="fas fa-arrow-alt-circle-down"></i></p>
+                <p class="viewButton" *ngIf="selectedserviceMap == service.id" style="color: #4590f3;" (click)="ViewLess(service.id)">View Less<i class="fas fa-arrow-alt-circle-up"></i></p>
+                <div class="mapView" id="map{{service.id}}" *ngIf="selectedserviceMap == service.id">
+                  <agm-map [latitude]="service.latitude" [longitude]="service.longitude" [zoom]="15"  class="googleMapsStyle">
+                    <agm-marker [latitude]="service.latitude" [longitude]="service.longitude"></agm-marker>
+                  </agm-map>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>

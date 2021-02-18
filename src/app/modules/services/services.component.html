@@ -5,14 +5,14 @@
   <hr class="headerLine" />
   <!--Settings Section-->
   <div class="row serviceSettingsBar">
-    <div class="col-6 {{langVar.textAlign2}}">
+    <div class="col-lg-6 col-6 {{langVar.textAlign2}}">
       <label class="checkboxContainer">
         {{langVar.selectAll}}
         <input type="checkbox" [ngModel]="selectAllStatus" (ngModelChange)="SelectAll($event)"> <!--checked="checked"-->
         <span class="checkmark"></span>
       </label>
     </div>
-    <div class="col-6 {{langVar.textAlign1}}">
+    <div class="col-lg-6 col-6  {{langVar.textAlign1}}">
       <button type="button" class="btn btn-lg multipleChoicesButton" (click)="ToggleSelection()">{{choiceButton}}</button>
     </div>
   </div>
@@ -23,7 +23,7 @@
         <div class="serviceCard" (click)="SelectService(service)">
           <h1>{{service.name}}</h1>
         </div>
-        <label class="checkboxContainer mt-lg-3" *ngIf="isSelecting">
+        <label class="checkboxContainer mt-lg-3 mt-4" *ngIf="isSelecting">
           {{langVar.select}}
           <input type="checkbox" id="checkbox{{service.id}}" [ngModel]="service.isChecked" (ngModelChange)="SetServiceCheckbox($event, service)">
           <span class="checkmark"></span>
