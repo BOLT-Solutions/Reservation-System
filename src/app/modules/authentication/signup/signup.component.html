@@ -87,7 +87,6 @@
 
         <div class="form-group  mt-5 ">
           <div class="component">
-
             <input class="form-control" type="text" required placeholder=" {{langvar.Login.userName}}">
             <i class="fa fa-user icon"></i>
             <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
@@ -96,45 +95,39 @@
         <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
         <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
       </div>-->
-
           </div>
         </div>
 
-        <div class="form-group  my-4  py-2">
+        <div class="form-group  my-2 ">
           <div class="component">
             <input class="form-control" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}">
             <i class="fa fa-mobile icon" aria-hidden="true"></i>
-
           </div>
         </div>
 
-        <div class="form-group  my-4">
+        <div class="form-group  my-2">
           <div class="component">
-
             <input class="form-control" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
             <i class="fa fa-lock icon" aria-hidden="true"></i>
             <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
-
           </div>
         </div>
 
-        <div class="form-group  my-4">
+        <div class="form-group  my-2">
           <div class="component">
-
             <input class="form-control" type="{{inputConfirmType}}" required placeholder=" {{langvar.Login.ConfirmPassword}}">
             <i class="fa fa-lock icon" aria-hidden="true"></i>
             <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
-
           </div>
         </div>
-
-
       </form>
+
       <div class="d-flex justify-content-center">
         <div class="brand_logo_container" >
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </div>
       </div>
+
     </div>
   </div>
 
