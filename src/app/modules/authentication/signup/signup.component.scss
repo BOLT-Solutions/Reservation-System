@@ -1,3 +1,10 @@
+.pcView {
+  display: flex;
+}
+
+.mobileView {
+  display: none;
+}
 #bg {
   img {
     width: 100%;
@@ -31,6 +38,7 @@ h2 {
   background-color: #f7f7f7;
   border-radius: 2.25rem;
   padding-left: 45px;
+  padding-right: 30px;
   box-shadow: 0 0 10px #acaaaa;
   -moz-box-shadow: 0 0 10px #acaaaa;
   -webkit-box-shadow: 0 0 10px #acaaaa;
@@ -97,3 +105,140 @@ input::-webkit-input-placeholder {
     cursor: pointer;
   }
 }
+
+
+@media screen and (max-width: 1024px) {
+  .mobileView {
+    display: block;
+  }
+
+  .pcView {
+    display: none !important;
+  }
+
+  .user_card {
+    top: 30vh;
+    position: absolute;
+    height: 52vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+  }
+
+  .brand_logo_container {
+    position: absolute;
+    bottom: -30px;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    background-image: linear-gradient(to bottom, #195ccf, #5cb5ff);
+    padding: 10px;
+    text-align: center;
+    border: 4px solid white;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    text-align: center;
+  }
+
+  .brand_logo_container:hover {
+    background-image: linear-gradient(to bottom, #195ccfcf, #5cb5ffcf);
+  }
+
+  #mobileBackground {
+    background-image: linear-gradient(to bottom, #4d46ff, #5dc0ff);
+    height: 40vh;
+  }
+
+  .fa-arrow-right {
+    color: #fff;
+    bottom: 22px;
+    left: 24px;
+    top: auto;
+    font-size: 24px;
+  }
+
+  h3 {
+    font-family: 'Questrial', sans-serif;
+    color: #fff;
+    font-size: 8vw;
+    margin-top: 2vh;
+  }
+
+  p {
+    font-family: 'Questrial', sans-serif;
+    color: #fbfbfbcc;
+    font-size: 5vw;
+  }
+
+  .socialIcons {
+    bottom: 3vh;
+    position: absolute;
+    text-align: center;
+    left: 10vw;
+    right: 10vw;
+
+
+    img {
+      width: 16vw;
+    }
+  }
+
+  .form-control {
+    height: calc(1.5em + 1.4rem + 2px);
+    width: 80vw;
+    background-color: #fff;
+    border-radius: 2.25rem;
+    padding-left: 45px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    /* -webkit-box-shadow: 0 0 10px #acaaaa; */
+    border: solid 1px rgba(112, 112, 112, 0.2);
+  }
+
+  .container {
+    color: #1756cd;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 17px !important;
+  }
+
+  .checkmark {
+    height: 20px;
+    width: 20px;
+    margin-left: -7px !important;
+  }
+
+  .container .checkmark:after {
+    width: 7px;
+    height: 10px;
+  }
+
+  .active {
+    position: absolute;
+    top: 26px;
+
+    left: 103px;
+    width: auto;
+    color: #526cff;
+    border-bottom: 4px solid #526cff;
+  }
+
+  h2 {
+    position: absolute;
+    top: 26px;
+    left: 20px;
+    width: auto;
+  }
+
+  .fa-eye, .fa-eye-slash {
+    top: 14px;
+    left: auto;
+    right: -15px;
+  }
+}
+
+  

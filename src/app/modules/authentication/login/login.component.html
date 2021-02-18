@@ -68,12 +68,13 @@
 
     <div class="d-flex justify-content-center h-100">
       <div class="user_card">
-        <h2>Login</h2>
+        <h2 class="active">{{langvar.Login.login}}</h2>
+        <h2 routerLink="/auth/register">{{langvar.Login.signUp}}</h2>
         <form [formGroup]="adminLoginForm" class="mt-2 mr-4">
 
           <div class="form-group  my-3 mt-2  ">
             <div class="component">
-              <input class="form-control" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}">
+              <input class="form-control" type="number" required placeholder=" {{langvar.Login.PhoneNumber}}">
               <i class="fa fa-mobile icon" aria-hidden="true"></i>
               <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
           <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
