@@ -6,7 +6,8 @@ import { SharedService } from '../../../services/shared-services/shared.service'
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
 import { LanguageHelper } from '../../../services/utilities/LanguageHelper';
 import { ModalComponent } from '../../shared/modal/modal.component';
-
+import { SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 
 @Component({
   selector: 'app-dashboard',
@@ -30,9 +31,10 @@ export class LoginComponent
   //PopUp
   @ViewChild(ModalComponent) modalComponent: ModalComponent;
 
+  title = 'SocialMediaAuthentication';
 
   constructor(private router: Router, private sharedService: SharedService, private AuthService: AuthenticationService
-    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper) { }
+    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper, private authService: SocialAuthService) { }
   
 
   ngOnInit(): void {
@@ -65,6 +67,13 @@ export class LoginComponent
 
     }
   }
+  //handling signin using google
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.authState.subscribe((user) => {
+      console.log("userData");
+      console.log(user);
 
-
+    });
+  } 
 }
