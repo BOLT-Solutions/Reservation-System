@@ -44,8 +44,7 @@ export class LoginComponent
     this.langvar = this.langHelper.initializeMode();
   } 
  
-  Login()
-  {
+  Login() {
     this.isLogging = true;
 
     const loginModel: LoginModel = {
@@ -55,12 +54,16 @@ export class LoginComponent
     console.log(loginModel);
     this.authService.login(loginModel).subscribe(user => {
       //create user account with provided data
-      console.log("user",user)
-      this.authService.setAuth(user.data);
+      console.log("user", user)
+      // hide loading svg
       this.isLogging = false;
+      //save user to keep him logged in
+      if (this.keepMeBoolean)
+        this.authService.setAuth(user.data);
+      
       this.router.navigateByUrl('/reservation');
     }, error => {
-        this.isLogging = false;
+      this.isLogging = false;
 
       console.log("error", error)
 
@@ -69,7 +72,7 @@ export class LoginComponent
 
   KeepMe(event) {
     console.log(event.target.checked, this.keepMeBoolean)
-    event.target.checked ? this.keepMeBoolean = true : this.keepMeBoolean = false;
+    this.keepMeBoolean = event.target.checked;
   }
 
   SwitchLanguage(){
@@ -113,16 +116,16 @@ export class LoginComponent
     this.isLogging = true;
     this.socialMediaService.signIn(GoogleLoginProvider.PROVIDER_ID).then(googleUser => {
       console.log(googleUser)
-      this.authService.googleLogin({ idToken: googleUser.idToken })
-        .subscribe((data) => {
-          console.log(data)
-          this.isLogging = false;
-          this.router.navigateByUrl('/reservation');
-
-        }, error => {
+        this.authService.googleLogin({ idToken: googleUser.idToken })
+          .subscribe((data) => {
+            console.log(data)
             this.isLogging = false;
+            this.router.navigateByUrl('/reservation');
 
-        })
+          }, error => {
+              this.isLogging = false;
+
+          })
     });
   }
 }

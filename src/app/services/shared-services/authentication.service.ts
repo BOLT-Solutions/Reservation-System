@@ -31,7 +31,7 @@ export class AuthenticationService extends BaseService {
   googleLogin(googleUser: GoogleUserRequest): Observable<UserToken> {
     console.log(googleUser)
     return this.httpClient
-      .post<UserToken>(API_CONSTANTS.googleAuth, googleUser)
+      .post<UserToken>(`${this.apiUrl}Users/GoogleAuthenticate`, googleUser)
       .pipe(map(profile => {
         this.setAuth(profile);
         return profile;
@@ -49,10 +49,11 @@ export class AuthenticationService extends BaseService {
   }
 
   login(model: LoginModel): Observable<ApiResponse> {
-    return this.post(API_CONSTANTS.Login, model);
+    return this.post(API_CONSTANTS.Login, model)
+
   }
 
-  register(model: CustomerRegistrationModel): Observable<ApiResponse> {
+  Register(model: CustomerRegistrationModel): Observable<ApiResponse> {
     return this.post(API_CONSTANTS.Register, model);
   }
 
