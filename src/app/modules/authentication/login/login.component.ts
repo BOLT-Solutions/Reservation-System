@@ -6,8 +6,10 @@ import { SharedService } from '../../../services/shared-services/shared.service'
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
 import { LanguageHelper } from '../../../services/utilities/LanguageHelper';
 import { ModalComponent } from '../../shared/modal/modal.component';
-import { SocialAuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { socialMediaService } from '../../../services/shared-services/socialMediaService';
+import {  SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
+import { LoginModel } from '../../../models/request/LoginModel';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,23 +20,23 @@ export class LoginComponent
 {
   //handling show/hide password
   inputType: string = "password";
-  pView: string ="-slash";
-
+  pView: string = "-slash";
+  //keep me logged in boolean
+  keepMeBoolean: boolean = false;
   //translation
   langvar;
+  isLogging: boolean = false;
 
-  adminLoginForm: FormGroup = new FormGroup({
-    Email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(25)]),
-    Password: new FormControl('', [Validators.required, Validators.maxLength(25)])
-  });
+  adminLoginForm;
 
   //PopUp
   @ViewChild(ModalComponent) modalComponent: ModalComponent;
 
-  title = 'SocialMediaAuthentication';
+  constructor(private router: Router, private sharedService: SharedService, private authService: AuthenticationService
+    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper, private socialMediaService: SocialAuthService) {
 
-  constructor(private router: Router, private sharedService: SharedService, private AuthService: AuthenticationService
-    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper, private authService: SocialAuthService) { }
+    this.adminLoginForm = this.formBuilderHelper.createFormBuilder({ phoneNumber: '' ,password:''})
+  }
   
 
   ngOnInit(): void {
@@ -44,7 +46,30 @@ export class LoginComponent
  
   Login()
   {
-    this.router.navigateByUrl('/reservation');
+    this.isLogging = true;
+
+    const loginModel: LoginModel = {
+      phoneNumber: this.adminLoginForm.controls.phoneNumber.value,
+      password: this.adminLoginForm.controls.password.value
+    }
+    console.log(loginModel);
+    this.authService.login(loginModel).subscribe(user => {
+      //create user account with provided data
+      console.log("user",user)
+      this.authService.setAuth(user.data);
+      this.isLogging = false;
+      this.router.navigateByUrl('/reservation');
+    }, error => {
+        this.isLogging = false;
+
+      console.log("error", error)
+
+    })
+  }
+
+  KeepMe(event) {
+    console.log(event.target.checked, this.keepMeBoolean)
+    event.target.checked ? this.keepMeBoolean = true : this.keepMeBoolean = false;
   }
 
   SwitchLanguage(){
@@ -67,13 +92,37 @@ export class LoginComponent
 
     }
   }
+
+  //handling signin using google OLD
+  signInWithFB() {
+    //this.socialService.signInWithFB()
+    this.isLogging = true;
+    this.socialMediaService.signIn(FacebookLoginProvider.PROVIDER_ID).then(googleUser => {
+      console.log(googleUser)
+      this.authService.FBLogin({ idToken: googleUser.authToken })
+        .subscribe((data) => {
+          console.log(data)
+          this.isLogging = false;
+          this.router.navigateByUrl('/reservation');
+        });
+    });
+  }
+
   //handling signin using google
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.authService.authState.subscribe((user) => {
-      console.log("userData");
-      console.log(user);
+    this.isLogging = true;
+    this.socialMediaService.signIn(GoogleLoginProvider.PROVIDER_ID).then(googleUser => {
+      console.log(googleUser)
+      this.authService.googleLogin({ idToken: googleUser.idToken })
+        .subscribe((data) => {
+          console.log(data)
+          this.isLogging = false;
+          this.router.navigateByUrl('/reservation');
 
+        }, error => {
+            this.isLogging = false;
+
+        })
     });
-  } 
+  }
 }

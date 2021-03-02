@@ -10,8 +10,7 @@ import { LayoutModule } from './modules/layout/layout.module';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
   GoogleLoginProvider,
-  FacebookLoginProvider
-} from 'angularx-social-login';
+  FacebookLoginProvider} from 'angularx-social-login';
 
 
 
@@ -46,10 +45,10 @@ import {
               '926693855353-ph0i56aiitoq5gml5cgnnkdrrhoeaihb.apps.googleusercontent.com'
             )
           },
-          //{
-          //  id: FacebookLoginProvider.PROVIDER_ID,
-          //  provider: new FacebookLoginProvider('clientId')
-          //}
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('1384323871904376|cc882c5dffcf6685be870940506620cf')
+          }
         ]
       } as SocialAuthServiceConfig,
     }

@@ -6,21 +6,14 @@ import { ApiResponse } from 'src/app/models/http-models/api-response';
 
  export class BaseService {
 
-   private apiUrl: string;
-   private imageServerUrl: string;
+     public apiUrl: string;
      private httpHeaders: HttpHeaders;
      private httpOptions!: {} 
 
    constructor(private http: HttpClient) {
      this.apiUrl = environment.apiBaseUrl;
-     this.imageServerUrl = environment.imageHandlerServerBaseUrl;
-         this.httpHeaders = new HttpHeaders({
-             'Accept': 'application/json',
-             'Content-Type': 'application/json',
-             'Accept-Language': 'en'
-         });
+   
      }
-
      protected get(url: string, params?: HttpParams) : Observable<ApiResponse> {
          this.httpOptions = { 
              headers: this.httpHeaders,
@@ -38,13 +31,6 @@ import { ApiResponse } from 'src/app/models/http-models/api-response';
          };
          return this.http.post<ApiResponse>(this.apiUrl + url, data, this.httpOptions);
      }
-     protected postToImageHandler(url: string, data: any): Observable<object> {
-       return this.http.post(this.imageServerUrl + url, data);
-     }
-     protected DeleteAdminImage(data: any): Observable<object> {
-       return this.http.post('http://localhost:3000/api/RemoveAdminImage', data); //TODO Fix link.
-     }
-     protected DeleteUserImage(data: any): Observable<object> {
-       return this.http.post('http://localhost:3000/api/RemoveUserImage', data);
-     }
+
+
  }
