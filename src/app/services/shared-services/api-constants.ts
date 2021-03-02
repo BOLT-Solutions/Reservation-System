@@ -18,7 +18,11 @@ export const API_CONSTANTS = {
   IMAGE_HANDLER_REMOVE_ADMIN_IMAGE: "/RemoveAdminImage/",
   //Login
   Login: "Users/Login",
-  Register: "Users/CreateAdminAccount",
   googleAuth:"Users/GoogleAuthenticate",
-  facebookAuth:"Users/AuthenticateFacebookUserAsync",
+  facebookAuth: "Users/AuthenticateFacebookUserAsync",
+
+  //customer
+  CustomerRegister: "Customer/CreateCustomerAccount",
+  EditCustomer: "Customer/EditCustomer",
+  EditCustomerImg: "Customer/EditCustomerImg",
 }

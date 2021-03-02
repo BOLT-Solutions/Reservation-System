@@ -31,7 +31,7 @@ export class AuthenticationService extends BaseService {
   googleLogin(googleUser: GoogleUserRequest): Observable<UserToken> {
     console.log(googleUser)
     return this.httpClient
-      .post<UserToken>(`${this.apiUrl}Users/GoogleAuthenticate`, googleUser)
+      .post<UserToken>(`${this.apiUrl}${API_CONSTANTS.googleAuth}`, googleUser)
       .pipe(map(profile => {
         this.setAuth(profile);
         return profile;
@@ -52,11 +52,9 @@ export class AuthenticationService extends BaseService {
     return this.post(API_CONSTANTS.Login, model)
 
   }
-
-  Register(model: CustomerRegistrationModel): Observable<ApiResponse> {
-    return this.post(API_CONSTANTS.Register, model);
+  CustomerRegistration(model: CustomerRegistrationModel): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.CustomerRegister, model);
   }
-
   setAuth(user: UserToken) {
     this.jwtService.saveUser(user);
     this.currentUserSubject.next(user);

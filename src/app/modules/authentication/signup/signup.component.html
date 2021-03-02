@@ -10,21 +10,17 @@
       <div class="form-group">
         <div class="component">
 
-          <input class="form-control" type="text" required placeholder=" {{langvar.Login.userName}}">
+          <input class="form-control" formControlName="userName" type="text" required placeholder=" {{langvar.Login.userName}}"
+                      [ngClass]="f.userName.errors && f.userName.invalid && f.userName.dirty  ?'red-border-class':''">
           <i class="fa fa-user icon"></i>
-          <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
-            <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
-            <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
-            <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
-            <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
-          </div>-->
 
         </div>
       </div>
 
       <div class="form-group  my-4  pt-2">
         <div class="component">
-          <input class="form-control" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}">
+          <input class="form-control" formControlName="phoneNumber" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}"
+                      [ngClass]="f.phoneNumber.errors && f.phoneNumber.invalid && f.phoneNumber.dirty  ?'red-border-class':''">
           <i class="fa fa-mobile icon" aria-hidden="true"></i>
 
         </div>
@@ -33,7 +29,8 @@
       <div class="form-group  my-4">
         <div class="component">
 
-          <input class="form-control" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
+          <input class="form-control" formControlName="password" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}"
+                      [ngClass]="f.password.errors && f.password.invalid && f.password.dirty  ?'red-border-class':''">
           <i class="fa fa-lock icon" aria-hidden="true"></i>
           <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
 
@@ -43,7 +40,8 @@
       <div class="form-group  my-4">
         <div class="component">
 
-          <input class="form-control" type="{{inputConfirmType}}" required placeholder=" {{langvar.Login.ConfirmPassword}}">
+          <input class="form-control" formControlName="confirmPassword" type="{{inputConfirmType}}" required placeholder=" {{langvar.Login.ConfirmPassword}}"
+                      [ngClass]="f.confirmPassword.errors && f.confirmPassword.invalid && f.confirmPassword.dirty  ?'red-border-class':''">
           <i class="fa fa-lock icon" aria-hidden="true"></i>
           <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
 
@@ -52,7 +50,7 @@
 
       <div class="component Inputbutton">
 
-        <input class="form-control " type="button" (click)="Register()" value="{{langvar.Login.signUp}}">
+        <input class="form-control " type="button" (click)="Register()" value="{{langvar.Login.signUp}}" [disabled]="!signupForm.valid">
 
       </div>
       <!--<div class="socialIcons mt-4">
@@ -87,27 +85,25 @@
 
         <div class="form-group  my-2 mt-5 ">
           <div class="component">
-            <input class="form-control" type="text" required placeholder=" {{langvar.Login.userName}}">
+            <input class="form-control"  formControlName="userName"  type="text" required placeholder=" {{langvar.Login.userName}}"
+                    [ngClass]="f.userName.errors && f.userName.invalid && f.userName.dirty  ?'red-border-class':''">
             <i class="fa fa-user icon"></i>
-            <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
-        <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
-        <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
-        <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
-        <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
-      </div>-->
+
           </div>
         </div>
 
         <div class="form-group  my-2 ">
           <div class="component">
-            <input class="form-control" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}">
+            <input class="form-control" type="text" formControlName="phoneNumber" required placeholder=" {{langvar.Login.PhoneNumber}}"
+                    [ngClass]="f.phoneNumber.errors && f.phoneNumber.invalid && f.phoneNumber.dirty  ?'red-border-class':''">
             <i class="fa fa-mobile icon" aria-hidden="true"></i>
           </div>
         </div>
 
         <div class="form-group  my-2">
           <div class="component">
-            <input class="form-control" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
+            <input class="form-control" formControlName="password" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}"
+                    [ngClass]="f.password.errors && f.password.invalid &&( f.password.dirty ||f.password.touched) ?'red-border-class':''">
             <i class="fa fa-lock icon" aria-hidden="true"></i>
             <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
           </div>
@@ -115,7 +111,8 @@
 
         <div class="form-group  my-2">
           <div class="component">
-            <input class="form-control" type="{{inputConfirmType}}" required placeholder=" {{langvar.Login.ConfirmPassword}}">
+            <input class="form-control" formControlName="confirmPassword" type="{{inputConfirmType}}" required placeholder=" {{langvar.Login.ConfirmPassword}}"
+                    [ngClass]="f.confirmPassword.errors && f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.toucheed) ?'red-border-class':''">
             <i class="fa fa-lock icon" aria-hidden="true"></i>
             <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
           </div>
@@ -123,8 +120,7 @@
       </form>
 
       <div class="d-flex justify-content-center">
-        <div class="brand_logo_container">
-          <!--(click)="Login()"-->
+        <div class="brand_logo_container" (click)="Register">
           <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </div>
       </div>

@@ -13,11 +13,10 @@ import { LoginModel } from '../../../models/request/LoginModel';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'login.component.html' , 
-  styleUrls:['login.component.scss']
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss']
 })
-export class LoginComponent
-{
+export class LoginComponent {
   //handling show/hide password
   inputType: string = "password";
   pView: string = "-slash";
@@ -35,15 +34,15 @@ export class LoginComponent
   constructor(private router: Router, private sharedService: SharedService, private authService: AuthenticationService
     , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper, private socialMediaService: SocialAuthService) {
 
-    this.adminLoginForm = this.formBuilderHelper.createFormBuilder({ phoneNumber: '' ,password:''})
+    this.adminLoginForm = this.formBuilderHelper.createFormBuilder({ phoneNumber: '', password: '' })
   }
-  
+
 
   ngOnInit(): void {
     this.langHelper.ngOnInit();
     this.langvar = this.langHelper.initializeMode();
-  } 
- 
+  }
+
   Login() {
     this.isLogging = true;
 
@@ -60,22 +59,21 @@ export class LoginComponent
       //save user to keep him logged in
       if (this.keepMeBoolean)
         this.authService.setAuth(user.data);
-      
+
       this.router.navigateByUrl('/reservation');
     }, error => {
       this.isLogging = false;
 
       console.log("error", error)
-
     })
   }
 
+  //trigger change keep me logged in checkbox
   KeepMe(event) {
-    console.log(event.target.checked, this.keepMeBoolean)
-    this.keepMeBoolean = event.target.checked;
+    event.target.checked ? this.keepMeBoolean = true : this.keepMeBoolean = false;
   }
 
-  SwitchLanguage(){
+  SwitchLanguage() {
 
   }
 
@@ -116,16 +114,16 @@ export class LoginComponent
     this.isLogging = true;
     this.socialMediaService.signIn(GoogleLoginProvider.PROVIDER_ID).then(googleUser => {
       console.log(googleUser)
-        this.authService.googleLogin({ idToken: googleUser.idToken })
-          .subscribe((data) => {
-            console.log(data)
-            this.isLogging = false;
-            this.router.navigateByUrl('/reservation');
+      this.authService.googleLogin({ idToken: googleUser.idToken })
+        .subscribe((data) => {
+          console.log(data)
+          this.isLogging = false;
+          this.router.navigateByUrl('/reservation');
 
-          }, error => {
-              this.isLogging = false;
+        }, error => {
+          this.isLogging = false;
 
-          })
+        })
     });
   }
 }
