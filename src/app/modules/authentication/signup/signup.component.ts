@@ -19,17 +19,19 @@ export class SignupComponent implements OnInit {
   inputConfirmType: string = "password";
   pView: string = "-slash";
   pViewConfirmPassword: string = "-slash";
+  isLogging: boolean = false;
 
   //translation
   langvar;
 
-  signupForm: FormGroup = new FormGroup({
-    Email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(25)]),
-    Password: new FormControl('', [Validators.required, Validators.maxLength(25)])
-  });
+  signupForm;
 
   constructor(private router: Router, private sharedService: SharedService, private AuthService: AuthenticationService
-    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper) { }
+    , private langHelper: LanguageHelper, private formBuilderHelper: formBuilderHelper) {
+
+    this.signupForm = this.formBuilderHelper.CustomizeFormbuilderValidator({ userName: '', phoneNumber: '', password: '', confirmPassword: '' }, this.checkPasswords)
+
+  }
 
 
   ngOnInit(): void {
@@ -38,8 +40,24 @@ export class SignupComponent implements OnInit {
   }
 
   Register() {
-    this.router.navigateByUrl('services');
+    this.isLogging = true;
 
+    const model = {
+      userName: this.signupForm.controls.userName.value,
+      phoneNumber: this.signupForm.controls.phoneNumber.value,
+      password: this.signupForm.controls.password.value,
+      confirmPassword: this.signupForm.controls.confirmPassword.value
+    }
+    this.AuthService.CustomerRegistration(model).subscribe(user => {
+      //this.router.navigateByUrl('services');
+      this.isLogging = false;
+      this.router.navigateByUrl('auth/login');
+
+    }, error => {
+      this.isLogging = false;
+
+      console.log("error", error)
+    })
   }
 
   //handling show/hide password
@@ -66,4 +84,17 @@ export class SignupComponent implements OnInit {
 
     }
   }
+
+  //validate password isEqual confimPassword
+  checkPasswords(group: FormGroup) {
+    let pass = group.get('password').value;
+    let confirmPass = group.get('confirmPassword').value;
+    return pass === confirmPass ? false : { notSame: true }
+  }
+
+  //get signUp form controllers
+  get f() {
+    return this.signupForm.controls;
+  }
+
 }
