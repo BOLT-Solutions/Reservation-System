@@ -1,6 +1,6 @@
 
-<div class="d-flex justify-content-end pcView">
-  <div class="d-flex justify-content-center flex-column align-items-end">
+<div class="d-flex justify-content-between pcView">
+  <div class="d-flex justify-content-center flex-column align-items-end" *ngIf="!isLogging">
 
     <h2 class="text-right">
       {{langvar.Login.formLoginHeader}}
@@ -10,7 +10,7 @@
 
       <div class="form-group  my-3 mt-2  ">
         <div class="component">
-          <input class="form-control" type="text" required placeholder=" {{langvar.Login.PhoneNumber}}">
+          <input class="form-control" type="text" formControlName="phoneNumber" required placeholder=" {{langvar.Login.PhoneNumber}}">
           <i class="fa fa-mobile icon" aria-hidden="true"></i>
           <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
             <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
@@ -23,36 +23,64 @@
 
       <div class="form-group  my-4">
         <div class="component">
-          <input class="form-control" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
+          <input class="form-control"  formControlName="password"  type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
           <i class="fa fa-lock icon" aria-hidden="true"></i>
           <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
         </div>
       </div>
       <div>
 
-        <label class="container">
-          <input type="checkbox" > <!--[checked]=-->
+        <label class="container" (click)="KeepMe($event)">
+          <input type="checkbox" [checked]=keepMeBoolean (click)="KeepMe($event)"> <!--[checked]=-->
 
-          <span class="checkmark"></span>
+          <span class="checkmark" ></span>
           {{langvar.Login.keepMe}}
         </label>
       </div>
       <div class="component Inputbutton">
 
-        <input class="form-control " type="button" (click)="Login()" value="{{langvar.Login.login}}">
+        <input class="form-control " type="button" (click)="Login()" value="{{langvar.Login.login}}" [disabled]="!adminLoginForm.valid">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
         <h6 class="mt-3 ml-4"> {{langvar.Login.notUser}} <strong routerLink="/auth/register">{{langvar.Login.register}}</strong>  {{langvar.Login.here}}</h6>
       </div>
       <div class="socialIcons mt-4">
 
-
-        <img (click)="signInWithGoogle()"  src="./assets/icons/google.png" />
-      
+        <img (click)="signInWithGoogle()" src="./assets/icons/google.png" />
 
         <img (click)="signInWithFB()" src="./assets/icons/facebook.png" />
-        <img src="./assets/icons/twitter.png" />
+
+        <!--<img src="./assets/icons/twitter.png" />-->
       </div>
     </form>
+
+  </div>
+
+  <div *ngIf="isLogging" class="w-50 text-right">
+    <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="50px" y="50px"
+         viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+        <circle fill="#1346c6cf" stroke="none" cx="50" cy="50" r="2">
+         <animate attributeName="opacity"
+             dur="1s"
+             values="0;1;0"
+             repeatCount="indefinite"
+             begin="0.1" />
+
+        </circle>
+        <circle fill="#247DD6" stroke="none" cx="60" cy="50" r="2">
+        <animate attributeName="opacity"
+             dur="1s"
+             values="0;1;0"
+             repeatCount="indefinite"
+             begin="0.2" />
+         </circle>
+         <circle fill="#0394F0" stroke="none" cx="70" cy="50" r="2">
+         <animate attributeName="opacity"
+             dur="1s"
+             values="0;1;0"
+             repeatCount="indefinite"
+             begin="0.3" />
+          </circle>
+    </svg>
   </div>
 
   <div id=bg>
@@ -66,59 +94,89 @@
   <div id="mobileBackground">
     <img src="./assets/logo1.png" />
     <h3 class="ml-3 ">{{langvar.Login.welcome}}</h3>
-
     <p class="ml-3">{{langvar.Login.formLoginHeader}}</p>
   </div>
 
-    <div class="d-flex justify-content-center h-100">
-      <div class="user_card">
-        <h2 class="active">{{langvar.Login.login}}</h2>
-        <h2 routerLink="/auth/register">{{langvar.Login.signUp}}</h2>
-        <form [formGroup]="adminLoginForm" class="mt-2 mr-4">
+  <div class="d-flex justify-content-center h-100" *ngIf="!isLogging">
+    <div class="user_card" >
+      <h2 class="active" >{{langvar.Login.login}}</h2>
+      <h2 routerLink="/auth/register" >{{langvar.Login.signUp}}</h2>
+      <form [formGroup]="adminLoginForm" class="mt-2 mr-4" >
 
-          <div class="form-group  my-3 mt-2  ">
-            <div class="component">
-              <input class="form-control" type="number" required placeholder=" {{langvar.Login.PhoneNumber}}">
-              <i class="fa fa-mobile icon" aria-hidden="true"></i>
-              <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
-          <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
-          <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
-          <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
-          <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
-        </div>-->
-            </div>
+        <div class="form-group  my-3 mt-2  ">
+          <div class="component">
+            <input class="form-control" type="text" formControlName="phoneNumber" required placeholder=" {{langvar.Login.PhoneNumber}}">
+            <i class="fa fa-mobile icon" aria-hidden="true"></i>
+            <!--<div *ngIf="AddCustomerValidations.name.invalid && AddCustomerValidations.name.dirty" class="alert alert-danger" style="width: 45%; margin-left:30%; margin-top:0.5%">
+            <div *ngIf="AddCustomerValidations.name.errors.required" style="text-align: center">{{langVar.customerNameError}}</div>
+            <div *ngIf="AddCustomerValidations.name.errors.maxLength" style="text-align: center">{{langVar.customerMaxLengthError}}</div>
+            <div *ngIf="AddCustomerValidations.name.errors.minLength" style="text-align: center">{{langVar.customerMinLengthError}}</div>
+            <div *ngIf="AddCustomerValidations.name.errors.pattern" style="text-align: center">{{langVar.customerLanguageError}} </div>
+          </div>-->
           </div>
+        </div>
 
-          <div class="form-group  my-4">
-            <div class="component">
-              <input class="form-control" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
-              <i class="fa fa-lock icon" aria-hidden="true"></i>
-              <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
-            </div>
+        <div class="form-group  my-4">
+          <div class="component">
+            <input class="form-control" formControlName="password" type="{{inputType}}" required placeholder=" {{langvar.Login.Password}}">
+            <i class="fa fa-lock icon" aria-hidden="true"></i>
+            <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
           </div>
-          <div>
+        </div>
+        <div>
 
-            <label class="container ml-4">
-              <input type="checkbox"> <!--[checked]=-->
+          <label class="container ml-4">
+            <input type="checkbox"> <!--[checked]=-->
 
-              <span class="checkmark"></span>
-              {{langvar.Login.keepMe}}
-            </label>
-          </div>
+            <span class="checkmark"></span>
+            {{langvar.Login.keepMe}}
+          </label>
+        </div>
 
 
-        </form>
-        <div class="d-flex justify-content-center">
-          <div class="brand_logo_container" (click)="Login()">
-            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          </div>
+      </form>
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container" (click)="Login()" >
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </div>
       </div>
     </div>
-
-  <div class="socialIcons mt-4">
-    <img src="./assets/icons/google.png" />
-    <img src="./assets/icons/facebook.png" />
-    <img src="./assets/icons/twitter.png" />
   </div>
+    <div *ngIf="isLogging" class="w-100 text-right">
+      <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="50px" y="50px"
+           viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+      <circle fill="#1346c6cf" stroke="none" cx="30" cy="50" r="4">
+      <animate attributeName="opacity"
+               dur="1s"
+               values="0;1;0"
+               repeatCount="indefinite"
+               begin="0.1" />
+
+        </circle>
+      <circle fill="#247DD6" stroke="none" cx="50" cy="50" r="4">
+      <animate attributeName="opacity"
+               dur="1s"
+               values="0;1;0"
+               repeatCount="indefinite"
+               begin="0.2" />
+
+         </circle>
+      <circle fill="#0394F0" stroke="none" cx="70" cy="50" r="4">
+      <animate attributeName="opacity"
+               dur="1s"
+               values="0;1;0"
+               repeatCount="indefinite"
+               begin="0.3" />
+
+          </circle>
+       </svg>
+    </div>
+
+  <div class="socialIcons mt-4" *ngIf="!isLogging">
+    <img (click)="signInWithGoogle()" src="./assets/icons/google.png" />
+
+    <img (click)="signInWithFB()" src="./assets/icons/facebook.png" />
+    <!--<img src="./assets/icons/twitter.png" />-->
+  </div>
+
 </div>
