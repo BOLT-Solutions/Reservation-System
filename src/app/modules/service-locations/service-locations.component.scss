@@ -14,8 +14,9 @@
   box-shadow: 10px 0 5px -2px #888;
   z-index: 9999;
 
-  .container-fluid {
+ .container-fluid {
     padding: 60px;
+    padding-top:30px;
 
     h1 {
       color: white;
@@ -60,7 +61,7 @@
       }
 
       .resultsSection {
-        max-height: 500px;
+        max-height: 440px;
         overflow-y: scroll;
         scrollbar-width: thin;
         scrollbar-base-color: wheat;
@@ -139,6 +140,7 @@
     top: 0;
   }
 }
+
 /*
 
 */

@@ -16,7 +16,7 @@ export class formBuilderHelper  {
       userName: [Validators.required],
       firstName: [Validators.required],
       nationality: [Validators.required],
-      password: [Validators.required, Validators.pattern("^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")],
+      password: [Validators.required, Validators.pattern("^([a-zA-Z0-9@*#]{8,15})$")],
       confirmPassword: [Validators.required],
       phoneNumber: [Validators.required, Validators.pattern(/^-?([0-9]\d*)?$/)],
       nationalID: [Validators.required],

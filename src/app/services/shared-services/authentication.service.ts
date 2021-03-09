@@ -55,7 +55,8 @@ export class AuthenticationService extends BaseService {
   CustomerRegistration(model: CustomerRegistrationModel): Observable<ApiResponse> {
     return this.post(API_CONSTANTS.CustomerRegister, model);
   }
-  setAuth(user: UserToken) {
+  setAuth(user) {
+    console.log()
     this.jwtService.saveUser(user);
     this.currentUserSubject.next(user);
   }
