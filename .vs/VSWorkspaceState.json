@@ -1,14 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\models",
-    "\\src\\app\\models\\request",
-    "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\authentication\\login",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\http-services"
+    ""
   ],
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,6 @@
+{
+  "appId": "boltres.example.app",
+  "appName": "bolt-reservation",
+  "webDir": "www",
+  "npmClient": "npm"
+}
