@@ -4,11 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\models",
-    "\\src\\app\\models\\request",
-    "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\authentication\\login",
+    "\\src\\app\\models\\response",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\service-locations",
+    "\\src\\app\\modules\\services",
     "\\src\\app\\services",
-    "\\src\\app\\services\\http-services"
+    "\\src\\app\\services\\shared-services"
   ],
+  "SelectedNode": "\\src\\app\\services\\shared-services\\authentication.service.ts",
   "PreviewInSolutionExplorer": false
 }

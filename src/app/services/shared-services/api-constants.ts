@@ -25,4 +25,16 @@ export const API_CONSTANTS = {
   CustomerRegister: "Customer/CreateCustomerAccount",
   EditCustomer: "Customer/EditCustomer",
   EditCustomerImg: "Customer/EditCustomerImg",
+
+  //branches
+  GetAllstorebranches: "Branch/GetStoreBranches/",
+  GetAllStoresbranches: "Branch/GetStoresBranches",
+
+  //stores
+  GetAllStores:"Store/GetAllStores",
+
+  //reservation
+  GetReservationRecordsByID:"/api/ReservationHistory/GetReservationRecords/",
+  CreateReservationRecord: "ReservationHistory/CreateReservationRecord/",
+  UpdateReservationRecord:"ReservationHistory/UpdateReservationRecord"
 }

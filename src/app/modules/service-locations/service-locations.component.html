@@ -1,5 +1,5 @@
 <div class="row servicesLocation" *ngIf="!isMobile">
-  <div class="col-lg-8 detailsSectionPC"> <!--Details List (PC)-->
+  <div class="col-lg-7 detailsSectionPC"> <!--Details List (PC)-->
     <div class="container-fluid">
       <h1>BOLT SALON Locations</h1>
       <div class="searchContainer">
@@ -9,36 +9,43 @@
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
         <div class="resultsSection" (searchcriteria)="MatchString($event)"> <!--Results Section-->
-          <div class="itemContainer mt-5" *ngFor="let service of servicesList; let i = index" (click)="ViewStoreMap(service)">
-            <div class="container">
+          <div class="itemContainer mt-5" *ngFor="let branch of branchsList; let i = index" >
+            <div class="container" (click)="ViewStoreMap(branch)">
               <div class="row">
                 <div class="col-6">
                   <!--Store Details-->
-                  <h1 class="serviceHeader">{{i+1}}-<span>{{service.name}}</span></h1>
+                  <h1 class="serviceHeader">{{i+1}}-<span>{{branch.name}}</span></h1>
                 </div>
                 <div class="col-6">
                   <!--Calculated Distance-->
-                  <h1 class="distance">{{service.distance}} KM</h1>
+                  <h1 class="distance">0.5KM</h1>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  <p class="storeAvailabilityInfo">Opens {{service.availability}}</p>
+
+                  <!--<p class="storeAvailabilityInfo">Opens {{service.availability}}</p>-->
                 </div>
               </div>
               <div class="row">
-                <div class="col-12">
-                  <p class="storeAddressInfo">{{service.address}}</p>
+                <div class="col-8">
+                  <p class="storeAddressInfo">{{branch.address}}</p>
                 </div>
+
               </div>
             </div>
 
+              <a style="background-color: transparent; border: none; color: #fff;background-color: transparent;border: none;color: #fff; text-align:center;"
+                (click)="Reserve(branch)">
+                 <!--href={{branch.webSiteLink}}>-->
+                reserve
+              </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-4 mapsSectionPC">
+  <div class="col-lg-5 mapsSectionPC">
     <div #map class="googleMapsStyle"></div>
     <!--<agm-map [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [zoom]="zoom">
       <agm-marker [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [markerDraggable]="true"></agm-marker>

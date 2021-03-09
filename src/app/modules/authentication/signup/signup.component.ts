@@ -50,8 +50,11 @@ export class SignupComponent implements OnInit {
     }
     this.AuthService.CustomerRegistration(model).subscribe(user => {
       //this.router.navigateByUrl('services');
+      if (user.succeeded) {
+       console.log("user",user)
       this.isLogging = false;
-      this.router.navigateByUrl('auth/login');
+      this.router.navigateByUrl('/reservation');
+      }
 
     }, error => {
       this.isLogging = false;

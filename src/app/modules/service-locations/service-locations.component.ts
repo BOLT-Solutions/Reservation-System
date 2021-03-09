@@ -3,6 +3,12 @@ import { Router } from '@angular/router';
 import { MapsAPILoader } from '@agm/core';
 import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 import { } from 'googlemaps';
+import { BranchService } from '../../services/Branch-service';
+import { BranchesModel } from '../../models/response/BranchesModel';
+import { selectedStores } from '../../models/request/selectedStores';
+import { getStoreIdsModel } from '../../models/request/getStoreIdsModel';
+import { ReservationHistoryService } from '../../services/Reservation-History-Service';
+import { createReservationHistoryModel } from '../../models/request/createReservationHistoryModel';
 
 class services {
   id: number;
@@ -23,9 +29,18 @@ class services {
 export class ServiceLocationsComponent implements OnInit {
 
   //Models
+  selectedStores = [];
+  branchsList: Array<BranchesModel> = new Array <BranchesModel>()
+  isLoading: boolean = false;
+  storeIdsModel: getStoreIdsModel = new getStoreIdsModel;
+  //query params
+  user;
+  RHID: string = "";
+
   servicesList: Array<services> = new Array<services>(); // Dummy Model
   servicesListSearchBackup: Array<services> = new Array<services>();
   selectedService: services;
+
   //Google Maps Variables
   @ViewChild('map') mapElement: any;
   map: google.maps.Map;
@@ -46,26 +61,47 @@ export class ServiceLocationsComponent implements OnInit {
 
   @Output() searchcriteria = new EventEmitter<String>();
 
-  constructor(private router: Router, public languageHelper: LanguageHelper, private mapsAPILoader: MapsAPILoader,
-  private ngZone: NgZone) {
+  constructor(private branchService: BranchService,private router: Router, public languageHelper: LanguageHelper, private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone, private reservationHistoryService: ReservationHistoryService) {
     this.langVar = this.languageHelper.initializeMode().Services;
     this.direction = this.languageHelper.initializeMode().dir;
   }
 
   ngOnInit(): void {
+
     if (window.innerWidth < 991) {
       this.isMobile = true;
     }
-    this.servicesList = JSON.parse(localStorage.getItem('selectedServices'));
-    console.log(this.servicesList)
+
+    this.selectedStores = JSON.parse(localStorage.getItem('Selectedstores'))
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log("token", this.user);
+
+    for (let i = 0; i < this.selectedStores.length; i++) {
+
+      this.storeIdsModel.storeIds.push(this.selectedStores[i].id)
+    }
+
+
+    this.branchService.GetAllStoresbranches(this.storeIdsModel).subscribe(stores => {
+      this.branchsList = stores.data;
+
+      //this.isLoading = false
+
+    }, error => {
+      //this.isLogging = false;
+
+      console.log("error", error)
+    })
+
     if (this.servicesList == null || this.servicesList == undefined) {
       this.router.navigate(['/reservation/services']);
     }
     else {
-      this.servicesListSearchBackup = JSON.parse(localStorage.getItem('selectedServices'));
+      this.servicesListSearchBackup = JSON.parse(localStorage.getItem('Selectedstores'));
       this.selectedService = this.servicesList[0];
       //for testing purposes
-      this.selectedService.distance = 0.5;
+      //this.selectedService.distance = 0.5;
     }
     setTimeout(() => {
       if (this.mapElement != undefined) {
@@ -84,6 +120,7 @@ export class ServiceLocationsComponent implements OnInit {
     }, 2000);
 
   }
+
   SearchService() {
     //this.searchcriteria.emit(this.searchWords); // emit input
     this.MatchString(this.searchWords);
@@ -92,7 +129,7 @@ export class ServiceLocationsComponent implements OnInit {
   MatchString(input) { 
     if (input) {
       //Match name with input
-      this.servicesList = this.servicesList.filter(s => s.name.toLowerCase().includes(input.toLowerCase()) || s.address.toLowerCase().includes(input.toString().toLowerCase()));
+      //this.branchsList = this.branchsList.filter(s => s.name.toLowerCase().includes(input.toLowerCase()) || s.address.toLowerCase().includes(input.toString().toLowerCase()));
     }
     else {
       this.servicesList = this.servicesListSearchBackup;
@@ -143,5 +180,30 @@ export class ServiceLocationsComponent implements OnInit {
         //window.alert('Geocoding Service: You must enable Billing on the Google Cloud Project at https://console.cloud.google.com/project/_/billing/enable Learn more at https://developers.google.com/maps/gmp-get-started');
       }
     });
+  }
+
+
+  Reserve(Branch: BranchesModel) {
+    const createReservationHistoryModel: createReservationHistoryModel={
+      branchId: Branch.id,
+      customerUserId: this.user.userId
+    }
+    console.log("createReservationHistoryModel", createReservationHistoryModel)
+
+    //create reservation history record
+    this.reservationHistoryService.CreateReservationRecord(createReservationHistoryModel).subscribe(res => {
+      if (res.succeeded) {
+        console.log("res", res.data , this.user)
+        //window.location.href = Branch.webSiteLink + "RHID=" + res.data.id + "&Token=" + this.user.token;
+
+      }
+
+      //this.isLoading = false
+
+    }, error => {
+      //this.isLogging = false;
+
+      console.log("error", error)
+    })
   }
 }
