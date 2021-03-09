@@ -19,9 +19,9 @@
   <!--Services List Section-->
   <div class="serviceMainContainer">
     <div class="row">
-      <div class="col-lg-4 col-12 serviceColumn" dir="ltr" *ngFor="let service of servicesList; let i = index">
+      <div class="col-lg-4 col-12 serviceColumn" dir="ltr" *ngFor="let service of storesList; let i = index">
         <div class="serviceCard" (click)="SelectService(service)">
-          <h1>{{service.name}}</h1>
+          <h1>{{service.storeName}}</h1>
         </div>
         <label class="checkboxContainer mt-lg-3 mt-4" *ngIf="isSelecting">
           {{langVar.select}}
