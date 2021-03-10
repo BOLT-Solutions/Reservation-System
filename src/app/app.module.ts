@@ -11,6 +11,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import {
   GoogleLoginProvider,
   FacebookLoginProvider} from 'angularx-social-login';
+import { HTTP } from '@ionic-native/http';
 
 
 
@@ -51,7 +52,7 @@ import {
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
   ], 
   bootstrap: [AppComponent]
 })

@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--Bootstrap Navigation Component-->\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n  <!--Brand-->\r\n  <a class=\"navbar-brand\" routerLink=\"/reservation\"><img src=\"./assets/img/bolt.png\" alt=\"Bolt Solutions\" /></a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button> \r\n\r\n  <div class=\"collapse navbar-collapse justify-content-end\" id=\"navbarSupportedContent\">\r\n    <form class=\"form-inline my-2 my-lg-0 mx-4\">\r\n      <input class=\"form-control mr-sm-2\" type=\"search\"  aria-label=\"Search\">\r\n      <!--<button class=\"btn btn-outline-primary my-2 my-sm-0\" type=\"submit\">Search</button>-->\r\n      <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n\r\n    </form>\r\n    <ul class=\"navbar-nav align-items-center\">\r\n      <li class=\"nav-item\">\r\n        <i class=\"fa fa-bell-o fa-lg mx-2\" aria-hidden=\"true\"></i>\r\n\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <i class=\"fa fa-cog fa-lg mx-2\" aria-hidden=\"true\"></i>\r\n\r\n        <!--<a class=\"nav-link disabled\" routerLink=\"/about-us\">Link</a>-->\r\n      </li>\r\n      <li class=\"nav-item  mr-5 initials\">\r\n        <a class=\"nav-link\" > {{initials }}</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--Bootstrap Navigation Component-->\r\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark justify-content-between\">\r\n  <!--Brand-->\r\n  <a class=\"navbar-brand\" routerLink=\"/reservation\"><img src=\"./assets/img/bolt.png\" alt=\"Bolt Solutions\" /></a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button> \r\n\r\n  <div class=\"collapse navbar-collapse justify-content-end\" id=\"navbarSupportedContent\">\r\n    <form class=\"form-inline my-2 my-lg-0 mx-4\">\r\n      <input class=\"form-control mr-sm-2\" type=\"search\"  aria-label=\"Search\">\r\n      <!--<button class=\"btn btn-outline-primary my-2 my-sm-0\" type=\"submit\">Search</button>-->\r\n      <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n\r\n    </form>\r\n    <ul class=\"navbar-nav align-items-center\">\r\n      <li class=\"nav-item\">\r\n        <i class=\"fa fa-bell-o fa-lg mx-2\" aria-hidden=\"true\"></i>\r\n\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <i class=\"fa fa-cog fa-lg mx-2\" aria-hidden=\"true\"></i>\r\n\r\n        <!--<a class=\"nav-link disabled\" routerLink=\"/about-us\">Link</a>-->\r\n      </li>\r\n      <li class=\"nav-item  mr-5 initials\">\r\n        <a class=\"nav-link\" > {{initials }}</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n");
 
 /***/ }),
 
@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row servicesLocation\" *ngIf=\"!isMobile\">\r\n  <div class=\"col-lg-8 detailsSectionPC\"> <!--Details List (PC)-->\r\n    <div class=\"container-fluid\">\r\n      <h1>BOLT SALON Locations</h1>\r\n      <div class=\"searchContainer\">\r\n        <p>{{langVar.searchTitle}}</p>\r\n        <div class=\"form-group\">\r\n          <input type=\"text\" [(ngModel)]=\"searchWords\" class=\"form-control\" (input)=\"SearchService()\" id=\"locationSearchBar\" placeholder=\"{{langVar.searchBarTitle}}\">\r\n          <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n        </div>\r\n        <div class=\"resultsSection\" (searchcriteria)=\"MatchString($event)\"> <!--Results Section-->\r\n          <div class=\"itemContainer mt-5\" *ngFor=\"let service of servicesList; let i = index\" (click)=\"ViewStoreMap(service)\">\r\n            <div class=\"container\">\r\n              <div class=\"row\">\r\n                <div class=\"col-6\">\r\n                  <!--Store Details-->\r\n                  <h1 class=\"serviceHeader\">{{i+1}}-<span>{{service.name}}</span></h1>\r\n                </div>\r\n                <div class=\"col-6\">\r\n                  <!--Calculated Distance-->\r\n                  <h1 class=\"distance\">{{service.distance}} KM</h1>\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"col-12\">\r\n                  <p class=\"storeAvailabilityInfo\">Opens {{service.availability}}</p>\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"col-12\">\r\n                  <p class=\"storeAddressInfo\">{{service.address}}</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-lg-4 mapsSectionPC\">\r\n    <div #map class=\"googleMapsStyle\"></div>\r\n    <!--<agm-map [latitude]=\"selectedService.latitude\" [longitude]=\"selectedService.longitude\" [zoom]=\"zoom\">\r\n      <agm-marker [latitude]=\"selectedService.latitude\" [longitude]=\"selectedService.longitude\" [markerDraggable]=\"true\"></agm-marker>\r\n    </agm-map>-->\r\n    <!--<agm-map [latitude]=\"currentLatitude\" [longitude]=\"currentLongitude\" [zoom]=\"zoom\">\r\n\r\n    <agm-marker [latitude]=\"currentLatitude\" [longitude]=\"currentLongitude\" [markerDraggable]=\"true\"></agm-marker>\r\n\r\n  </agm-map>-->\r\n  </div>\r\n</div>\r\n\r\n<!--Mobile View-->\r\n<div class=\"row servicesLocation\" *ngIf=\"isMobile\">\r\n  <div class=\"container-fluid\">\r\n    <h1 style=\"color: #828282; font-weight: normal;\">{{servicesList[0].name}} Locations</h1>\r\n    <hr />\r\n    <div class=\"searchContainer\">\r\n      <p style=\"color: #4590f3;\" class=\"searchTitle\">{{langVar.searchTitle}}</p>\r\n      <div class=\"form-group\">\r\n        <input [(ngModel)]=\"searchWords\" type=\"text\" class=\"form-control\" (input)=\"SearchService()\" id=\"locationSearchBar\" placeholder=\"{{langVar.searchBarTitle}}\">\r\n        <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n      </div>\r\n\r\n      <div class=\"resultsSection\" (searchcriteria)=\"MatchString($event)\">\r\n        <!--Results Section-->\r\n        <div class=\"itemContainer\" *ngFor=\"let service of servicesList; let i = index\" (click)=\"ViewStoreMap(service)\">\r\n          <div class=\"container\">\r\n            <div class=\"row\">\r\n              <div class=\"col-6\">\r\n                <!--Store Details-->\r\n                <h1 >{{i+1}}- {{service.name}}</h1>\r\n              </div>\r\n              <div class=\"col-6\">\r\n                <!--Calculated Distance-->\r\n                <h1 class=\"distance\">{{service.distance}} KM</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-12\">\r\n                <p class=\"storeAvailabilityInfo\">Opens {{service.availability}}</p>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-12\">\r\n                <p class=\"storeAddressInfo\">{{service.address}}</p>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-12 text-center\">\r\n                <p class=\"viewButton\" *ngIf=\"selectedserviceMap != service.id\" style=\"color: #4590f3;\" (click)=\"ViewStoreMapResponsive(service)\">View In Map <i class=\"fas fa-arrow-alt-circle-down\"></i></p>\r\n                <p class=\"viewButton\" *ngIf=\"selectedserviceMap == service.id\" style=\"color: #4590f3;\" (click)=\"ViewLess(service.id)\">View Less<i class=\"fas fa-arrow-alt-circle-up\"></i></p>\r\n                <div class=\"mapView\" id=\"map{{service.id}}\" *ngIf=\"selectedserviceMap == service.id\">\r\n                  <agm-map [latitude]=\"service.latitude\" [longitude]=\"service.longitude\" [zoom]=\"15\"  class=\"googleMapsStyle\">\r\n                    <agm-marker [latitude]=\"service.latitude\" [longitude]=\"service.longitude\"></agm-marker>\r\n                  </agm-map>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row servicesLocation\" *ngIf=\"!isMobile\">\r\n  <div class=\"col-lg-7 detailsSectionPC\"> <!--Details List (PC)-->\r\n    <div class=\"container-fluid\">\r\n      <h1>BOLT SALON Locations</h1>\r\n      <div class=\"searchContainer\">\r\n        <p>{{langVar.searchTitle}}</p>\r\n        <div class=\"form-group\">\r\n          <input type=\"text\" [(ngModel)]=\"searchWords\" class=\"form-control\" (input)=\"SearchService()\" id=\"locationSearchBar\" placeholder=\"{{langVar.searchBarTitle}}\">\r\n          <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n        </div>\r\n        <div class=\"resultsSection\" (searchcriteria)=\"MatchString($event)\"> <!--Results Section-->\r\n          <div class=\"itemContainer mt-5\" *ngFor=\"let branch of branchsList; let i = index\" >\r\n            <div class=\"container\" (click)=\"ViewStoreMap(branch)\">\r\n              <div class=\"row\">\r\n                <div class=\"col-6\">\r\n                  <!--Store Details-->\r\n                  <h1 class=\"serviceHeader\">{{i+1}}-<span>{{branch.name}}</span></h1>\r\n                </div>\r\n                <div class=\"col-6\">\r\n                  <!--Calculated Distance-->\r\n                  <h1 class=\"distance\">0.5KM</h1>\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"col-12\">\r\n\r\n                  <!--<p class=\"storeAvailabilityInfo\">Opens {{service.availability}}</p>-->\r\n                </div>\r\n              </div>\r\n              <div class=\"row\">\r\n                <div class=\"col-8\">\r\n                  <p class=\"storeAddressInfo\">{{branch.address}}</p>\r\n                </div>\r\n\r\n              </div>\r\n            </div>\r\n\r\n              <a style=\"background-color: transparent; border: none; color: #fff;background-color: transparent;border: none;color: #fff; text-align:center;\"\r\n                (click)=\"Reserve(branch)\">\r\n                 <!--href={{branch.webSiteLink}}>-->\r\n                reserve\r\n              </a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-lg-5 mapsSectionPC\">\r\n    <div #map class=\"googleMapsStyle\"></div>\r\n    <!--<agm-map [latitude]=\"selectedService.latitude\" [longitude]=\"selectedService.longitude\" [zoom]=\"zoom\">\r\n      <agm-marker [latitude]=\"selectedService.latitude\" [longitude]=\"selectedService.longitude\" [markerDraggable]=\"true\"></agm-marker>\r\n    </agm-map>-->\r\n    <!--<agm-map [latitude]=\"currentLatitude\" [longitude]=\"currentLongitude\" [zoom]=\"zoom\">\r\n\r\n    <agm-marker [latitude]=\"currentLatitude\" [longitude]=\"currentLongitude\" [markerDraggable]=\"true\"></agm-marker>\r\n\r\n  </agm-map>-->\r\n  </div>\r\n</div>\r\n\r\n<!--Mobile View-->\r\n<div class=\"row servicesLocation\" *ngIf=\"isMobile\">\r\n  <div class=\"container-fluid\">\r\n    <h1 style=\"color: #828282; font-weight: normal;\">{{servicesList[0].name}} Locations</h1>\r\n    <hr />\r\n    <div class=\"searchContainer\">\r\n      <p style=\"color: #4590f3;\" class=\"searchTitle\">{{langVar.searchTitle}}</p>\r\n      <div class=\"form-group\">\r\n        <input [(ngModel)]=\"searchWords\" type=\"text\" class=\"form-control\" (input)=\"SearchService()\" id=\"locationSearchBar\" placeholder=\"{{langVar.searchBarTitle}}\">\r\n        <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\r\n      </div>\r\n\r\n      <div class=\"resultsSection\" (searchcriteria)=\"MatchString($event)\">\r\n        <!--Results Section-->\r\n        <div class=\"itemContainer\" *ngFor=\"let service of servicesList; let i = index\" (click)=\"ViewStoreMap(service)\">\r\n          <div class=\"container\">\r\n            <div class=\"row\">\r\n              <div class=\"col-6\">\r\n                <!--Store Details-->\r\n                <h1 >{{i+1}}- {{service.name}}</h1>\r\n              </div>\r\n              <div class=\"col-6\">\r\n                <!--Calculated Distance-->\r\n                <h1 class=\"distance\">{{service.distance}} KM</h1>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-12\">\r\n                <p class=\"storeAvailabilityInfo\">Opens {{service.availability}}</p>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-12\">\r\n                <p class=\"storeAddressInfo\">{{service.address}}</p>\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col-12 text-center\">\r\n                <p class=\"viewButton\" *ngIf=\"selectedserviceMap != service.id\" style=\"color: #4590f3;\" (click)=\"ViewStoreMapResponsive(service)\">View In Map <i class=\"fas fa-arrow-alt-circle-down\"></i></p>\r\n                <p class=\"viewButton\" *ngIf=\"selectedserviceMap == service.id\" style=\"color: #4590f3;\" (click)=\"ViewLess(service.id)\">View Less<i class=\"fas fa-arrow-alt-circle-up\"></i></p>\r\n                <div class=\"mapView\" id=\"map{{service.id}}\" *ngIf=\"selectedserviceMap == service.id\">\r\n                  <agm-map [latitude]=\"service.latitude\" [longitude]=\"service.longitude\" [zoom]=\"15\"  class=\"googleMapsStyle\">\r\n                    <agm-marker [latitude]=\"service.latitude\" [longitude]=\"service.longitude\"></agm-marker>\r\n                  </agm-map>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\" dir=\"{{direction}}\">\n  <header class=\"{{langVar.textAlign2}}\">\n    {{langVar.header}}\n  </header>\n  <hr class=\"headerLine\" />\n  <!--Settings Section-->\n  <div class=\"row serviceSettingsBar\">\n    <div class=\"col-lg-6 col-6 {{langVar.textAlign2}}\">\n      <label class=\"checkboxContainer\">\n        {{langVar.selectAll}}\n        <input type=\"checkbox\" [ngModel]=\"selectAllStatus\" (ngModelChange)=\"SelectAll($event)\"> <!--checked=\"checked\"-->\n        <span class=\"checkmark\"></span>\n      </label>\n    </div>\n    <div class=\"col-lg-6 col-6  {{langVar.textAlign1}}\">\n      <button type=\"button\" class=\"btn btn-lg multipleChoicesButton\" (click)=\"ToggleSelection()\">{{choiceButton}}</button>\n    </div>\n  </div>\n  <!--Services List Section-->\n  <div class=\"serviceMainContainer\">\n    <div class=\"row\">\n      <div class=\"col-lg-4 col-12 serviceColumn\" dir=\"ltr\" *ngFor=\"let service of servicesList; let i = index\">\n        <div class=\"serviceCard\" (click)=\"SelectService(service)\">\n          <h1>{{service.name}}</h1>\n        </div>\n        <label class=\"checkboxContainer mt-lg-3 mt-4\" *ngIf=\"isSelecting\">\n          {{langVar.select}}\n          <input type=\"checkbox\" id=\"checkbox{{service.id}}\" [ngModel]=\"service.isChecked\" (ngModelChange)=\"SetServiceCheckbox($event, service)\">\n          <span class=\"checkmark\"></span>\n        </label>\n      </div>\n    </div>\n  </div>\n  <!--End of Services List-->\n  <!--Settings Section-->\n  <div class=\"row serviceSettingsBar pt-lg-5\">\n    <div class=\"col-12 {{langVar.textAlign1}}\">\n      <button type=\"button\" class=\"btn btn-lg multipleChoicesButton\" (click)=\"ViewLocation()\">{{langVar.viewLocation}}</button>\n    </div>\n  </div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\" dir=\"{{direction}}\">\r\n  <header class=\"{{langVar.textAlign2}}\">\r\n    {{langVar.header}}\r\n  </header>\r\n  <hr class=\"headerLine\" />\r\n  <!--Settings Section-->\r\n  <div class=\"row serviceSettingsBar\">\r\n    <div class=\"col-lg-6 col-6 {{langVar.textAlign2}}\">\r\n      <label class=\"checkboxContainer\">\r\n        {{langVar.selectAll}}\r\n        <input type=\"checkbox\" [ngModel]=\"selectAllStatus\" (ngModelChange)=\"SelectAll($event)\"> <!--checked=\"checked\"-->\r\n        <span class=\"checkmark\"></span>\r\n      </label>\r\n    </div>\r\n    <div class=\"col-lg-6 col-6  {{langVar.textAlign1}}\">\r\n      <button type=\"button\" class=\"btn btn-lg multipleChoicesButton\" (click)=\"ToggleSelection()\">{{choiceButton}}</button>\r\n    </div>\r\n  </div>\r\n  <!--Services List Section-->\r\n  <div class=\"serviceMainContainer\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-4 col-12 serviceColumn\" dir=\"ltr\" *ngFor=\"let service of storesList; let i = index\">\r\n        <div class=\"serviceCard\" (click)=\"SelectService(service)\">\r\n          <h1>{{service.storeName}}</h1>\r\n        </div>\r\n        <label class=\"checkboxContainer mt-lg-3 mt-4\" *ngIf=\"isSelecting\">\r\n          {{langVar.select}}\r\n          <input type=\"checkbox\" id=\"checkbox{{service.id}}\" [ngModel]=\"service.isChecked\" (ngModelChange)=\"SetServiceCheckbox($event, service)\">\r\n          <span class=\"checkmark\"></span>\r\n        </label>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!--End of Services List-->\r\n  <!--Settings Section-->\r\n  <div class=\"row serviceSettingsBar pt-lg-5\">\r\n    <div class=\"col-12 {{langVar.textAlign1}}\">\r\n      <button type=\"button\" class=\"btn btn-lg multipleChoicesButton\" (click)=\"ViewLocation()\">{{langVar.viewLocation}}</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n");
 
 /***/ }),
 
@@ -461,9 +461,9 @@ const routes = [
     { path: '404', component: _modules_error_404_component__WEBPACK_IMPORTED_MODULE_4__["P404Component"], },
     { path: '500', component: _modules_error_500_component__WEBPACK_IMPORTED_MODULE_5__["P500Component"], },
     { path: 'logout', component: _modules_authentication_logout_logout_component__WEBPACK_IMPORTED_MODULE_3__["LogoutComponent"], },
-    { path: 'layout', loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./modules/layout/layout.module */ "./src/app/modules/layout/layout.module.ts")).then(m => m.LayoutModule), },
+    { path: 'reservation', loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./modules/layout/layout.module */ "./src/app/modules/layout/layout.module.ts")).then(m => m.LayoutModule), },
     { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() | modules-authentication-authentication-module */ "modules-authentication-authentication-module").then(__webpack_require__.bind(null, /*! ./modules/authentication/authentication.module */ "./src/app/modules/authentication/authentication.module.ts")).then(m => m.AuthenticationModule), },
-    { path: '', redirectTo: 'auth', pathMatch: 'full' },
+    { path: '', redirectTo: 'reservation', pathMatch: 'full' },
     { path: '**', component: _modules_error_404_component__WEBPACK_IMPORTED_MODULE_4__["P404Component"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -621,12 +621,33 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
                         }
                     ]
                 },
-            }
+            },
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
     })
 ], AppModule);
 
+
+
+/***/ }),
+
+/***/ "./src/app/models/request/getStoreIdsModel.ts":
+/*!****************************************************!*\
+  !*** ./src/app/models/request/getStoreIdsModel.ts ***!
+  \****************************************************/
+/*! exports provided: getStoreIdsModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStoreIdsModel", function() { return getStoreIdsModel; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class getStoreIdsModel {
+    constructor() {
+        this.storeIds = [];
+    }
+}
 
 
 /***/ }),
@@ -1126,7 +1147,7 @@ LayoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("* {\n  font-family: \"Roboto\", sans-serif;\n  overflow: hidden;\n}\n\n.servicesLocation {\n  height: 90vh;\n  overflow: hidden;\n  width: 100%;\n}\n\n.detailsSectionPC {\n  background-image: linear-gradient(to top, #0591ed, #0a74df);\n  box-shadow: 10px 0 5px -2px #888;\n  z-index: 9999;\n}\n\n.detailsSectionPC .container-fluid {\n  padding: 60px;\n}\n\n.detailsSectionPC .container-fluid h1 {\n  color: white;\n  font-size: 22px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer {\n  padding: 30px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer p {\n  color: white;\n  font-size: 21px;\n  font-weight: normal;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-group {\n  position: relative;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-control {\n  width: 95%;\n  color: #acaaaa;\n  border-radius: 8px;\n  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);\n  background-color: #f7f7f7;\n  height: 50px;\n  font-size: 21px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .fa-search {\n  position: absolute;\n  color: black;\n  right: 74px;\n  top: 10px;\n  z-index: 10;\n  font-size: 28px;\n  z-index: 10;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-control::-moz-placeholder {\n  color: #acaaaa;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-control::placeholder {\n  color: #acaaaa;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .resultsSection {\n  max-height: 500px;\n  overflow-y: scroll;\n  scrollbar-width: thin;\n  scrollbar-base-color: wheat;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer {\n  border-radius: 8px;\n  border: solid 2px #f7f7f7;\n  width: 96%;\n  -webkit-transition: all 2s;\n  -moz-transition: all 2s;\n  -o-transition: all 2s;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .container {\n  padding: 5px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .serviceHeader {\n  padding: 14px;\n  font-weight: normal;\n  font-size: 28px;\n  width: 400px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .serviceHeader span {\n  margin-left: 30px;\n  font-size: 23px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer h1 {\n  font-size: 17px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .distance {\n  margin-left: 230px;\n  font-size: 23px;\n  font-weight: normal;\n  margin-top: 20px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .storeAvailabilityInfo {\n  font-size: 18px;\n  padding: 12px;\n  margin-left: 57px;\n  color: rgba(235, 235, 235, 0.92);\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .storeAddressInfo {\n  font-size: 18px;\n  margin-left: 69px;\n  color: rgba(235, 235, 235, 0.92);\n  margin-top: -3px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer:hover {\n  cursor: pointer;\n  border: solid 2px #736026;\n  transition: all 0.5s;\n  -webkit-transition: all 2s;\n  -moz-transition: all 2s;\n  -o-transition: all 2s;\n}\n\n.mapsSectionPC .googleMapsStyle {\n  width: 100%;\n  height: 100vh;\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  top: 0;\n}\n\n/*\n\n*/\n\n@media only screen and (max-device-width: 500px) {\n  .servicesLocation {\n    height: auto;\n    overflow: hidden;\n    width: 100%;\n    background-color: #fbfbfb !important;\n  }\n  .servicesLocation h1 {\n    font-size: 19px;\n    color: #4590f3;\n    padding: 15px;\n  }\n  .servicesLocation .searchContainer .searchTitle {\n    margin-bottom: -8px;\n  }\n  .servicesLocation .searchContainer p {\n    padding: 15px;\n    color: #afadad;\n  }\n  .servicesLocation .searchContainer .form-group {\n    position: relative;\n  }\n  .servicesLocation .searchContainer .form-control {\n    width: 90%;\n    color: #acaaaa;\n    border-radius: 8px;\n    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);\n    background-color: #f7f7f7;\n    margin: 0 auto;\n  }\n  .servicesLocation .searchContainer .fa-search {\n    position: absolute;\n    color: black;\n    right: 40px;\n    top: 14px;\n    z-index: 10;\n  }\n  .servicesLocation .searchContainer .form-control::-moz-placeholder {\n    color: #acaaaa;\n  }\n  .servicesLocation .searchContainer .form-control::placeholder {\n    color: #acaaaa;\n  }\n  .servicesLocation .resultsSection {\n    max-height: 80vh;\n    width: 100%;\n    overflow-x: hidden;\n    overflow-y: scroll;\n  }\n  .servicesLocation .itemContainer {\n    border-radius: 9px;\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\n    background-color: #f7f7f7;\n    width: 334px;\n    height: auto;\n    margin-left: 18px;\n    -webkit-transition: all 0.5s;\n    -moz-transition: all 0.5s;\n    -o-transition: all 0.5s;\n    margin-top: 30px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(1) h1 {\n    font-size: 16px;\n    width: 200px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(1) .distance {\n    text-align: right;\n    width: auto;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(2) {\n    margin-top: -28px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(3) {\n    margin-top: -40px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(4) {\n    margin-top: -27px;\n  }\n  .servicesLocation .itemContainer .storeAvailabilityInfo {\n    margin-left: 18px;\n    font-size: 14px;\n  }\n  .servicesLocation .itemContainer .storeAddressInfo {\n    margin-left: 18px;\n    font-size: 14px;\n  }\n  .servicesLocation .itemContainer .mapView {\n    width: 100%;\n    height: 280px;\n  }\n  .servicesLocation .itemContainer .googleMapsStyle {\n    width: 100%;\n    height: 100%;\n  }\n  .servicesLocation .itemContainer .viewButton {\n    cursor: pointer;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9zZXJ2aWNlLWxvY2F0aW9ucy9OOlxcQ29kZVxcUmVwb3NcXFJlc2VydmF0aW9uLVN5c3RlbVxcUmVzZXJ2YXRpb24tU3lzdGVtL3NyY1xcYXBwXFxtb2R1bGVzXFxzZXJ2aWNlLWxvY2F0aW9uc1xcc2VydmljZS1sb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL21vZHVsZXMvc2VydmljZS1sb2NhdGlvbnMvc2VydmljZS1sb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxXQUFBO0FDQ0Y7O0FERUE7RUFDRSwyREFBQTtFQUNBLGdDQUFBO0VBQ0EsYUFBQTtBQ0NGOztBRENFO0VBQ0UsYUFBQTtBQ0NKOztBRENJO0VBQ0UsWUFBQTtFQUNBLGVBQUE7QUNDTjs7QURFSTtFQUNFLGFBQUE7QUNBTjs7QURFTTtFQUNFLFlBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7QUNBUjs7QURHTTtFQUNFLGtCQUFBO0FDRFI7O0FESU07RUFDRSxVQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsNENBQUE7RUFDQSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0FDRlI7O0FES007RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EsU0FBQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0VBQ0EsV0FBQTtBQ0hSOztBRE1NO0VBQ0UsY0FBQTtBQ0pSOztBREdNO0VBQ0UsY0FBQTtBQ0pSOztBRE9NO0VBQ0UsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0VBQ0EsMkJBQUE7QUNMUjs7QURRTTtFQUNFLGtCQUFBO0VBQ0EseUJBQUE7RUFDQSxVQUFBO0VBQ0EsMEJBQUE7RUFDQSx1QkFBQTtFQUNBLHFCQUFBO0FDTlI7O0FEUVE7RUFDRSxZQUFBO0FDTlY7O0FEU1E7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EsWUFBQTtBQ1BWOztBRFNVO0VBQ0UsaUJBQUE7RUFDQSxlQUFBO0FDUFo7O0FEV1E7RUFDRSxlQUFBO0FDVFY7O0FEWVE7RUFDRSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0FDVlY7O0FEYVE7RUFDRSxlQUFBO0VBQ0EsYUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0NBQUE7QUNYVjs7QURjUTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGdDQUFBO0VBQ0EsZ0JBQUE7QUNaVjs7QURnQk07RUFDRSxlQUFBO0VBQ0EseUJBQUE7RUFDQSxvQkFBQTtFQUNBLDBCQUFBO0VBQ0EsdUJBQUE7RUFDQSxxQkFBQTtBQ2RSOztBRHFCRTtFQUNFLFdBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxNQUFBO0FDbEJKOztBRHFCQTs7Q0FBQTs7QUFLQTtFQUNFO0lBQ0UsWUFBQTtJQUNBLGdCQUFBO0lBQ0EsV0FBQTtJQUNBLG9DQUFBO0VDcEJGO0VEc0JFO0lBQ0UsZUFBQTtJQUNBLGNBQUE7SUFDQSxhQUFBO0VDcEJKO0VEd0JJO0lBQ0ksbUJBQUE7RUN0QlI7RUR5Qkk7SUFDRSxhQUFBO0lBQ0EsY0FBQTtFQ3ZCTjtFRDBCSTtJQUNFLGtCQUFBO0VDeEJOO0VEMkJJO0lBQ0UsVUFBQTtJQUNBLGNBQUE7SUFDQSxrQkFBQTtJQUNBLDRDQUFBO0lBQ0EseUJBQUE7SUFDQSxjQUFBO0VDekJOO0VENEJJO0lBQ0Usa0JBQUE7SUFDQSxZQUFBO0lBQ0EsV0FBQTtJQUNBLFNBQUE7SUFDQSxXQUFBO0VDMUJOO0VENkJJO0lBQ0UsY0FBQTtFQzNCTjtFRDBCSTtJQUNFLGNBQUE7RUMzQk47RUQrQkU7SUFDRSxnQkFBQTtJQUNBLFdBQUE7SUFDQSxrQkFBQTtJQUNBLGtCQUFBO0VDN0JKO0VEZ0NFO0lBQ0Usa0JBQUE7SUFDQSwyQ0FBQTtJQUNBLHlCQUFBO0lBQ0EsWUFBQTtJQUNBLFlBQUE7SUFDQSxpQkFBQTtJQUNBLDRCQUFBO0lBQ0EseUJBQUE7SUFDQSx1QkFBQTtJQUNBLGdCQUFBO0VDOUJKO0VEb0NRO0lBQ0UsZUFBQTtJQUNBLFlBQUE7RUNsQ1Y7RURxQ1E7SUFDRSxpQkFBQTtJQUNBLFdBQUE7RUNuQ1Y7RUR1Q007SUFDRSxpQkFBQTtFQ3JDUjtFRHdDTTtJQUNFLGlCQUFBO0VDdENSO0VEeUNNO0lBQ0UsaUJBQUE7RUN2Q1I7RUQyQ0k7SUFDRSxpQkFBQTtJQUNBLGVBQUE7RUN6Q047RUQ0Q0k7SUFDRSxpQkFBQTtJQUNBLGVBQUE7RUMxQ047RUQ2Q0k7SUFDRSxXQUFBO0lBQ0EsYUFBQTtFQzNDTjtFRDhDSTtJQUNFLFdBQUE7SUFDQSxZQUFBO0VDNUNOO0VEK0NJO0lBQ0UsZUFBQTtFQzdDTjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9zZXJ2aWNlLWxvY2F0aW9ucy9zZXJ2aWNlLWxvY2F0aW9ucy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIioge1xyXG4gIGZvbnQtZmFtaWx5OiAnUm9ib3RvJywgc2Fucy1zZXJpZjtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcblxyXG4uc2VydmljZXNMb2NhdGlvbiB7XHJcbiAgaGVpZ2h0OiA5MHZoO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5kZXRhaWxzU2VjdGlvblBDIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiBsaW5lYXItZ3JhZGllbnQodG8gdG9wLCAjMDU5MWVkLCAjMGE3NGRmKTtcclxuICBib3gtc2hhZG93OiAxMHB4IDAgNXB4IC0ycHggIzg4ODtcclxuICB6LWluZGV4OiA5OTk5O1xyXG5cclxuICAuY29udGFpbmVyLWZsdWlkIHtcclxuICAgIHBhZGRpbmc6IDYwcHg7XHJcblxyXG4gICAgaDEge1xyXG4gICAgICBjb2xvcjogd2hpdGU7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjJweDtcclxuICAgIH1cclxuXHJcbiAgICAuc2VhcmNoQ29udGFpbmVyIHtcclxuICAgICAgcGFkZGluZzogMzBweDtcclxuXHJcbiAgICAgIHAge1xyXG4gICAgICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgICAgICBmb250LXNpemU6IDIxcHg7XHJcbiAgICAgICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICAgICAgfVxyXG5cclxuICAgICAgLmZvcm0tZ3JvdXAge1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgfVxyXG5cclxuICAgICAgLmZvcm0tY29udHJvbCB7XHJcbiAgICAgICAgd2lkdGg6IDk1JTtcclxuICAgICAgICBjb2xvcjogI2FjYWFhYTtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgICAgICAgYm94LXNoYWRvdzogMCAzcHggMTJweCAwIHJnYmEoMCwgMCwgMCwgMC4yMSk7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2Y3ZjdmNztcclxuICAgICAgICBoZWlnaHQ6IDUwcHg7XHJcbiAgICAgICAgZm9udC1zaXplOiAyMXB4O1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZmEtc2VhcmNoIHtcclxuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgY29sb3I6IGJsYWNrO1xyXG4gICAgICAgIHJpZ2h0OiA3NHB4O1xyXG4gICAgICAgIHRvcDogMTBweDtcclxuICAgICAgICB6LWluZGV4OiAxMDtcclxuICAgICAgICBmb250LXNpemU6IDI4cHg7XHJcbiAgICAgICAgei1pbmRleDogMTA7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mb3JtLWNvbnRyb2w6OnBsYWNlaG9sZGVyIHtcclxuICAgICAgICBjb2xvcjogI2FjYWFhYVxyXG4gICAgICB9XHJcblxyXG4gICAgICAucmVzdWx0c1NlY3Rpb24ge1xyXG4gICAgICAgIG1heC1oZWlnaHQ6IDUwMHB4O1xyXG4gICAgICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcclxuICAgICAgICBzY3JvbGxiYXItd2lkdGg6IHRoaW47XHJcbiAgICAgICAgc2Nyb2xsYmFyLWJhc2UtY29sb3I6IHdoZWF0O1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuaXRlbUNvbnRhaW5lciB7XHJcbiAgICAgICAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gICAgICAgIGJvcmRlcjogc29saWQgMnB4ICNmN2Y3Zjc7XHJcbiAgICAgICAgd2lkdGg6IDk2JTtcclxuICAgICAgICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAycztcclxuICAgICAgICAtbW96LXRyYW5zaXRpb246IGFsbCAycztcclxuICAgICAgICAtby10cmFuc2l0aW9uOiBhbGwgMnM7XHJcblxyXG4gICAgICAgIC5jb250YWluZXIge1xyXG4gICAgICAgICAgcGFkZGluZzogNXB4O1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLnNlcnZpY2VIZWFkZXIge1xyXG4gICAgICAgICAgcGFkZGluZzogMTRweDtcclxuICAgICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgICAgICAgICBmb250LXNpemU6IDI4cHg7XHJcbiAgICAgICAgICB3aWR0aDogNDAwcHg7XHJcblxyXG4gICAgICAgICAgc3BhbiB7XHJcbiAgICAgICAgICAgIG1hcmdpbi1sZWZ0OiAzMHB4O1xyXG4gICAgICAgICAgICBmb250LXNpemU6IDIzcHg7XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICBoMSB7XHJcbiAgICAgICAgICBmb250LXNpemU6IDE3cHg7XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAuZGlzdGFuY2Uge1xyXG4gICAgICAgICAgbWFyZ2luLWxlZnQ6IDIzMHB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAyM3B4O1xyXG4gICAgICAgICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICAgICAgICAgIG1hcmdpbi10b3A6IDIwcHg7XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAuc3RvcmVBdmFpbGFiaWxpdHlJbmZvIHtcclxuICAgICAgICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgICAgICAgIHBhZGRpbmc6IDEycHg7XHJcbiAgICAgICAgICBtYXJnaW4tbGVmdDogNTdweDtcclxuICAgICAgICAgIGNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuOTIpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLnN0b3JlQWRkcmVzc0luZm8ge1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgICAgICAgbWFyZ2luLWxlZnQ6IDY5cHg7XHJcbiAgICAgICAgICBjb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjkyKTtcclxuICAgICAgICAgIG1hcmdpbi10b3A6IC0zcHg7XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcblxyXG4gICAgICAuaXRlbUNvbnRhaW5lcjpob3ZlciB7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIGJvcmRlcjogc29saWQgMnB4ICM3MzYwMjY7XHJcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuNXM7XHJcbiAgICAgICAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMnM7XHJcbiAgICAgICAgLW1vei10cmFuc2l0aW9uOiBhbGwgMnM7XHJcbiAgICAgICAgLW8tdHJhbnNpdGlvbjogYWxsIDJzO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4ubWFwc1NlY3Rpb25QQyB7XHJcbiAgLmdvb2dsZU1hcHNTdHlsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwdmg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgcmlnaHQ6IDA7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICB0b3A6IDA7XHJcbiAgfVxyXG59XHJcbi8qXHJcblxyXG4qL1xyXG5cclxuLy9HZW5lcmFsIFJlc3BvbnNpdmUgRGVzaWduXHJcbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC1kZXZpY2Utd2lkdGg6IDUwMHB4KSB7XHJcbiAgLnNlcnZpY2VzTG9jYXRpb24ge1xyXG4gICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZiZmJmYiAhaW1wb3J0YW50O1xyXG5cclxuICAgIGgxIHtcclxuICAgICAgZm9udC1zaXplOiAxOXB4O1xyXG4gICAgICBjb2xvcjogIzQ1OTBmMztcclxuICAgICAgcGFkZGluZzogMTVweDtcclxuICAgIH1cclxuXHJcbiAgICAuc2VhcmNoQ29udGFpbmVyIHtcclxuICAgICAgLnNlYXJjaFRpdGxlIHtcclxuICAgICAgICAgIG1hcmdpbi1ib3R0b206IC04cHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHAge1xyXG4gICAgICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICAgICAgY29sb3I6ICNhZmFkYWQgLyojNDU5MGYzKi87XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mb3JtLWdyb3VwIHtcclxuICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mb3JtLWNvbnRyb2wge1xyXG4gICAgICAgIHdpZHRoOiA5MCU7XHJcbiAgICAgICAgY29sb3I6ICNhY2FhYWE7XHJcbiAgICAgICAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gICAgICAgIGJveC1zaGFkb3c6IDAgM3B4IDEycHggMCByZ2JhKDAsIDAsIDAsIDAuMjEpO1xyXG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmN2Y3Zjc7XHJcbiAgICAgICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mYS1zZWFyY2gge1xyXG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICBjb2xvcjogYmxhY2s7XHJcbiAgICAgICAgcmlnaHQ6IDQwcHg7XHJcbiAgICAgICAgdG9wOiAxNHB4O1xyXG4gICAgICAgIHotaW5kZXg6IDEwO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZm9ybS1jb250cm9sOjpwbGFjZWhvbGRlciB7XHJcbiAgICAgICAgY29sb3I6ICNhY2FhYWFcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgIC5yZXN1bHRzU2VjdGlvbiB7XHJcbiAgICAgIG1heC1oZWlnaHQ6IDgwdmg7XHJcbiAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICBvdmVyZmxvdy14OiBoaWRkZW47XHJcbiAgICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcclxuICAgIH1cclxuXHJcbiAgICAuaXRlbUNvbnRhaW5lciB7XHJcbiAgICAgIGJvcmRlci1yYWRpdXM6IDlweDtcclxuICAgICAgYm94LXNoYWRvdzogMCAzcHggNnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE2KTtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2Y3ZjdmNztcclxuICAgICAgd2lkdGg6IDMzNHB4O1xyXG4gICAgICBoZWlnaHQ6IGF1dG87XHJcbiAgICAgIG1hcmdpbi1sZWZ0OiAxOHB4O1xyXG4gICAgICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAwLjVzO1xyXG4gICAgICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjVzO1xyXG4gICAgICAtby10cmFuc2l0aW9uOiBhbGwgMC41cztcclxuICAgICAgbWFyZ2luLXRvcDogMzBweDtcclxuXHJcblxyXG4gICAgICAuY29udGFpbmVyIHtcclxuICAgICAgICAucm93Om50aC1jaGlsZCgxKSB7XHJcblxyXG4gICAgICAgICAgaDEge1xyXG4gICAgICAgICAgICBmb250LXNpemU6IDE2cHg7XHJcbiAgICAgICAgICAgIHdpZHRoOiAyMDBweDtcclxuICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAuZGlzdGFuY2Uge1xyXG4gICAgICAgICAgICB0ZXh0LWFsaWduOiByaWdodDtcclxuICAgICAgICAgICAgd2lkdGg6IGF1dG87XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAucm93Om50aC1jaGlsZCgyKSB7XHJcbiAgICAgICAgICBtYXJnaW4tdG9wOiAtMjhweDtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC5yb3c6bnRoLWNoaWxkKDMpIHtcclxuICAgICAgICAgIG1hcmdpbi10b3A6IC00MHB4O1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLnJvdzpudGgtY2hpbGQoNCkge1xyXG4gICAgICAgICAgbWFyZ2luLXRvcDogLTI3cHg7XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcblxyXG4gICAgICAuc3RvcmVBdmFpbGFiaWxpdHlJbmZvIHtcclxuICAgICAgICBtYXJnaW4tbGVmdDogMThweDtcclxuICAgICAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5zdG9yZUFkZHJlc3NJbmZvIHtcclxuICAgICAgICBtYXJnaW4tbGVmdDogMThweDtcclxuICAgICAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5tYXBWaWV3IHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICBoZWlnaHQ6IDI4MHB4O1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZ29vZ2xlTWFwc1N0eWxlIHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC52aWV3QnV0dG9uIHtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcbn1cclxuIiwiKiB7XG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG4uc2VydmljZXNMb2NhdGlvbiB7XG4gIGhlaWdodDogOTB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5kZXRhaWxzU2VjdGlvblBDIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgIzA1OTFlZCwgIzBhNzRkZik7XG4gIGJveC1zaGFkb3c6IDEwcHggMCA1cHggLTJweCAjODg4O1xuICB6LWluZGV4OiA5OTk5O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCB7XG4gIHBhZGRpbmc6IDYwcHg7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIGgxIHtcbiAgY29sb3I6IHdoaXRlO1xuICBmb250LXNpemU6IDIycHg7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIge1xuICBwYWRkaW5nOiAzMHB4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIHAge1xuICBjb2xvcjogd2hpdGU7XG4gIGZvbnQtc2l6ZTogMjFweDtcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuZm9ybS1ncm91cCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuZm9ybS1jb250cm9sIHtcbiAgd2lkdGg6IDk1JTtcbiAgY29sb3I6ICNhY2FhYWE7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgYm94LXNoYWRvdzogMCAzcHggMTJweCAwIHJnYmEoMCwgMCwgMCwgMC4yMSk7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmN2Y3Zjc7XG4gIGhlaWdodDogNTBweDtcbiAgZm9udC1zaXplOiAyMXB4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5mYS1zZWFyY2gge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGNvbG9yOiBibGFjaztcbiAgcmlnaHQ6IDc0cHg7XG4gIHRvcDogMTBweDtcbiAgei1pbmRleDogMTA7XG4gIGZvbnQtc2l6ZTogMjhweDtcbiAgei1pbmRleDogMTA7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLmZvcm0tY29udHJvbDo6cGxhY2Vob2xkZXIge1xuICBjb2xvcjogI2FjYWFhYTtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAucmVzdWx0c1NlY3Rpb24ge1xuICBtYXgtaGVpZ2h0OiA1MDBweDtcbiAgb3ZlcmZsb3cteTogc2Nyb2xsO1xuICBzY3JvbGxiYXItd2lkdGg6IHRoaW47XG4gIHNjcm9sbGJhci1iYXNlLWNvbG9yOiB3aGVhdDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciB7XG4gIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgYm9yZGVyOiBzb2xpZCAycHggI2Y3ZjdmNztcbiAgd2lkdGg6IDk2JTtcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMnM7XG4gIC1tb3otdHJhbnNpdGlvbjogYWxsIDJzO1xuICAtby10cmFuc2l0aW9uOiBhbGwgMnM7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLml0ZW1Db250YWluZXIgLmNvbnRhaW5lciB7XG4gIHBhZGRpbmc6IDVweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciAuc2VydmljZUhlYWRlciB7XG4gIHBhZGRpbmc6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG4gIGZvbnQtc2l6ZTogMjhweDtcbiAgd2lkdGg6IDQwMHB4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5pdGVtQ29udGFpbmVyIC5zZXJ2aWNlSGVhZGVyIHNwYW4ge1xuICBtYXJnaW4tbGVmdDogMzBweDtcbiAgZm9udC1zaXplOiAyM3B4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5pdGVtQ29udGFpbmVyIGgxIHtcbiAgZm9udC1zaXplOiAxN3B4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5pdGVtQ29udGFpbmVyIC5kaXN0YW5jZSB7XG4gIG1hcmdpbi1sZWZ0OiAyMzBweDtcbiAgZm9udC1zaXplOiAyM3B4O1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBtYXJnaW4tdG9wOiAyMHB4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5pdGVtQ29udGFpbmVyIC5zdG9yZUF2YWlsYWJpbGl0eUluZm8ge1xuICBmb250LXNpemU6IDE4cHg7XG4gIHBhZGRpbmc6IDEycHg7XG4gIG1hcmdpbi1sZWZ0OiA1N3B4O1xuICBjb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjkyKTtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciAuc3RvcmVBZGRyZXNzSW5mbyB7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgbWFyZ2luLWxlZnQ6IDY5cHg7XG4gIGNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuOTIpO1xuICBtYXJnaW4tdG9wOiAtM3B4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5pdGVtQ29udGFpbmVyOmhvdmVyIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBib3JkZXI6IHNvbGlkIDJweCAjNzM2MDI2O1xuICB0cmFuc2l0aW9uOiBhbGwgMC41cztcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMnM7XG4gIC1tb3otdHJhbnNpdGlvbjogYWxsIDJzO1xuICAtby10cmFuc2l0aW9uOiBhbGwgMnM7XG59XG5cbi5tYXBzU2VjdGlvblBDIC5nb29nbGVNYXBzU3R5bGUge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgYm90dG9tOiAwO1xuICB0b3A6IDA7XG59XG5cbi8qXG5cbiovXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtZGV2aWNlLXdpZHRoOiA1MDBweCkge1xuICAuc2VydmljZXNMb2NhdGlvbiB7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZiZmJmYiAhaW1wb3J0YW50O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIGgxIHtcbiAgICBmb250LXNpemU6IDE5cHg7XG4gICAgY29sb3I6ICM0NTkwZjM7XG4gICAgcGFkZGluZzogMTVweDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuc2VhcmNoQ29udGFpbmVyIC5zZWFyY2hUaXRsZSB7XG4gICAgbWFyZ2luLWJvdHRvbTogLThweDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuc2VhcmNoQ29udGFpbmVyIHAge1xuICAgIHBhZGRpbmc6IDE1cHg7XG4gICAgY29sb3I6ICNhZmFkYWQ7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLnNlYXJjaENvbnRhaW5lciAuZm9ybS1ncm91cCB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5zZWFyY2hDb250YWluZXIgLmZvcm0tY29udHJvbCB7XG4gICAgd2lkdGg6IDkwJTtcbiAgICBjb2xvcjogI2FjYWFhYTtcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgYm94LXNoYWRvdzogMCAzcHggMTJweCAwIHJnYmEoMCwgMCwgMCwgMC4yMSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y3ZjdmNztcbiAgICBtYXJnaW46IDAgYXV0bztcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuc2VhcmNoQ29udGFpbmVyIC5mYS1zZWFyY2gge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBjb2xvcjogYmxhY2s7XG4gICAgcmlnaHQ6IDQwcHg7XG4gICAgdG9wOiAxNHB4O1xuICAgIHotaW5kZXg6IDEwO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5zZWFyY2hDb250YWluZXIgLmZvcm0tY29udHJvbDo6cGxhY2Vob2xkZXIge1xuICAgIGNvbG9yOiAjYWNhYWFhO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5yZXN1bHRzU2VjdGlvbiB7XG4gICAgbWF4LWhlaWdodDogODB2aDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBvdmVyZmxvdy14OiBoaWRkZW47XG4gICAgb3ZlcmZsb3cteTogc2Nyb2xsO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIHtcbiAgICBib3JkZXItcmFkaXVzOiA5cHg7XG4gICAgYm94LXNoYWRvdzogMCAzcHggNnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE2KTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjdmN2Y3O1xuICAgIHdpZHRoOiAzMzRweDtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luLWxlZnQ6IDE4cHg7XG4gICAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC41cztcbiAgICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjVzO1xuICAgIC1vLXRyYW5zaXRpb246IGFsbCAwLjVzO1xuICAgIG1hcmdpbi10b3A6IDMwcHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLmNvbnRhaW5lciAucm93Om50aC1jaGlsZCgxKSBoMSB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIHdpZHRoOiAyMDBweDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuaXRlbUNvbnRhaW5lciAuY29udGFpbmVyIC5yb3c6bnRoLWNoaWxkKDEpIC5kaXN0YW5jZSB7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gICAgd2lkdGg6IGF1dG87XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLmNvbnRhaW5lciAucm93Om50aC1jaGlsZCgyKSB7XG4gICAgbWFyZ2luLXRvcDogLTI4cHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLmNvbnRhaW5lciAucm93Om50aC1jaGlsZCgzKSB7XG4gICAgbWFyZ2luLXRvcDogLTQwcHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLmNvbnRhaW5lciAucm93Om50aC1jaGlsZCg0KSB7XG4gICAgbWFyZ2luLXRvcDogLTI3cHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLnN0b3JlQXZhaWxhYmlsaXR5SW5mbyB7XG4gICAgbWFyZ2luLWxlZnQ6IDE4cHg7XG4gICAgZm9udC1zaXplOiAxNHB4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5zdG9yZUFkZHJlc3NJbmZvIHtcbiAgICBtYXJnaW4tbGVmdDogMThweDtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLm1hcFZpZXcge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMjgwcHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLmdvb2dsZU1hcHNTdHlsZSB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC52aWV3QnV0dG9uIHtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gIH1cbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("* {\n  font-family: \"Roboto\", sans-serif;\n  overflow: hidden;\n}\n\n.servicesLocation {\n  height: 90vh;\n  overflow: hidden;\n  width: 100%;\n}\n\n.detailsSectionPC {\n  background-image: linear-gradient(to top, #0591ed, #0a74df);\n  box-shadow: 10px 0 5px -2px #888;\n  z-index: 9999;\n}\n\n.detailsSectionPC .container-fluid {\n  padding: 60px;\n  padding-top: 30px;\n}\n\n.detailsSectionPC .container-fluid h1 {\n  color: white;\n  font-size: 22px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer {\n  padding: 30px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer p {\n  color: white;\n  font-size: 21px;\n  font-weight: normal;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-group {\n  position: relative;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-control {\n  width: 95%;\n  color: #acaaaa;\n  border-radius: 8px;\n  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);\n  background-color: #f7f7f7;\n  height: 50px;\n  font-size: 21px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .fa-search {\n  position: absolute;\n  color: black;\n  right: 74px;\n  top: 10px;\n  z-index: 10;\n  font-size: 28px;\n  z-index: 10;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-control::-moz-placeholder {\n  color: #acaaaa;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .form-control::placeholder {\n  color: #acaaaa;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .resultsSection {\n  max-height: 440px;\n  overflow-y: scroll;\n  scrollbar-width: thin;\n  scrollbar-base-color: wheat;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer {\n  border-radius: 8px;\n  border: solid 2px #f7f7f7;\n  width: 96%;\n  -webkit-transition: all 2s;\n  -moz-transition: all 2s;\n  -o-transition: all 2s;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .container {\n  padding: 5px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .serviceHeader {\n  padding: 14px;\n  font-weight: normal;\n  font-size: 28px;\n  width: 400px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .serviceHeader span {\n  margin-left: 30px;\n  font-size: 23px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer h1 {\n  font-size: 17px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .distance {\n  margin-left: 230px;\n  font-size: 23px;\n  font-weight: normal;\n  margin-top: 20px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .storeAvailabilityInfo {\n  font-size: 18px;\n  padding: 12px;\n  margin-left: 57px;\n  color: rgba(235, 235, 235, 0.92);\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer .storeAddressInfo {\n  font-size: 18px;\n  margin-left: 69px;\n  color: rgba(235, 235, 235, 0.92);\n  margin-top: -3px;\n}\n\n.detailsSectionPC .container-fluid .searchContainer .itemContainer:hover {\n  cursor: pointer;\n  border: solid 2px #736026;\n  transition: all 0.5s;\n  -webkit-transition: all 2s;\n  -moz-transition: all 2s;\n  -o-transition: all 2s;\n}\n\n.mapsSectionPC .googleMapsStyle {\n  width: 100%;\n  height: 100vh;\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  top: 0;\n}\n\n/*\n\n*/\n\n@media only screen and (max-device-width: 500px) {\n  .servicesLocation {\n    height: auto;\n    overflow: hidden;\n    width: 100%;\n    background-color: #fbfbfb !important;\n  }\n  .servicesLocation h1 {\n    font-size: 19px;\n    color: #4590f3;\n    padding: 15px;\n  }\n  .servicesLocation .searchContainer .searchTitle {\n    margin-bottom: -8px;\n  }\n  .servicesLocation .searchContainer p {\n    padding: 15px;\n    color: #afadad;\n  }\n  .servicesLocation .searchContainer .form-group {\n    position: relative;\n  }\n  .servicesLocation .searchContainer .form-control {\n    width: 90%;\n    color: #acaaaa;\n    border-radius: 8px;\n    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.21);\n    background-color: #f7f7f7;\n    margin: 0 auto;\n  }\n  .servicesLocation .searchContainer .fa-search {\n    position: absolute;\n    color: black;\n    right: 40px;\n    top: 14px;\n    z-index: 10;\n  }\n  .servicesLocation .searchContainer .form-control::-moz-placeholder {\n    color: #acaaaa;\n  }\n  .servicesLocation .searchContainer .form-control::placeholder {\n    color: #acaaaa;\n  }\n  .servicesLocation .resultsSection {\n    max-height: 80vh;\n    width: 100%;\n    overflow-x: hidden;\n    overflow-y: scroll;\n  }\n  .servicesLocation .itemContainer {\n    border-radius: 9px;\n    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);\n    background-color: #f7f7f7;\n    width: 334px;\n    height: auto;\n    margin-left: 18px;\n    -webkit-transition: all 0.5s;\n    -moz-transition: all 0.5s;\n    -o-transition: all 0.5s;\n    margin-top: 30px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(1) h1 {\n    font-size: 16px;\n    width: 200px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(1) .distance {\n    text-align: right;\n    width: auto;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(2) {\n    margin-top: -28px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(3) {\n    margin-top: -40px;\n  }\n  .servicesLocation .itemContainer .container .row:nth-child(4) {\n    margin-top: -27px;\n  }\n  .servicesLocation .itemContainer .storeAvailabilityInfo {\n    margin-left: 18px;\n    font-size: 14px;\n  }\n  .servicesLocation .itemContainer .storeAddressInfo {\n    margin-left: 18px;\n    font-size: 14px;\n  }\n  .servicesLocation .itemContainer .mapView {\n    width: 100%;\n    height: 280px;\n  }\n  .servicesLocation .itemContainer .googleMapsStyle {\n    width: 100%;\n    height: 100%;\n  }\n  .servicesLocation .itemContainer .viewButton {\n    cursor: pointer;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9zZXJ2aWNlLWxvY2F0aW9ucy9OOlxcQ29kZVxcUmVwb3NcXFJlc2VydmF0aW9uLVN5c3RlbVxcUmVzZXJ2YXRpb24tU3lzdGVtL3NyY1xcYXBwXFxtb2R1bGVzXFxzZXJ2aWNlLWxvY2F0aW9uc1xcc2VydmljZS1sb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL21vZHVsZXMvc2VydmljZS1sb2NhdGlvbnMvc2VydmljZS1sb2NhdGlvbnMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FERUE7RUFDRSxZQUFBO0VBQ0EsZ0JBQUE7RUFDQSxXQUFBO0FDQ0Y7O0FERUE7RUFDRSwyREFBQTtFQUNBLGdDQUFBO0VBQ0EsYUFBQTtBQ0NGOztBRENDO0VBQ0csYUFBQTtFQUNBLGlCQUFBO0FDQ0o7O0FEQ0k7RUFDRSxZQUFBO0VBQ0EsZUFBQTtBQ0NOOztBREVJO0VBQ0UsYUFBQTtBQ0FOOztBREVNO0VBQ0UsWUFBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtBQ0FSOztBREdNO0VBQ0Usa0JBQUE7QUNEUjs7QURJTTtFQUNFLFVBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSw0Q0FBQTtFQUNBLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7QUNGUjs7QURLTTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSxTQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0FDSFI7O0FETU07RUFDRSxjQUFBO0FDSlI7O0FER007RUFDRSxjQUFBO0FDSlI7O0FET007RUFDRSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSwyQkFBQTtBQ0xSOztBRFFNO0VBQ0Usa0JBQUE7RUFDQSx5QkFBQTtFQUNBLFVBQUE7RUFDQSwwQkFBQTtFQUNBLHVCQUFBO0VBQ0EscUJBQUE7QUNOUjs7QURRUTtFQUNFLFlBQUE7QUNOVjs7QURTUTtFQUNFLGFBQUE7RUFDQSxtQkFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0FDUFY7O0FEU1U7RUFDRSxpQkFBQTtFQUNBLGVBQUE7QUNQWjs7QURXUTtFQUNFLGVBQUE7QUNUVjs7QURZUTtFQUNFLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7QUNWVjs7QURhUTtFQUNFLGVBQUE7RUFDQSxhQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQ0FBQTtBQ1hWOztBRGNRO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxnQkFBQTtBQ1pWOztBRGdCTTtFQUNFLGVBQUE7RUFDQSx5QkFBQTtFQUNBLG9CQUFBO0VBQ0EsMEJBQUE7RUFDQSx1QkFBQTtFQUNBLHFCQUFBO0FDZFI7O0FEcUJFO0VBQ0UsV0FBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLE1BQUE7QUNsQko7O0FEc0JBOztDQUFBOztBQUtBO0VBQ0U7SUFDRSxZQUFBO0lBQ0EsZ0JBQUE7SUFDQSxXQUFBO0lBQ0Esb0NBQUE7RUNyQkY7RUR1QkU7SUFDRSxlQUFBO0lBQ0EsY0FBQTtJQUNBLGFBQUE7RUNyQko7RUR5Qkk7SUFDSSxtQkFBQTtFQ3ZCUjtFRDBCSTtJQUNFLGFBQUE7SUFDQSxjQUFBO0VDeEJOO0VEMkJJO0lBQ0Usa0JBQUE7RUN6Qk47RUQ0Qkk7SUFDRSxVQUFBO0lBQ0EsY0FBQTtJQUNBLGtCQUFBO0lBQ0EsNENBQUE7SUFDQSx5QkFBQTtJQUNBLGNBQUE7RUMxQk47RUQ2Qkk7SUFDRSxrQkFBQTtJQUNBLFlBQUE7SUFDQSxXQUFBO0lBQ0EsU0FBQTtJQUNBLFdBQUE7RUMzQk47RUQ4Qkk7SUFDRSxjQUFBO0VDNUJOO0VEMkJJO0lBQ0UsY0FBQTtFQzVCTjtFRGdDRTtJQUNFLGdCQUFBO0lBQ0EsV0FBQTtJQUNBLGtCQUFBO0lBQ0Esa0JBQUE7RUM5Qko7RURpQ0U7SUFDRSxrQkFBQTtJQUNBLDJDQUFBO0lBQ0EseUJBQUE7SUFDQSxZQUFBO0lBQ0EsWUFBQTtJQUNBLGlCQUFBO0lBQ0EsNEJBQUE7SUFDQSx5QkFBQTtJQUNBLHVCQUFBO0lBQ0EsZ0JBQUE7RUMvQko7RURxQ1E7SUFDRSxlQUFBO0lBQ0EsWUFBQTtFQ25DVjtFRHNDUTtJQUNFLGlCQUFBO0lBQ0EsV0FBQTtFQ3BDVjtFRHdDTTtJQUNFLGlCQUFBO0VDdENSO0VEeUNNO0lBQ0UsaUJBQUE7RUN2Q1I7RUQwQ007SUFDRSxpQkFBQTtFQ3hDUjtFRDRDSTtJQUNFLGlCQUFBO0lBQ0EsZUFBQTtFQzFDTjtFRDZDSTtJQUNFLGlCQUFBO0lBQ0EsZUFBQTtFQzNDTjtFRDhDSTtJQUNFLFdBQUE7SUFDQSxhQUFBO0VDNUNOO0VEK0NJO0lBQ0UsV0FBQTtJQUNBLFlBQUE7RUM3Q047RURnREk7SUFDRSxlQUFBO0VDOUNOO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL3NlcnZpY2UtbG9jYXRpb25zL3NlcnZpY2UtbG9jYXRpb25zLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgZm9udC1mYW1pbHk6ICdSb2JvdG8nLCBzYW5zLXNlcmlmO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbn1cclxuXHJcbi5zZXJ2aWNlc0xvY2F0aW9uIHtcclxuICBoZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLmRldGFpbHNTZWN0aW9uUEMge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsICMwNTkxZWQsICMwYTc0ZGYpO1xyXG4gIGJveC1zaGFkb3c6IDEwcHggMCA1cHggLTJweCAjODg4O1xyXG4gIHotaW5kZXg6IDk5OTk7XHJcblxyXG4gLmNvbnRhaW5lci1mbHVpZCB7XHJcbiAgICBwYWRkaW5nOiA2MHB4O1xyXG4gICAgcGFkZGluZy10b3A6MzBweDtcclxuXHJcbiAgICBoMSB7XHJcbiAgICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgICAgZm9udC1zaXplOiAyMnB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5zZWFyY2hDb250YWluZXIge1xyXG4gICAgICBwYWRkaW5nOiAzMHB4O1xyXG5cclxuICAgICAgcCB7XHJcbiAgICAgICAgY29sb3I6IHdoaXRlO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMjFweDtcclxuICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZm9ybS1ncm91cCB7XHJcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZm9ybS1jb250cm9sIHtcclxuICAgICAgICB3aWR0aDogOTUlO1xyXG4gICAgICAgIGNvbG9yOiAjYWNhYWFhO1xyXG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICAgICAgICBib3gtc2hhZG93OiAwIDNweCAxMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjIxKTtcclxuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjdmN2Y3O1xyXG4gICAgICAgIGhlaWdodDogNTBweDtcclxuICAgICAgICBmb250LXNpemU6IDIxcHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mYS1zZWFyY2gge1xyXG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICBjb2xvcjogYmxhY2s7XHJcbiAgICAgICAgcmlnaHQ6IDc0cHg7XHJcbiAgICAgICAgdG9wOiAxMHB4O1xyXG4gICAgICAgIHotaW5kZXg6IDEwO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMjhweDtcclxuICAgICAgICB6LWluZGV4OiAxMDtcclxuICAgICAgfVxyXG5cclxuICAgICAgLmZvcm0tY29udHJvbDo6cGxhY2Vob2xkZXIge1xyXG4gICAgICAgIGNvbG9yOiAjYWNhYWFhXHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5yZXN1bHRzU2VjdGlvbiB7XHJcbiAgICAgICAgbWF4LWhlaWdodDogNDQwcHg7XHJcbiAgICAgICAgb3ZlcmZsb3cteTogc2Nyb2xsO1xyXG4gICAgICAgIHNjcm9sbGJhci13aWR0aDogdGhpbjtcclxuICAgICAgICBzY3JvbGxiYXItYmFzZS1jb2xvcjogd2hlYXQ7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5pdGVtQ29udGFpbmVyIHtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgICAgICAgYm9yZGVyOiBzb2xpZCAycHggI2Y3ZjdmNztcclxuICAgICAgICB3aWR0aDogOTYlO1xyXG4gICAgICAgIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDJzO1xyXG4gICAgICAgIC1tb3otdHJhbnNpdGlvbjogYWxsIDJzO1xyXG4gICAgICAgIC1vLXRyYW5zaXRpb246IGFsbCAycztcclxuXHJcbiAgICAgICAgLmNvbnRhaW5lciB7XHJcbiAgICAgICAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAuc2VydmljZUhlYWRlciB7XHJcbiAgICAgICAgICBwYWRkaW5nOiAxNHB4O1xyXG4gICAgICAgICAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcclxuICAgICAgICAgIGZvbnQtc2l6ZTogMjhweDtcclxuICAgICAgICAgIHdpZHRoOiA0MDBweDtcclxuXHJcbiAgICAgICAgICBzcGFuIHtcclxuICAgICAgICAgICAgbWFyZ2luLWxlZnQ6IDMwcHg7XHJcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMjNweDtcclxuICAgICAgICAgIH1cclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIGgxIHtcclxuICAgICAgICAgIGZvbnQtc2l6ZTogMTdweDtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC5kaXN0YW5jZSB7XHJcbiAgICAgICAgICBtYXJnaW4tbGVmdDogMjMwcHg7XHJcbiAgICAgICAgICBmb250LXNpemU6IDIzcHg7XHJcbiAgICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gICAgICAgICAgbWFyZ2luLXRvcDogMjBweDtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC5zdG9yZUF2YWlsYWJpbGl0eUluZm8ge1xyXG4gICAgICAgICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgICAgICAgcGFkZGluZzogMTJweDtcclxuICAgICAgICAgIG1hcmdpbi1sZWZ0OiA1N3B4O1xyXG4gICAgICAgICAgY29sb3I6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC45Mik7XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAuc3RvcmVBZGRyZXNzSW5mbyB7XHJcbiAgICAgICAgICBmb250LXNpemU6IDE4cHg7XHJcbiAgICAgICAgICBtYXJnaW4tbGVmdDogNjlweDtcclxuICAgICAgICAgIGNvbG9yOiByZ2JhKDIzNSwgMjM1LCAyMzUsIDAuOTIpO1xyXG4gICAgICAgICAgbWFyZ2luLXRvcDogLTNweDtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5pdGVtQ29udGFpbmVyOmhvdmVyIHtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAgICAgYm9yZGVyOiBzb2xpZCAycHggIzczNjAyNjtcclxuICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC41cztcclxuICAgICAgICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAycztcclxuICAgICAgICAtbW96LXRyYW5zaXRpb246IGFsbCAycztcclxuICAgICAgICAtby10cmFuc2l0aW9uOiBhbGwgMnM7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5tYXBzU2VjdGlvblBDIHtcclxuICAuZ29vZ2xlTWFwc1N0eWxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMDB2aDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICByaWdodDogMDtcclxuICAgIGJvdHRvbTogMDtcclxuICAgIHRvcDogMDtcclxuICB9XHJcbn1cclxuXHJcbi8qXHJcblxyXG4qL1xyXG5cclxuLy9HZW5lcmFsIFJlc3BvbnNpdmUgRGVzaWduXHJcbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC1kZXZpY2Utd2lkdGg6IDUwMHB4KSB7XHJcbiAgLnNlcnZpY2VzTG9jYXRpb24ge1xyXG4gICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZiZmJmYiAhaW1wb3J0YW50O1xyXG5cclxuICAgIGgxIHtcclxuICAgICAgZm9udC1zaXplOiAxOXB4O1xyXG4gICAgICBjb2xvcjogIzQ1OTBmMztcclxuICAgICAgcGFkZGluZzogMTVweDtcclxuICAgIH1cclxuXHJcbiAgICAuc2VhcmNoQ29udGFpbmVyIHtcclxuICAgICAgLnNlYXJjaFRpdGxlIHtcclxuICAgICAgICAgIG1hcmdpbi1ib3R0b206IC04cHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIHAge1xyXG4gICAgICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgICAgICAgY29sb3I6ICNhZmFkYWQgLyojNDU5MGYzKi87XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mb3JtLWdyb3VwIHtcclxuICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mb3JtLWNvbnRyb2wge1xyXG4gICAgICAgIHdpZHRoOiA5MCU7XHJcbiAgICAgICAgY29sb3I6ICNhY2FhYWE7XHJcbiAgICAgICAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gICAgICAgIGJveC1zaGFkb3c6IDAgM3B4IDEycHggMCByZ2JhKDAsIDAsIDAsIDAuMjEpO1xyXG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmN2Y3Zjc7XHJcbiAgICAgICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5mYS1zZWFyY2gge1xyXG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgICAgICBjb2xvcjogYmxhY2s7XHJcbiAgICAgICAgcmlnaHQ6IDQwcHg7XHJcbiAgICAgICAgdG9wOiAxNHB4O1xyXG4gICAgICAgIHotaW5kZXg6IDEwO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZm9ybS1jb250cm9sOjpwbGFjZWhvbGRlciB7XHJcbiAgICAgICAgY29sb3I6ICNhY2FhYWFcclxuICAgICAgfVxyXG4gICAgfVxyXG5cclxuICAgIC5yZXN1bHRzU2VjdGlvbiB7XHJcbiAgICAgIG1heC1oZWlnaHQ6IDgwdmg7XHJcbiAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICBvdmVyZmxvdy14OiBoaWRkZW47XHJcbiAgICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcclxuICAgIH1cclxuXHJcbiAgICAuaXRlbUNvbnRhaW5lciB7XHJcbiAgICAgIGJvcmRlci1yYWRpdXM6IDlweDtcclxuICAgICAgYm94LXNoYWRvdzogMCAzcHggNnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE2KTtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2Y3ZjdmNztcclxuICAgICAgd2lkdGg6IDMzNHB4O1xyXG4gICAgICBoZWlnaHQ6IGF1dG87XHJcbiAgICAgIG1hcmdpbi1sZWZ0OiAxOHB4O1xyXG4gICAgICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAwLjVzO1xyXG4gICAgICAtbW96LXRyYW5zaXRpb246IGFsbCAwLjVzO1xyXG4gICAgICAtby10cmFuc2l0aW9uOiBhbGwgMC41cztcclxuICAgICAgbWFyZ2luLXRvcDogMzBweDtcclxuXHJcblxyXG4gICAgICAuY29udGFpbmVyIHtcclxuICAgICAgICAucm93Om50aC1jaGlsZCgxKSB7XHJcblxyXG4gICAgICAgICAgaDEge1xyXG4gICAgICAgICAgICBmb250LXNpemU6IDE2cHg7XHJcbiAgICAgICAgICAgIHdpZHRoOiAyMDBweDtcclxuICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAuZGlzdGFuY2Uge1xyXG4gICAgICAgICAgICB0ZXh0LWFsaWduOiByaWdodDtcclxuICAgICAgICAgICAgd2lkdGg6IGF1dG87XHJcbiAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAucm93Om50aC1jaGlsZCgyKSB7XHJcbiAgICAgICAgICBtYXJnaW4tdG9wOiAtMjhweDtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC5yb3c6bnRoLWNoaWxkKDMpIHtcclxuICAgICAgICAgIG1hcmdpbi10b3A6IC00MHB4O1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLnJvdzpudGgtY2hpbGQoNCkge1xyXG4gICAgICAgICAgbWFyZ2luLXRvcDogLTI3cHg7XHJcbiAgICAgICAgfVxyXG4gICAgICB9XHJcblxyXG4gICAgICAuc3RvcmVBdmFpbGFiaWxpdHlJbmZvIHtcclxuICAgICAgICBtYXJnaW4tbGVmdDogMThweDtcclxuICAgICAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5zdG9yZUFkZHJlc3NJbmZvIHtcclxuICAgICAgICBtYXJnaW4tbGVmdDogMThweDtcclxuICAgICAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5tYXBWaWV3IHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICBoZWlnaHQ6IDI4MHB4O1xyXG4gICAgICB9XHJcblxyXG4gICAgICAuZ29vZ2xlTWFwc1N0eWxlIHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC52aWV3QnV0dG9uIHtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcbn1cclxuIiwiKiB7XG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG4uc2VydmljZXNMb2NhdGlvbiB7XG4gIGhlaWdodDogOTB2aDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5kZXRhaWxzU2VjdGlvblBDIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIHRvcCwgIzA1OTFlZCwgIzBhNzRkZik7XG4gIGJveC1zaGFkb3c6IDEwcHggMCA1cHggLTJweCAjODg4O1xuICB6LWluZGV4OiA5OTk5O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCB7XG4gIHBhZGRpbmc6IDYwcHg7XG4gIHBhZGRpbmctdG9wOiAzMHB4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCBoMSB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC1zaXplOiAyMnB4O1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIHtcbiAgcGFkZGluZzogMzBweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciBwIHtcbiAgY29sb3I6IHdoaXRlO1xuICBmb250LXNpemU6IDIxcHg7XG4gIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLmZvcm0tZ3JvdXAge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLmZvcm0tY29udHJvbCB7XG4gIHdpZHRoOiA5NSU7XG4gIGNvbG9yOiAjYWNhYWFhO1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGJveC1zaGFkb3c6IDAgM3B4IDEycHggMCByZ2JhKDAsIDAsIDAsIDAuMjEpO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjdmN2Y3O1xuICBoZWlnaHQ6IDUwcHg7XG4gIGZvbnQtc2l6ZTogMjFweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuZmEtc2VhcmNoIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBjb2xvcjogYmxhY2s7XG4gIHJpZ2h0OiA3NHB4O1xuICB0b3A6IDEwcHg7XG4gIHotaW5kZXg6IDEwO1xuICBmb250LXNpemU6IDI4cHg7XG4gIHotaW5kZXg6IDEwO1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5mb3JtLWNvbnRyb2w6OnBsYWNlaG9sZGVyIHtcbiAgY29sb3I6ICNhY2FhYWE7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLnJlc3VsdHNTZWN0aW9uIHtcbiAgbWF4LWhlaWdodDogNDQwcHg7XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbiAgc2Nyb2xsYmFyLXdpZHRoOiB0aGluO1xuICBzY3JvbGxiYXItYmFzZS1jb2xvcjogd2hlYXQ7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLml0ZW1Db250YWluZXIge1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGJvcmRlcjogc29saWQgMnB4ICNmN2Y3Zjc7XG4gIHdpZHRoOiA5NiU7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDJzO1xuICAtbW96LXRyYW5zaXRpb246IGFsbCAycztcbiAgLW8tdHJhbnNpdGlvbjogYWxsIDJzO1xufVxuLmRldGFpbHNTZWN0aW9uUEMgLmNvbnRhaW5lci1mbHVpZCAuc2VhcmNoQ29udGFpbmVyIC5pdGVtQ29udGFpbmVyIC5jb250YWluZXIge1xuICBwYWRkaW5nOiA1cHg7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLml0ZW1Db250YWluZXIgLnNlcnZpY2VIZWFkZXIge1xuICBwYWRkaW5nOiAxNHB4O1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBmb250LXNpemU6IDI4cHg7XG4gIHdpZHRoOiA0MDBweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciAuc2VydmljZUhlYWRlciBzcGFuIHtcbiAgbWFyZ2luLWxlZnQ6IDMwcHg7XG4gIGZvbnQtc2l6ZTogMjNweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciBoMSB7XG4gIGZvbnQtc2l6ZTogMTdweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciAuZGlzdGFuY2Uge1xuICBtYXJnaW4tbGVmdDogMjMwcHg7XG4gIGZvbnQtc2l6ZTogMjNweDtcbiAgZm9udC13ZWlnaHQ6IG5vcm1hbDtcbiAgbWFyZ2luLXRvcDogMjBweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lciAuc3RvcmVBdmFpbGFiaWxpdHlJbmZvIHtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBwYWRkaW5nOiAxMnB4O1xuICBtYXJnaW4tbGVmdDogNTdweDtcbiAgY29sb3I6IHJnYmEoMjM1LCAyMzUsIDIzNSwgMC45Mik7XG59XG4uZGV0YWlsc1NlY3Rpb25QQyAuY29udGFpbmVyLWZsdWlkIC5zZWFyY2hDb250YWluZXIgLml0ZW1Db250YWluZXIgLnN0b3JlQWRkcmVzc0luZm8ge1xuICBmb250LXNpemU6IDE4cHg7XG4gIG1hcmdpbi1sZWZ0OiA2OXB4O1xuICBjb2xvcjogcmdiYSgyMzUsIDIzNSwgMjM1LCAwLjkyKTtcbiAgbWFyZ2luLXRvcDogLTNweDtcbn1cbi5kZXRhaWxzU2VjdGlvblBDIC5jb250YWluZXItZmx1aWQgLnNlYXJjaENvbnRhaW5lciAuaXRlbUNvbnRhaW5lcjpob3ZlciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgYm9yZGVyOiBzb2xpZCAycHggIzczNjAyNjtcbiAgdHJhbnNpdGlvbjogYWxsIDAuNXM7XG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDJzO1xuICAtbW96LXRyYW5zaXRpb246IGFsbCAycztcbiAgLW8tdHJhbnNpdGlvbjogYWxsIDJzO1xufVxuXG4ubWFwc1NlY3Rpb25QQyAuZ29vZ2xlTWFwc1N0eWxlIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwdmg7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIGJvdHRvbTogMDtcbiAgdG9wOiAwO1xufVxuXG4vKlxuXG4qL1xuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LWRldmljZS13aWR0aDogNTAwcHgpIHtcbiAgLnNlcnZpY2VzTG9jYXRpb24ge1xuICAgIGhlaWdodDogYXV0bztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmYmZiZmIgIWltcG9ydGFudDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiBoMSB7XG4gICAgZm9udC1zaXplOiAxOXB4O1xuICAgIGNvbG9yOiAjNDU5MGYzO1xuICAgIHBhZGRpbmc6IDE1cHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLnNlYXJjaENvbnRhaW5lciAuc2VhcmNoVGl0bGUge1xuICAgIG1hcmdpbi1ib3R0b206IC04cHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLnNlYXJjaENvbnRhaW5lciBwIHtcbiAgICBwYWRkaW5nOiAxNXB4O1xuICAgIGNvbG9yOiAjYWZhZGFkO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5zZWFyY2hDb250YWluZXIgLmZvcm0tZ3JvdXAge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuc2VhcmNoQ29udGFpbmVyIC5mb3JtLWNvbnRyb2wge1xuICAgIHdpZHRoOiA5MCU7XG4gICAgY29sb3I6ICNhY2FhYWE7XG4gICAgYm9yZGVyLXJhZGl1czogOHB4O1xuICAgIGJveC1zaGFkb3c6IDAgM3B4IDEycHggMCByZ2JhKDAsIDAsIDAsIDAuMjEpO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNmN2Y3Zjc7XG4gICAgbWFyZ2luOiAwIGF1dG87XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLnNlYXJjaENvbnRhaW5lciAuZmEtc2VhcmNoIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgY29sb3I6IGJsYWNrO1xuICAgIHJpZ2h0OiA0MHB4O1xuICAgIHRvcDogMTRweDtcbiAgICB6LWluZGV4OiAxMDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuc2VhcmNoQ29udGFpbmVyIC5mb3JtLWNvbnRyb2w6OnBsYWNlaG9sZGVyIHtcbiAgICBjb2xvcjogI2FjYWFhYTtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAucmVzdWx0c1NlY3Rpb24ge1xuICAgIG1heC1oZWlnaHQ6IDgwdmg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgb3ZlcmZsb3cteDogaGlkZGVuO1xuICAgIG92ZXJmbG93LXk6IHNjcm9sbDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuaXRlbUNvbnRhaW5lciB7XG4gICAgYm9yZGVyLXJhZGl1czogOXB4O1xuICAgIGJveC1zaGFkb3c6IDAgM3B4IDZweCAwIHJnYmEoMCwgMCwgMCwgMC4xNik7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y3ZjdmNztcbiAgICB3aWR0aDogMzM0cHg7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1hcmdpbi1sZWZ0OiAxOHB4O1xuICAgIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuNXM7XG4gICAgLW1vei10cmFuc2l0aW9uOiBhbGwgMC41cztcbiAgICAtby10cmFuc2l0aW9uOiBhbGwgMC41cztcbiAgICBtYXJnaW4tdG9wOiAzMHB4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5jb250YWluZXIgLnJvdzpudGgtY2hpbGQoMSkgaDEge1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICB3aWR0aDogMjAwcHg7XG4gIH1cbiAgLnNlcnZpY2VzTG9jYXRpb24gLml0ZW1Db250YWluZXIgLmNvbnRhaW5lciAucm93Om50aC1jaGlsZCgxKSAuZGlzdGFuY2Uge1xuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuICAgIHdpZHRoOiBhdXRvO1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5jb250YWluZXIgLnJvdzpudGgtY2hpbGQoMikge1xuICAgIG1hcmdpbi10b3A6IC0yOHB4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5jb250YWluZXIgLnJvdzpudGgtY2hpbGQoMykge1xuICAgIG1hcmdpbi10b3A6IC00MHB4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5jb250YWluZXIgLnJvdzpudGgtY2hpbGQoNCkge1xuICAgIG1hcmdpbi10b3A6IC0yN3B4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5zdG9yZUF2YWlsYWJpbGl0eUluZm8ge1xuICAgIG1hcmdpbi1sZWZ0OiAxOHB4O1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuaXRlbUNvbnRhaW5lciAuc3RvcmVBZGRyZXNzSW5mbyB7XG4gICAgbWFyZ2luLWxlZnQ6IDE4cHg7XG4gICAgZm9udC1zaXplOiAxNHB4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5tYXBWaWV3IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDI4MHB4O1xuICB9XG4gIC5zZXJ2aWNlc0xvY2F0aW9uIC5pdGVtQ29udGFpbmVyIC5nb29nbGVNYXBzU3R5bGUge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgfVxuICAuc2VydmljZXNMb2NhdGlvbiAuaXRlbUNvbnRhaW5lciAudmlld0J1dHRvbiB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICB9XG59Il19 */");
 
 /***/ }),
 
@@ -1145,6 +1166,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
 /* harmony import */ var _services_utilities_LanguageHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/utilities/LanguageHelper */ "./src/app/services/utilities/LanguageHelper.ts");
+/* harmony import */ var _services_Branch_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/Branch-service */ "./src/app/services/Branch-service.ts");
+/* harmony import */ var _models_request_getStoreIdsModel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/request/getStoreIdsModel */ "./src/app/models/request/getStoreIdsModel.ts");
+/* harmony import */ var _services_Reservation_History_Service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/Reservation-History-Service */ "./src/app/services/Reservation-History-Service.ts");
+
+
+
 
 
 
@@ -1156,12 +1183,19 @@ class services {
     }
 }
 let ServiceLocationsComponent = class ServiceLocationsComponent {
-    constructor(router, languageHelper, mapsAPILoader, ngZone) {
+    constructor(branchService, router, languageHelper, mapsAPILoader, ngZone, reservationHistoryService) {
+        this.branchService = branchService;
         this.router = router;
         this.languageHelper = languageHelper;
         this.mapsAPILoader = mapsAPILoader;
         this.ngZone = ngZone;
+        this.reservationHistoryService = reservationHistoryService;
         //Models
+        this.selectedStores = [];
+        this.branchsList = new Array();
+        this.isLoading = false;
+        this.storeIdsModel = new _models_request_getStoreIdsModel__WEBPACK_IMPORTED_MODULE_6__["getStoreIdsModel"];
+        this.RHID = "";
         this.servicesList = new Array(); // Dummy Model
         this.servicesListSearchBackup = new Array();
         this.selectedserviceMap = null;
@@ -1175,16 +1209,27 @@ let ServiceLocationsComponent = class ServiceLocationsComponent {
         if (window.innerWidth < 991) {
             this.isMobile = true;
         }
-        this.servicesList = JSON.parse(localStorage.getItem('selectedServices'));
-        console.log(this.servicesList);
+        this.selectedStores = JSON.parse(localStorage.getItem('Selectedstores'));
+        this.user = JSON.parse(localStorage.getItem('user'));
+        console.log("token", this.user);
+        for (let i = 0; i < this.selectedStores.length; i++) {
+            this.storeIdsModel.storeIds.push(this.selectedStores[i].id);
+        }
+        this.branchService.GetAllStoresbranches(this.storeIdsModel).subscribe(stores => {
+            this.branchsList = stores.data;
+            //this.isLoading = false
+        }, error => {
+            //this.isLogging = false;
+            console.log("error", error);
+        });
         if (this.servicesList == null || this.servicesList == undefined) {
             this.router.navigate(['/reservation/services']);
         }
         else {
-            this.servicesListSearchBackup = JSON.parse(localStorage.getItem('selectedServices'));
+            this.servicesListSearchBackup = JSON.parse(localStorage.getItem('Selectedstores'));
             this.selectedService = this.servicesList[0];
             //for testing purposes
-            this.selectedService.distance = 0.5;
+            //this.selectedService.distance = 0.5;
         }
         setTimeout(() => {
             if (this.mapElement != undefined) {
@@ -1210,7 +1255,7 @@ let ServiceLocationsComponent = class ServiceLocationsComponent {
     MatchString(input) {
         if (input) {
             //Match name with input
-            this.servicesList = this.servicesList.filter(s => s.name.toLowerCase().includes(input.toLowerCase()) || s.address.toLowerCase().includes(input.toString().toLowerCase()));
+            //this.branchsList = this.branchsList.filter(s => s.name.toLowerCase().includes(input.toLowerCase()) || s.address.toLowerCase().includes(input.toString().toLowerCase()));
         }
         else {
             this.servicesList = this.servicesListSearchBackup;
@@ -1263,12 +1308,32 @@ let ServiceLocationsComponent = class ServiceLocationsComponent {
             }
         });
     }
+    Reserve(Branch) {
+        const createReservationHistoryModel = {
+            branchId: Branch.id,
+            customerUserId: this.user.userId
+        };
+        console.log("createReservationHistoryModel", createReservationHistoryModel);
+        //create reservation history record
+        this.reservationHistoryService.CreateReservationRecord(createReservationHistoryModel).subscribe(res => {
+            if (res.succeeded) {
+                console.log("res", res.data, this.user);
+                //window.location.href = Branch.webSiteLink + "RHID=" + res.data.id + "&Token=" + this.user.token;
+            }
+            //this.isLoading = false
+        }, error => {
+            //this.isLogging = false;
+            console.log("error", error);
+        });
+    }
 };
 ServiceLocationsComponent.ctorParameters = () => [
+    { type: _services_Branch_service__WEBPACK_IMPORTED_MODULE_5__["BranchService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _services_utilities_LanguageHelper__WEBPACK_IMPORTED_MODULE_4__["LanguageHelper"] },
     { type: _agm_core__WEBPACK_IMPORTED_MODULE_3__["MapsAPILoader"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
+    { type: _services_Reservation_History_Service__WEBPACK_IMPORTED_MODULE_7__["ReservationHistoryService"] }
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('map')
@@ -1314,20 +1379,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _services_utilities_LanguageHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/utilities/LanguageHelper */ "./src/app/services/utilities/LanguageHelper.ts");
+/* harmony import */ var _services_Branch_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/Branch-service */ "./src/app/services/Branch-service.ts");
+/* harmony import */ var _services_Store_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/Store-service */ "./src/app/services/Store-service.ts");
+/* harmony import */ var _services_utilities_LanguageHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/utilities/LanguageHelper */ "./src/app/services/utilities/LanguageHelper.ts");
 
 
 
 
-class services {
-}
+
+
+//class services {
+//  id: number;
+//  name: string;
+//  redirectionLink: string;
+//  availability: string;
+//  address: string;
+//  longitude: number;
+//  latitude: number;
+//  isChecked: boolean;
+//}
 let ServicesComponent = class ServicesComponent {
-    constructor(router, languageHelper) {
+    constructor(router, languageHelper, branchService, storeService) {
         this.router = router;
         this.languageHelper = languageHelper;
+        this.branchService = branchService;
+        this.storeService = storeService;
+        //
+        this.isLoading = false;
         //Models
-        this.servicesList = new Array(); //Dummy service model
-        this.selectedServices = new Array();
+        this.storesList = new Array();
+        this.Selectedstores = new Array();
+        //servicesList: Array<services> = new Array<services>(); //Dummy service model
+        //selectedServices: Array<services> = new Array<services>();
         //Toggle Variables
         this.isSelecting = false;
         this.selectAllStatus = false;
@@ -1335,9 +1418,28 @@ let ServicesComponent = class ServicesComponent {
         this.direction = this.languageHelper.initializeMode().dir;
     }
     ngOnInit() {
+        //activate loading svg
+        this.isLoading = true;
         this.choiceButton = this.langVar.multipleChoicesButton; // Set default button translation
+        //fetch branches info
+        this.storeService.GetAllStores().subscribe(stores => {
+            //this.servicesList = branches;
+            this.storesList = stores.data;
+            console.log(this.storesList);
+            this.isLoading = false;
+        }, error => {
+            //this.isLogging = false;
+            console.log("error", error);
+        });
         //Push dummy data model
-        this.servicesList.push({ id: 0, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false }, { id: 1, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.94301828449303, longitude: 30.877321716930787, isChecked: false }, { id: 2, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false }, { id: 3, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false }, { id: 4, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false }, { id: 5, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false });
+        //this.servicesList.push(
+        //  { id: 0, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+        //  { id: 1, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.94301828449303, longitude: 30.877321716930787, isChecked: false },
+        //  { id: 2, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+        //  { id: 3, name: 'BOLT SALON', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+        //  { id: 4, name: 'BOLT DOCTOR', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+        //  { id: 5, name: 'BOLT RESTAURANT', redirectionLink: 'boltrestaurant.boltsmartsolutions.com/', address: '24 St. 8 Blot, First floor, Mokattam, Egypt.', availability: '24 Hours', latitude: 29.973123315555732, longitude: 30.95099095982646, isChecked: false },
+        //  )
     }
     //Toggle isSelecting true/false for multiple service selection
     ToggleSelection() {
@@ -1351,8 +1453,8 @@ let ServicesComponent = class ServicesComponent {
     }
     SelectService(service) {
         if (this.isSelecting == false) {
-            this.selectedServices.push(service);
-            localStorage.setItem('selectedServices', JSON.stringify(this.selectedServices));
+            this.Selectedstores.push(service);
+            localStorage.setItem('Selectedstores', JSON.stringify(this.Selectedstores));
             this.router.navigate(['/reservation/service-locations']);
         }
         else {
@@ -1365,10 +1467,10 @@ let ServicesComponent = class ServicesComponent {
             if (event == false) {
                 this.ToggleSelection();
             }
-            for (let i = 0; i < this.servicesList.length; i++) {
-                this.servicesList[i].isChecked = event;
+            for (let i = 0; i < this.storesList.length; i++) {
+                this.storesList[i].isChecked = event;
             }
-            this.selectedServices = this.servicesList.filter(s => s.isChecked == true); // Re-set selected services List
+            this.Selectedstores = this.storesList.filter(s => s.isChecked == true); // Re-set selected services List
         }
         else { // Multiple Selection not toggled
             this.ToggleSelection(); //Toggle multiple Selection
@@ -1378,18 +1480,20 @@ let ServicesComponent = class ServicesComponent {
     //Set service isChecked
     SetServiceCheckbox(event, service) {
         service.isChecked = event;
-        this.selectedServices = this.servicesList.filter(s => s.isChecked == true); // Re-set selected services List
+        this.Selectedstores = this.storesList.filter(s => s.isChecked == true); // Re-set selected services List
     }
     ViewLocation() {
-        if (this.selectedServices.length > 0) {
-            localStorage.setItem('selectedServices', JSON.stringify(this.selectedServices));
+        if (this.Selectedstores.length > 0) {
+            localStorage.setItem('Selectedstores', JSON.stringify(this.Selectedstores));
             this.router.navigate(['/reservation/service-locations']);
         }
     }
 };
 ServicesComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _services_utilities_LanguageHelper__WEBPACK_IMPORTED_MODULE_3__["LanguageHelper"] }
+    { type: _services_utilities_LanguageHelper__WEBPACK_IMPORTED_MODULE_5__["LanguageHelper"] },
+    { type: _services_Branch_service__WEBPACK_IMPORTED_MODULE_3__["BranchService"] },
+    { type: _services_Store_service__WEBPACK_IMPORTED_MODULE_4__["StoreService"] }
 ];
 ServicesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1536,6 +1640,153 @@ SharedModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "./src/app/services/Branch-service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/Branch-service.ts ***!
+  \********************************************/
+/*! exports provided: BranchService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BranchService", function() { return BranchService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/shared-services/api-constants */ "./src/app/services/shared-services/api-constants.ts");
+/* harmony import */ var _services_shared_services_base_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/shared-services/base-service */ "./src/app/services/shared-services/base-service.ts");
+
+
+
+
+
+let BranchService = 
+//Component Services inherit from Base service for HTTP CRUD operations
+// Observable functions call their corresponding End-Point API Constants
+class BranchService extends _services_shared_services_base_service__WEBPACK_IMPORTED_MODULE_4__["BaseService"] {
+    constructor(httpClient) {
+        super(httpClient);
+        this.httpClient = httpClient;
+    }
+    GetAllstorebranches(id) {
+        return this.get(_services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__["API_CONSTANTS"].GetAllstorebranches + id);
+    }
+    GetAllStoresbranches(getStoresIDModel) {
+        return this.post(_services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__["API_CONSTANTS"].GetAllStoresbranches, getStoresIDModel);
+    }
+};
+BranchService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
+];
+BranchService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+    })
+    //Component Services inherit from Base service for HTTP CRUD operations
+    // Observable functions call their corresponding End-Point API Constants
+], BranchService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/Reservation-History-Service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/services/Reservation-History-Service.ts ***!
+  \*********************************************************/
+/*! exports provided: ReservationHistoryService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservationHistoryService", function() { return ReservationHistoryService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/shared-services/api-constants */ "./src/app/services/shared-services/api-constants.ts");
+/* harmony import */ var _services_shared_services_base_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/shared-services/base-service */ "./src/app/services/shared-services/base-service.ts");
+
+
+
+
+
+let ReservationHistoryService = 
+//Component Services inherit from Base service for HTTP CRUD operations
+// Observable functions call their corresponding End-Point API Constants
+class ReservationHistoryService extends _services_shared_services_base_service__WEBPACK_IMPORTED_MODULE_4__["BaseService"] {
+    constructor(httpClient) {
+        super(httpClient);
+        this.httpClient = httpClient;
+    }
+    GetReservationHistory(id) {
+        return this.get(_services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__["API_CONSTANTS"].GetReservationRecordsByID + id);
+    }
+    CreateReservationRecord(createReservationHistoryModel) {
+        return this.post(_services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__["API_CONSTANTS"].CreateReservationRecord, createReservationHistoryModel);
+    }
+};
+ReservationHistoryService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
+];
+ReservationHistoryService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+    })
+    //Component Services inherit from Base service for HTTP CRUD operations
+    // Observable functions call their corresponding End-Point API Constants
+], ReservationHistoryService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/Store-service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/services/Store-service.ts ***!
+  \*******************************************/
+/*! exports provided: StoreService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreService", function() { return StoreService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/shared-services/api-constants */ "./src/app/services/shared-services/api-constants.ts");
+/* harmony import */ var _services_shared_services_base_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/shared-services/base-service */ "./src/app/services/shared-services/base-service.ts");
+
+
+
+
+
+let StoreService = 
+//Component Services inherit from Base service for HTTP CRUD operations
+// Observable functions call their corresponding End-Point API Constants
+class StoreService extends _services_shared_services_base_service__WEBPACK_IMPORTED_MODULE_4__["BaseService"] {
+    constructor(httpClient) {
+        super(httpClient);
+        this.httpClient = httpClient;
+    }
+    GetAllStores() {
+        return this.get(_services_shared_services_api_constants__WEBPACK_IMPORTED_MODULE_3__["API_CONSTANTS"].GetAllStores);
+    }
+};
+StoreService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
+];
+StoreService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+    })
+    //Component Services inherit from Base service for HTTP CRUD operations
+    // Observable functions call their corresponding End-Point API Constants
+], StoreService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/home-service.ts":
 /*!******************************************!*\
   !*** ./src/app/services/home-service.ts ***!
@@ -1619,6 +1870,15 @@ const API_CONSTANTS = {
     CustomerRegister: "Customer/CreateCustomerAccount",
     EditCustomer: "Customer/EditCustomer",
     EditCustomerImg: "Customer/EditCustomerImg",
+    //branches
+    GetAllstorebranches: "Branch/GetStoreBranches/",
+    GetAllStoresbranches: "Branch/GetStoresBranches",
+    //stores
+    GetAllStores: "Store/GetAllStores",
+    //reservation
+    GetReservationRecordsByID: "ReservationHistory/GetReservationRecords/",
+    CreateReservationRecord: "ReservationHistory/CreateReservationRecord/",
+    UpdateReservationRecord: "ReservationHistory/UpdateReservationRecord"
 };
 
 
@@ -1679,12 +1939,13 @@ let AuthenticationService = class AuthenticationService extends _base_service__W
         }));
     }
     login(model) {
-        return this.post(_api_constants__WEBPACK_IMPORTED_MODULE_7__["API_CONSTANTS"].Login, model);
+        return this.ionicPostRequest(_api_constants__WEBPACK_IMPORTED_MODULE_7__["API_CONSTANTS"].Login, model);
     }
     CustomerRegistration(model) {
         return this.post(_api_constants__WEBPACK_IMPORTED_MODULE_7__["API_CONSTANTS"].CustomerRegister, model);
     }
     setAuth(user) {
+        console.log();
         this.jwtService.saveUser(user);
         this.currentUserSubject.next(user);
     }
@@ -1721,13 +1982,16 @@ AuthenticationService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseService", function() { return BaseService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+
 
 
 class BaseService {
     constructor(http) {
         this.http = http;
-        this.apiUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiBaseUrl;
+        this.ionicHTTPClient = new _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_1__["HTTP"]();
+        this.apiUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiBaseUrl;
     }
     get(url, params) {
         this.httpOptions = {
@@ -1744,6 +2008,15 @@ class BaseService {
             withCredentials: true
         };
         return this.http.post(this.apiUrl + url, data, this.httpOptions);
+    }
+    ionicPostRequest(url, data, params) {
+        this.httpOptions = {
+            headers: this.httpHeaders,
+            params: params,
+            withCredentials: true
+        };
+        //this.ionicHTTPClient.setHeader()
+        return this.ionicHTTPClient.post(this.apiUrl + url, data, {});
     }
 }
 
@@ -1930,7 +2203,7 @@ __webpack_require__.r(__webpack_exports__);
 //API and Image Server local ip configuration (Handled via base-service)
 const environment = {
     production: false,
-    apiBaseUrl: "https://localhost:44308/api/",
+    apiBaseUrl: "http://10.0.2.2:44309/api/",
     googleClientId: "926693855353-ph0i56aiitoq5gml5cgnnkdrrhoeaihb.apps.googleusercontent.com",
     FBClientId: "1384323871904376",
 };

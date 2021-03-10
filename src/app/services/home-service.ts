@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HTTP } from '@ionic-native/http';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../models/http-models/api-response';
 import { API_CONSTANTS } from '../services/shared-services/api-constants';

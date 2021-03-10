@@ -34,7 +34,7 @@ export const API_CONSTANTS = {
   GetAllStores:"Store/GetAllStores",
 
   //reservation
-  GetReservationRecordsByID:"/api/ReservationHistory/GetReservationRecords/",
+  GetReservationRecordsByID:"ReservationHistory/GetReservationRecords/",
   CreateReservationRecord: "ReservationHistory/CreateReservationRecord/",
   UpdateReservationRecord:"ReservationHistory/UpdateReservationRecord"
 }

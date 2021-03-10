@@ -10,9 +10,9 @@ export const routes: Routes = [
   { path: '404',component: P404Component,},
   { path: '500', component: P500Component,},
   { path: 'logout', component: LogoutComponent, },
-  { path: 'layout', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule),},
+  { path: 'reservation', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule),},
   { path: 'auth', loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule), },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '', redirectTo: 'reservation', pathMatch: 'full' },
   { path: '**', component: P404Component }
 ];
 

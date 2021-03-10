@@ -51,9 +51,10 @@ export class LoginComponent {
       password: this.adminLoginForm.controls.password.value
     }
     console.log(loginModel);
-    this.authService.login(loginModel).subscribe(user => {
+    this.authService.login(loginModel).then(user => {
+      console.log("login status: ", user.status);
       //create user account with provided data
-      console.log("user", user)
+      console.log("user", user.data)
       // hide loading svg
       this.isLogging = false;
       //save user to keep him logged in

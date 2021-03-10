@@ -10,6 +10,7 @@ import { API_CONSTANTS } from './api-constants';
 import { ApiResponse } from '../../models/http-models/api-response';
 import { LoginModel } from '../../models/request/LoginModel';
 import { CustomerRegistrationModel } from '../../models/request/CustomerRegistrationModel';
+import { HTTPResponse } from '@ionic-native/http';
 
 
 @Injectable({
@@ -48,8 +49,8 @@ export class AuthenticationService extends BaseService {
       }))
   }
 
-  login(model: LoginModel): Observable<ApiResponse> {
-    return this.post(API_CONSTANTS.Login, model)
+  login(model: LoginModel): Promise<HTTPResponse> {
+    return this.ionicPostRequest(API_CONSTANTS.Login, model)
 
   }
   CustomerRegistration(model: CustomerRegistrationModel): Observable<ApiResponse> {

@@ -1,6 +1,10 @@
 {
-  "appId": "boltres.example.app",
-  "appName": "bolt-reservation",
+  "appId": "com.reservation.app",
+  "appName": "reservation-app",
   "webDir": "www",
-  "npmClient": "npm"
+  "npmClient": "npm",
+  "server": {
+    "url": "http://192.168.1.6:8100",
+    "cleartext": true
+  }
 }
