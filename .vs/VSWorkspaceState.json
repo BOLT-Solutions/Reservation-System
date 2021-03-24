@@ -4,11 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\models",
-    "\\src\\app\\models\\response",
     "\\src\\app\\modules",
     "\\src\\app\\services",
     "\\src\\app\\services\\shared-services"
   ],
-  "SelectedNode": "\\src\\app\\services\\shared-services\\api-constants.ts",
   "PreviewInSolutionExplorer": false
 }
