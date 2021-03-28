@@ -64,7 +64,7 @@
 
       <div class="resultsSection" (searchcriteria)="MatchString($event)">
         <!--Results Section-->
-        <div class="itemContainer" *ngFor="let branch of branchesList; let i = index" (click)="ViewStoreMap(service)">
+        <div class="itemContainer" *ngFor="let branch of branchesList; let i = index" (click)="ViewStoreMap(branch)">
           <div class="container">
             <div class="row">
               <div class="col-6">
@@ -89,9 +89,9 @@
             </div>
             <div class="row">
               <div class="col-12 text-center">
-                <p class="viewButton" *ngIf="selectedserviceMap != service.id" style="color: #4590f3;" (click)="ViewStoreMapResponsive(branch)">View In Map <i class="fas fa-arrow-alt-circle-down"></i></p>
-                <p class="viewButton" *ngIf="selectedserviceMap == service.id" style="color: #4590f3;" (click)="ViewLess(branch.id)">View Less<i class="fas fa-arrow-alt-circle-up"></i></p>
-                <div class="mapView" id="map{{branch.id}}" *ngIf="selectedserviceMap == service.id">
+                <p class="viewButton" *ngIf="selectedserviceMap != branch.id" style="color: #4590f3;" (click)="ViewStoreMapResponsive(branch)">View In Map <i class="fas fa-arrow-alt-circle-down"></i></p>
+                <p class="viewButton" *ngIf="selectedserviceMap == branch.id" style="color: #4590f3;" (click)="ViewLess(branch.id)">View Less<i class="fas fa-arrow-alt-circle-up"></i></p>
+                <div class="mapView" id="map{{branch.id}}" *ngIf="selectedserviceMap == branch.id">
                   <agm-map [latitude]="branch.latitude" [longitude]="branch.longitude" [zoom]="15" class="googleMapsStyle">
                     <agm-marker [latitude]="branch.latitude" [longitude]="branch.longitude"></agm-marker>
                   </agm-map>
