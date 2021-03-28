@@ -1,5 +1,6 @@
 <div class="row servicesLocation" *ngIf="!isMobile">
-  <div class="col-lg-7 detailsSectionPC"> <!--Details List (PC)-->
+  <div class="col-lg-7 detailsSectionPC">
+    <!--Details List (PC)-->
     <div class="container-fluid">
       <h1>BOLT SALON Locations</h1>
       <div class="searchContainer">
@@ -8,8 +9,9 @@
           <input type="text" [(ngModel)]="searchWords" class="form-control" (input)="SearchService()" id="locationSearchBar" placeholder="{{langVar.searchBarTitle}}">
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
-        <div class="resultsSection" (searchcriteria)="MatchString($event)"> <!--Results Section-->
-          <div class="itemContainer mt-5" *ngFor="let branch of branchsList; let i = index" >
+        <div class="resultsSection" (searchcriteria)="MatchString($event)">
+          <!--Results Section-->
+          <div class="itemContainer mt-5" *ngFor="let branch of branchesList; let i = index">
             <div class="container" (click)="ViewStoreMap(branch)">
               <div class="row">
                 <div class="col-6">
@@ -23,23 +25,21 @@
               </div>
               <div class="row">
                 <div class="col-12">
-
-                  <!--<p class="storeAvailabilityInfo">Opens {{service.availability}}</p>-->
+                  <!--Branch availability not added-->
                 </div>
               </div>
               <div class="row">
                 <div class="col-8">
                   <p class="storeAddressInfo">{{branch.address}}</p>
                 </div>
-
+              </div>
+              <div class="row">
+                <div class="col-12 text-right">
+                  <button class="btn btn-info" (click)="Reserve(branch)">Reserve</button>
+                </div>
               </div>
             </div>
 
-              <a style="background-color: transparent; border: none; color: #fff;background-color: transparent;border: none;color: #fff; text-align:center;"
-                (click)="Reserve(branch)">
-                 <!--href={{branch.webSiteLink}}>-->
-                reserve
-              </a>
           </div>
         </div>
       </div>
@@ -47,14 +47,6 @@
   </div>
   <div class="col-lg-5 mapsSectionPC">
     <div #map class="googleMapsStyle"></div>
-    <!--<agm-map [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [zoom]="zoom">
-      <agm-marker [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [markerDraggable]="true"></agm-marker>
-    </agm-map>-->
-    <!--<agm-map [latitude]="currentLatitude" [longitude]="currentLongitude" [zoom]="zoom">
-
-    <agm-marker [latitude]="currentLatitude" [longitude]="currentLongitude" [markerDraggable]="true"></agm-marker>
-
-  </agm-map>-->
   </div>
 </div>
 
@@ -77,7 +69,7 @@
             <div class="row">
               <div class="col-6">
                 <!--Store Details-->
-                <h1 >{{i+1}}- {{service.name}}</h1>
+                <h1>{{i+1}}- {{service.name}}</h1>
               </div>
               <div class="col-6">
                 <!--Calculated Distance-->
@@ -99,7 +91,7 @@
                 <p class="viewButton" *ngIf="selectedserviceMap != service.id" style="color: #4590f3;" (click)="ViewStoreMapResponsive(service)">View In Map <i class="fas fa-arrow-alt-circle-down"></i></p>
                 <p class="viewButton" *ngIf="selectedserviceMap == service.id" style="color: #4590f3;" (click)="ViewLess(service.id)">View Less<i class="fas fa-arrow-alt-circle-up"></i></p>
                 <div class="mapView" id="map{{service.id}}" *ngIf="selectedserviceMap == service.id">
-                  <agm-map [latitude]="service.latitude" [longitude]="service.longitude" [zoom]="15"  class="googleMapsStyle">
+                  <agm-map [latitude]="service.latitude" [longitude]="service.longitude" [zoom]="15" class="googleMapsStyle">
                     <agm-marker [latitude]="service.latitude" [longitude]="service.longitude"></agm-marker>
                   </agm-map>
                 </div>
@@ -112,3 +104,14 @@
     </div>
   </div>
 </div>
+
+
+<!--Google maps code archive-->
+<!--<agm-map [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [zoom]="zoom">
+  <agm-marker [latitude]="selectedService.latitude" [longitude]="selectedService.longitude" [markerDraggable]="true"></agm-marker>
+</agm-map>-->
+<!--<agm-map [latitude]="currentLatitude" [longitude]="currentLongitude" [zoom]="zoom">
+
+  <agm-marker [latitude]="currentLatitude" [longitude]="currentLongitude" [markerDraggable]="true"></agm-marker>
+
+</agm-map>-->

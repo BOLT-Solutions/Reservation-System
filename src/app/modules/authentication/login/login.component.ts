@@ -54,11 +54,13 @@ export class LoginComponent {
     this.authService.login(loginModel).subscribe(user => {
       //create user account with provided data
       console.log("user", user)
+      
       // hide loading svg
       this.isLogging = false;
       //save user to keep him logged in
-      if (this.keepMeBoolean)
+      if (this.keepMeBoolean) {
         this.authService.setAuth(user.data);
+      }
 
       this.router.navigateByUrl('/reservation');
     }, error => {

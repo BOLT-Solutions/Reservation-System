@@ -1,14 +1,13 @@
-import { Component, NgZone, OnInit, ViewChild, Output, EventEmitter  } from '@angular/core';
-import { Router } from '@angular/router';
 import { MapsAPILoader } from '@agm/core';
+import { Component, EventEmitter, NgZone, OnInit, Output, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { createReservationHistoryModel } from '../../models/request/createReservationHistoryModel';
+import { getStoreIdsModel } from '../../models/request/getStoreIdsModel';
+import { BranchesModel } from '../../models/response/BranchesModel';
+import { BranchService } from '../../services/Branch-service';
+import { ReservationHistoryService } from '../../services/Reservation-History-Service';
 import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 import { } from 'googlemaps';
-import { BranchService } from '../../services/Branch-service';
-import { BranchesModel } from '../../models/response/BranchesModel';
-import { selectedStores } from '../../models/request/selectedStores';
-import { getStoreIdsModel } from '../../models/request/getStoreIdsModel';
-import { ReservationHistoryService } from '../../services/Reservation-History-Service';
-import { createReservationHistoryModel } from '../../models/request/createReservationHistoryModel';
 
 class services {
   id: number;
@@ -30,16 +29,15 @@ export class ServiceLocationsComponent implements OnInit {
 
   //Models
   selectedStores = [];
-  branchsList: Array<BranchesModel> = new Array <BranchesModel>()
+  servicesList: Array<services> = new Array<services>(); // Dummy Model
+  servicesListSearchBackup: Array<services> = new Array<services>();
+  branchesList: Array<BranchesModel> = new Array <BranchesModel>()
+  selectedBranch: BranchesModel;
   isLoading: boolean = false;
   storeIdsModel: getStoreIdsModel = new getStoreIdsModel;
   //query params
   user;
   RHID: string = "";
-
-  servicesList: Array<services> = new Array<services>(); // Dummy Model
-  servicesListSearchBackup: Array<services> = new Array<services>();
-  selectedService: services;
 
   //Google Maps Variables
   @ViewChild('map') mapElement: any;
@@ -75,50 +73,47 @@ export class ServiceLocationsComponent implements OnInit {
 
     this.selectedStores = JSON.parse(localStorage.getItem('Selectedstores'))
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log("token", this.user);
+    console.log("token", this.user.token);
+    console.log("selected stores: ", this.selectedStores)
 
     for (let i = 0; i < this.selectedStores.length; i++) {
-
       this.storeIdsModel.storeIds.push(this.selectedStores[i].id)
     }
+    console.log("store ids model: ", this.storeIdsModel)
 
-
+    //Fetch selected stores branches
     this.branchService.GetAllStoresbranches(this.storeIdsModel).subscribe(stores => {
-      this.branchsList = stores.data;
-
-      //this.isLoading = false
+      this.branchesList = stores.data;
+      console.log("branches list: ", this.branchesList)
+      if (this.servicesList == null || this.servicesList == undefined) {
+        this.router.navigate(['/reservation/services']);
+      }
+      else {
+        this.servicesListSearchBackup = JSON.parse(localStorage.getItem('Selectedstores'));
+        this.selectedBranch = this.branchesList[0];
+        //for testing purposes
+        //this.selectedService.distance = 0.5;
+      }
+      setTimeout(() => {
+        if (this.mapElement != undefined) {
+          this.SetMap(this.selectedBranch);
+          this.mapsAPILoader.load().then(() => {
+            this.setCurrentLocation();
+            this.geoCoder = new google.maps.Geocoder;
+          });
+        }
+        else {
+          this.mapsAPILoader.load().then(() => {
+            this.setCurrentLocation();
+            this.geoCoder = new google.maps.Geocoder;
+          });
+        }
+      }, 2000);
 
     }, error => {
       //this.isLogging = false;
-
       console.log("error", error)
     })
-
-    if (this.servicesList == null || this.servicesList == undefined) {
-      this.router.navigate(['/reservation/services']);
-    }
-    else {
-      this.servicesListSearchBackup = JSON.parse(localStorage.getItem('Selectedstores'));
-      this.selectedService = this.servicesList[0];
-      //for testing purposes
-      //this.selectedService.distance = 0.5;
-    }
-    setTimeout(() => {
-      if (this.mapElement != undefined) {
-        this.SetMap(this.selectedService);
-        this.mapsAPILoader.load().then(() => {
-          this.setCurrentLocation();
-          this.geoCoder = new google.maps.Geocoder;
-        });
-      }
-      else {
-        this.mapsAPILoader.load().then(() => {
-          this.setCurrentLocation();
-          this.geoCoder = new google.maps.Geocoder;
-        });
-      }
-    }, 2000);
-
   }
 
   SearchService() {
@@ -135,28 +130,34 @@ export class ServiceLocationsComponent implements OnInit {
       this.servicesList = this.servicesListSearchBackup;
     }
   }
-  ViewStoreMap(service: services) {
-    this.SetMap(service);
+
+  ViewStoreMap(branch: BranchesModel) {
+    this.SetMap(branch);
   }
+
   ViewStoreMapResponsive(service: services) {
     this.selectedserviceMap = service.id;
   }
+
   ViewLess(serviceId: number) {
     console.log(this.selectedserviceMap)
     this.selectedserviceMap = null;
     document.getElementById('map' + serviceId.toString()).style.display = 'none';
   }
-  SetMap(selectedService: services) {
+
+  SetMap(selectedBranch: BranchesModel) {
     setTimeout(() => {
       const mapProperties = {
-        center: new google.maps.LatLng(selectedService.latitude, selectedService.longitude),
+        center: new google.maps.LatLng(parseFloat(selectedBranch.latitude), parseFloat(selectedBranch.longitude)),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+      console.log("long/lat: ", parseFloat(selectedBranch.latitude), parseFloat(selectedBranch.longitude) )
     }, 500);
 
   }
+
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -167,6 +168,7 @@ export class ServiceLocationsComponent implements OnInit {
       });
     }
   }
+
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
       if (status === 'OK') {
@@ -195,7 +197,8 @@ export class ServiceLocationsComponent implements OnInit {
       if (res.succeeded) {
         console.log("res", res.data , this.user)
         //window.location.href = Branch.webSiteLink + "RHID=" + res.data.id + "&Token=" + this.user.token;
-
+        console.log("Page to redirect to: ", Branch.webSiteLink + "?RHID=" + res.data.id + "&Token=" + this.user.token);
+        window.location.href = Branch.webSiteLink + "?RHID=" + res.data.id + "&Token=" + this.user.token;
       }
 
       //this.isLoading = false

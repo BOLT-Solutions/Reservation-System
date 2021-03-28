@@ -4,16 +4,6 @@ import { StoresModel } from '../../models/response/StoresModel';
 import { BranchService } from '../../services/Branch-service';
 import { StoreService } from '../../services/Store-service';
 import { LanguageHelper } from '../../services/utilities/LanguageHelper';
-//class services {
-//  id: number;
-//  name: string;
-//  redirectionLink: string;
-//  availability: string;
-//  address: string;
-//  longitude: number;
-//  latitude: number;
-//  isChecked: boolean;
-//}
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
@@ -21,7 +11,6 @@ import { LanguageHelper } from '../../services/utilities/LanguageHelper';
 })
 export class ServicesComponent implements OnInit {
 
-  //
   isLoading: boolean = false;
   //Models
   storesList: Array<StoresModel> = new Array<StoresModel>(); 
@@ -57,10 +46,9 @@ export class ServicesComponent implements OnInit {
       //this.servicesList = branches;
       this.storesList = stores.data;
       console.log(this.storesList);
-      this.isLoading = false
+      this.isLoading = false;
 
     }, error => {
-      //this.isLogging = false;
 
       console.log("error", error)
     })
