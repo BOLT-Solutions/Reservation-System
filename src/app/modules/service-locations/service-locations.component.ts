@@ -198,7 +198,8 @@ export class ServiceLocationsComponent implements OnInit {
         console.log("res", res.data , this.user)
         //window.location.href = Branch.webSiteLink + "RHID=" + res.data.id + "&Token=" + this.user.token;
         console.log("Page to redirect to: ", Branch.webSiteLink + "?RHID=" + res.data.id + "&Token=" + this.user.token);
-        window.location.href = Branch.webSiteLink + "?RHID=" + res.data.id + "&Token=" + this.user.token;
+        //window.location.href = Branch.webSiteLink + "?RHID=" + res.data.id + "&Token=" + this.user.token; // redirect via same tab
+        window.open(Branch.webSiteLink + "?RHID=" + res.data.id + "&Token=" + this.user.token, "_blank"); // redirect in new tab
       }
 
       //this.isLoading = false
