@@ -135,8 +135,8 @@ export class ServiceLocationsComponent implements OnInit {
     this.SetMap(branch);
   }
 
-  ViewStoreMapResponsive(service: services) {
-    this.selectedserviceMap = service.id;
+  ViewStoreMapResponsive(branch: BranchesModel) {
+    this.selectedserviceMap = branch.id;
   }
 
   ViewLess(serviceId: number) {
